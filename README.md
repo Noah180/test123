@@ -385,7 +385,7 @@ If verbose is true, returns an Object with information about blockheader <hash>.
     "data" (string) A string that is serialized, hex-encoded data for block 'hash'.
     
 #### Examples:
-        > qtum-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+    > qtum-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
         
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockheader", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
