@@ -339,7 +339,7 @@ Returns the proof-of-stake difficulty as a multiple of the minimum difficulty.
 
     n.nnn (numeric) the proof-of-work difficulty as a multiple of the minimum difficulty.
 
-####Examples:
+#### Examples:
     > qtum-cli getdifficulty
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdifficulty", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
@@ -359,9 +359,8 @@ If verbose is false, returns a string that is serialized, hex-encoded data for b
 If verbose is true, returns an Object with information about blockheader <hash>.
 
 #### Arguments:
-1. "hash" (string, required) The block hash
-2. verbose (boolean, optional, default=true) true for a json object, false for the hex encoded data
-
+    1. "hash" (string, required) The block hash
+    2. verbose (boolean, optional, default=true) true for a json object, false for the hex encoded data
 #### Result (for verbose = true):
     {
     "hash" : "hash", (string) the block hash (same as provided)
@@ -382,8 +381,9 @@ If verbose is true, returns an Object with information about blockheader <hash>.
     }
 
 #### Result (for verbose=false):
-"data" (string) A string that is serialized, hex-encoded data for block 'hash'.
 
+    "data" (string) A string that is serialized, hex-encoded data for block 'hash'.
+    
 #### Examples:
         > qtum-cli getblockheader "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
         
@@ -554,7 +554,7 @@ https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki
     "height" : n (numeric) The height of the next block
     }
 
-####Examples:
+#### Examples:
     > qtum-cli getblocktemplate {"rules": ["segwit"]}
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblocktemplate", "params": [{"rules": ["segwit"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
@@ -670,7 +670,7 @@ Returns a json object containing mining-related information.
       "chain": "main",
       "warnings": ""
     }
-##13. getmempoolinfo
+## 13. getmempoolinfo
 Returns details on the active state of the TX memory pool.
 
 #### Result:
@@ -689,8 +689,6 @@ Returns details on the active state of the TX memory pool.
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 #### test example:
-
-
     ./qtum-cli getmempoolinfo
 #### test result:
     {
@@ -706,7 +704,7 @@ Returns details on the active state of the TX memory pool.
 If txid is in the mempool, returns all in-mempool ancestors.
 
 #### Arguments:
-        1. "txid" (string, required) The transaction id (must be in mempool)
+    1. "txid" (string, required) The transaction id (must be in mempool)
     2. verbose (boolean, optional, default=false) True for a json object, false for array of transaction ids
     
    #### Result (for verbose=false):
@@ -817,7 +815,7 @@ Returns all transaction ids in memory pool as a json array of string transaction
 
 Hint: use getmempoolentry to fetch a specific transaction from the mempool.
 
-####Arguments:
+#### Arguments:
     1. verbose (boolean, optional, default=false) True for a json object, false for array of transaction ids
     
     Result: (for verbose = false):
@@ -856,7 +854,7 @@ Hint: use getmempoolentry to fetch a specific transaction from the mempool.
     }, ...
     }
 
-####Examples:
+#### Examples:
     > qtum-cli getrawmempool true
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawmempool", "params": [true] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
@@ -924,7 +922,7 @@ Returns mempool data for given transaction
     ... ]
     }
 
-####Examples:
+#### Examples:
     > qtum-cli getmempoolentry "mytxid"
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
@@ -962,7 +960,7 @@ Get data stored by smart contracts
      1. "address" (string, required) The address to get the storage from
      2. "blockNum" (string, optional) Number of block to get state from,  "latest" keyword supported. Latest if not passed.
      3. "index" (number, optional) Zero-based index position of the storage 
-####Examples:
+#### Examples:
     > qtum-cli getstorage “contract address”
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getstorage", "params": ["address"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
@@ -976,7 +974,7 @@ Get data stored by smart contracts
     "52adc13b5e472402f13052709f282024cc52e564f96b2183a5737c545229228d": "0000000000000000000000000000000000000000000000000000000000000001"
       },
     }
-## 19. getaccountinfo “address”（QTUM独有）
+## 19. getaccountinfo “address”（the unique of QTUM）
 
 Contract details including balance, storage data and code
 
@@ -1036,10 +1034,10 @@ so payments received with the address will be associated with 'label'.
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 #### test example:
-    `./qtum-cli getnewaddress`
+        ./qtum-cli getnewaddress
 #### test result:
-
     QcMKCuHMFwwGNBdYYes8vKN1Qm1MJkwsQf
+    
 ## 24. getaddressesbylabel:
 
 Returns the list of addresses assigned the specified label.
@@ -1057,6 +1055,7 @@ Returns the list of addresses assigned the specified label.
 
 #### Examples:
     > qtum-cli getaddressesbylabel "tabby"
+    
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbylabel", "params": ["tabby"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 #### test example:
@@ -1106,7 +1105,7 @@ See `importaddress` for watchonly p2sh address support.
 If 'label' is specified, assign address to that label.
 
 #### Arguments:
-            1. nrequired (numeric, required) The number of required signatures out of the n keys or addresses.
+    1. nrequired (numeric, required) The number of required signatures out of the n keys or addresses.
     2. "keys" (string, required) A json array of qtum addresses or hex-encoded public keys
     [
     "address" (string) qtum address or hex-encoded public key
@@ -1130,7 +1129,7 @@ Add a multisig address from 2 addresses
 As json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"QjWnDZxwLhrJDcp4Hisse8RfBo2jRDZY5Z\",\"Q6sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-## 7. abortrescan
+## 27. abortrescan
 
 Stops current wallet rescan triggered by an RPC call, e.g. by an importprivkey call.
 
@@ -1305,8 +1304,6 @@ Clear all banned IPs.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-#### Result:
-null
 
 ## 34.combinepsbt ["psbt",...]
 
@@ -1369,12 +1366,12 @@ in past transactions
     ,...
     ]
 
-####Examples:
+#### Examples:
     > qtum-cli listaddressgroupings  
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-####test example:
+#### test example:
 
     ./qtum-cli listaddressgroupings
     
@@ -2207,7 +2204,7 @@ It won't work without -txindex for utxo_size_inc, *fee or *feerate stats.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockstats", "params": [1000 '["minfeerate","avgfeerate"]'] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-##59.getchaintxstats ( nblocks blockhash )
+## 59.getchaintxstats ( nblocks blockhash )
 
 Compute statistics about the total number and rate of transactions in the chain.
 
@@ -2264,7 +2261,7 @@ and current time.
     }
     }
 
-## Examples:
+#### Examples:
     > qtum-cli getnettotals
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnettotals", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
@@ -2284,6 +2281,7 @@ Pass in [height] to estimate the network speed at the time when a certain block 
 
 #### Examples:
     > qtum-cli getnetworkhashps
+    
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkhashps", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
 
@@ -2379,6 +2377,7 @@ Returns information about the active ZeroMQ notifications.
 
 #### Examples:
     > qtum-cli getzmqnotifications
+    
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getzmqnotifications", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## 66.getunconfirmedbalance
@@ -2404,6 +2403,7 @@ Note this call may take some time.
 
 #### Examples:
     > qtum-cli gettxoutsetinfo
+    
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxoutsetinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 
@@ -2646,13 +2646,6 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["mykey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## 74 importprunedfunds
-
-Imports funds without rescan. Corresponding address or script must previously be included in wallet. Aimed towards pruned wallets. The end-user is responsible to import additional transactions that subsequently spend the imported outputs or rescan after the point in the blockchain the transaction is included.
-
-#### Arguments:
-    1. "rawtransaction" (string, required) A raw transaction in hex funding an already-existing address in wallet
-    2. "txoutproof" (string, required) The hex output from gettxoutproof that contains the transaction
 
 ## 75. importpubkey "pubkey" ( "label" rescan )
 
@@ -2691,6 +2684,7 @@ Fills the keypool.
 
 #### Examples:
     > qtum-cli keypoolrefill
+    
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "keypoolrefill", "params": [] }' -H 'con
 
 
@@ -2715,9 +2709,10 @@ in past transactions
 
 #### Examples:
     > qtum-cli listaddressgroupings
+    
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-##78. listcontracts (start maxDisplay)
+## 78. listcontracts (start maxDisplay)
 
 #### Argument:
     1. start (numeric or string, optional) The starting account index, default 1
@@ -2793,32 +2788,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listlockunspent", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-##listreceivedbyaddress ( minconf include_empty include_watchonly address_filter )
 
-List balances by receiving address.
-
-#### Arguments:
-    1. minconf (numeric, optional, default=1) The minimum number of confirmations before payments are included.
-    2. include_empty (bool, optional, default=false) Whether to include addresses that haven't received any payments.
-    3. include_watchonly (bool, optional, default=false) Whether to include watch-only addresses (see 'importaddress').
-    4. address_filter (string, optional) If present, only return information on this address.
-
-#### Result:
-    [
-    {
-    "involvesWatchonly" : true, (bool) Only returned if imported addresses were involved in transaction
-    "address" : "receivingaddress", (string) The receiving address
-    "account" : "accountname", (string) DEPRECATED. Backwards compatible alias for label.
-    "amount" : x.xxx, (numeric) The total amount in QTUM received by the address
-    "confirmations" : n, (numeric) The number of confirmations of the most recent transaction included
-    "label" : "label", (string) The label of the receiving address. The default label is "".
-    "txids": [
-    "txid", (string) The ids of transactions received with the address
-    ...
-    ]
-    }
-    ,...
-    ]
 
 #### Examples:
     > qtum-cli listreceivedbyaddress
@@ -2879,7 +2849,7 @@ Additionally, if include_removed is set, transactions affecting the wallet which
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-##82. listreceivedbylabel ( minconf include_empty include_watchonly)
+## 82. listreceivedbylabel ( minconf include_empty include_watchonly)
 
 
 List received transactions by label.
@@ -3007,6 +2977,7 @@ Rescan the local blockchain for wallet related transactions.
 
 #### Examples:
     > qtum-cli rescanblockchain 100000 120000
+    
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "rescanblockchain", "params": [100000, 120000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## 89. resendwallettransactions
@@ -3111,7 +3082,7 @@ script, hex, pubkeys, sigsrequired, pubkey, addresses, embedded, iscompressed, a
     > qtum-cli validateaddress "QPSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "validateaddress", "params": ["QPSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-##95. verifychain ( checklevel nblocks )
+## 95. verifychain ( checklevel nblocks )
 
 Verifies blockchain database.
 
@@ -3140,7 +3111,7 @@ Verify a signed message
 ## Result:
     true|false (boolean) If the signature is verified or not.
     
-##Examples:
+## Examples:
 
 Unlock the wallet for 30 seconds
 
@@ -3484,6 +3455,38 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendrawtransaction", "params": ["signedhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
+## 108. importprunedfunds
 
+Imports funds without rescan. Corresponding address or script must previously be included in wallet. Aimed towards pruned wallets. The end-user is responsible to import additional transactions that subsequently spend the imported outputs or rescan after the point in the blockchain the transaction is included.
 
+#### Arguments:
+    1. "rawtransaction" (string, required) A raw transaction in hex funding an already-existing address in wallet
+    2. "txoutproof" (string, required) The hex output from gettxoutproof that contains the transaction
+
+## 109. listreceivedbyaddress ( minconf include_empty include_watchonly address_filter )
+
+List balances by receiving address.
+
+#### Arguments:
+    1. minconf (numeric, optional, default=1) The minimum number of confirmations before payments are included.
+    2. include_empty (bool, optional, default=false) Whether to include addresses that haven't received any payments.
+    3. include_watchonly (bool, optional, default=false) Whether to include watch-only addresses (see 'importaddress').
+    4. address_filter (string, optional) If present, only return information on this address.
+
+#### Result:
+    [
+    {
+    "involvesWatchonly" : true, (bool) Only returned if imported addresses were involved in transaction
+    "address" : "receivingaddress", (string) The receiving address
+    "account" : "accountname", (string) DEPRECATED. Backwards compatible alias for label.
+    "amount" : x.xxx, (numeric) The total amount in QTUM received by the address
+    "confirmations" : n, (numeric) The number of confirmations of the most recent transaction included
+    "label" : "label", (string) The label of the receiving address. The default label is "".
+    "txids": [
+    "txid", (string) The ids of transactions received with the address
+    ...
+    ]
+    }
+    ,...
+    ]
 
