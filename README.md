@@ -9,9 +9,9 @@ Returns the number of blocks in the longest blockchain.
     n (numeric) The current block count
 
 #### Examples:
-    qtum-cli getblockcount  
+    >qtum-cli getblockcount  
     
-    curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 #### test: 
 
@@ -66,9 +66,9 @@ Returns an object containing various state info regarding blockchain processing.
       "warnings" : "...",   (string) any network and blockchain warnings.
     }
 #### Examples:
-    qtum-cli getblockchaininfo  
+    >qtum-cli getblockchaininfo  
     
-    curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockchaininfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockchaininfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 #### test: 
 
@@ -125,9 +125,9 @@ Returns hash of block in best-block-chain at height provided.
 
 
 #### Examples:
-    qtum-cli getblockhash 1000  
+    >qtum-cli getblockhash 1000  
     
-    curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 #### test example:
 
@@ -143,9 +143,9 @@ Returns the hash of the best (tip) block in the longest blockchain.
     "hex" (string) the block hash hex encoded
 
 #### Examples:
-    qtum-cli getbestblockhash  
+    >qtum-cli getbestblockhash  
     
-    curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbestblockhash", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbestblockhash", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
     
 #### test: 
