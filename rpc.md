@@ -1083,7 +1083,7 @@ Get data stored by smart contracts
 
 Contract details including balance, storage data and code
 
-#### Argument:
+**Argument:**
 
     1. "address"(string, required) The contract address
 
@@ -1109,7 +1109,8 @@ Returns the account associated with the given address, (Deprecated, will be remo
 
 returns the current qtum address for receiving payments to this account, (Deprecated, will be removed in V0.18. To use this command, start qtumd with -deprecatedrpc=accounts)
 
-#### Example:
+**Example:**
+
     ./qtum-cli getaccountaddress
     
     ./qtum-cli getaccountaddress ""
@@ -1282,7 +1283,7 @@ Nodes added using addnode (or -connect) are protected from DoS disconnection and
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:3888", "onetry"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## 29. witnessaddress
+## witnessaddress
 
 DEPRECATED: set the address_type argument of getnewaddress, or option -addresstype=[bech32|p2sh-segwit] instead.
 Add a witness address for a script (with pubkey or redeemscript known). Requires a new wallet backup.
@@ -1296,7 +1297,7 @@ It returns the witness script.
 **Result:**
 
     {
-	    "witnessaddress", (string) The value of the new address (P2SH or BIP173).
+	"witnessaddress", (string) The value of the new address (P2SH or BIP173).
     }
 ## backupwallet 
 backupwallet "destination"
@@ -1412,7 +1413,7 @@ callcontract "address" "data" ( address )
 	    "depositSize": 0,
 	    "gasForDeposit": 0
       },
-    "transactionReceipt": {
+    	    "transactionReceipt": {
 	    "stateRoot": "1253c56cf79597e89ce179f14e6a86a493356dac410c30efc576503687ad2670",
 	    "gasUsed": 39999999,
 	    "bloom": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
@@ -1542,22 +1543,22 @@ List all banned IPs/Subnets.
 
 list all the contracts and default accounts is 20
 
-#### Argument:
+**Argument:**
     1. start (numeric or string, optional) The starting account index, default 1
     2. maxDisplay (numeric or string, optional) Max accounts to list, default 20
 
-#### Example:
+**Example:**
 
     > ./qtum-cli listcontracts 1 5
 
 **Result:**
 
     {
-	    "82155d35dc1e0b5dc3d6ca7e536af42394a7003c": 0.00000000,
-	    "c50116ca622b4dbd12205fb9cc61a64f7b63cb8a": 0.00000000,
-	    "28d1140499604664be0037272eb287e1742dcafe": 0.00000000,
-	    "b9fe4ba102c33ba078d90a2cb6fe8fa94fd114a1": 0.00000000,
-	    "954999d28fd46c6de806f9587a82321437771ab2": 0.00000000
+	  "82155d35dc1e0b5dc3d6ca7e536af42394a7003c": 0.00000000,
+	  "c50116ca622b4dbd12205fb9cc61a64f7b63cb8a": 0.00000000,
+	  "28d1140499604664be0037272eb287e1742dcafe": 0.00000000,
+	  "b9fe4ba102c33ba078d90a2cb6fe8fa94fd114a1": 0.00000000,
+	  "954999d28fd46c6de806f9587a82321437771ab2": 0.00000000
     }
 
 ## converttopsbt 
@@ -1589,7 +1590,7 @@ Convert the transaction to a PSBT
 
     > qtum-cli converttopsbt "rawtransaction"
 
-## createwallet "wallet_name" ( disable_private_keys )
+## createwallet
 
 Creates and loads a new wallet.
 
@@ -1696,6 +1697,7 @@ Create a contract with bytcode.
     > qtum-cli createcontract "60606040525b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff02191690836c010000000000000000000000009081020402179055506103786001600050819055505b600c80605b6000396000f360606040526008565b600256" 6000000 0.0000004 "QM72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" true
     
 ## createrawtransaction
+
 createrawtransaction [{"txid":"id","vout":n},...] [{"address":amount},{"data":"hex"},...] ( locktime ) ( replaceable )
 
 Create a transaction spending the given inputs and creating new outputs.
