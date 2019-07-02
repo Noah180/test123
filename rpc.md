@@ -846,9 +846,9 @@ If txid is in the mempool, returns all in-mempool descendants.
 	    ,...
     ]
 
-#### Result (for verbose=true):
+**Result (for verbose=true):**
 	{ 
-		(json object)
+	    (json object)
 	    "transactionid" : { (json object)
 	    "size" : n, (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
 	    "fee" : n, (numeric) transaction fee in QTUM (DEPRECATED)
