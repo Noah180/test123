@@ -126,7 +126,7 @@ Returns an object containing various state info regarding blockchain processing.
   "warnings": ""
 }
 ```
-## getblockhash height     
+## getblockhash    
 
 Returns hash of block in best-block-chain at height provided.
 
@@ -176,7 +176,7 @@ Returns the hash of the best (tip) block in the longest blockchain.
 
     e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03
 
-## getblock “blockhash” 
+## getblock
 
 According the blockhash returns the info of the corresponding block
 If verbosity is 0, returns a string that is serialized, hex-encoded data for block 'hash'.
@@ -375,7 +375,7 @@ Returns the proof-of-stake difficulty as a multiple of the minimum difficulty.
       "proof-of-work": 1.52587890625e-05,
       "proof-of-stake": 7022116.100551808
     }
-## getblockheader “hash”( verbose )
+## getblockheader
 
 Returns the corresponding block header information according to the given index
 If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'.
@@ -666,7 +666,7 @@ Returns the number of connections to other nodes.
 
     ./qtum-cli getconnectioncount
 
-**Result:**
+**test result:**
 
     7
     
@@ -980,7 +980,7 @@ Hint: use getmempoolentry to fetch a specific transaction from the mempool.
           "4d8932af7a7073e2c4a5527767215f7bf5b8c7759a5b49d976f0031d5184fd18"
        ]
 
-## getmempoolentry txid
+## getmempoolentry
 Returns mempool data for given transaction
 
 **Arguments:**
@@ -1099,7 +1099,7 @@ Contract details including balance, storage data and code
 ## getaccount 
 
 
-Returns the account associated with the given address
+Returns the account associated with the given address, (Deprecated, will be removed in V0.18. To use this command, start qtumd with -deprecatedrpc=accounts)
 
 **test example:** 
 
@@ -1107,7 +1107,7 @@ Returns the account associated with the given address
 
 ## getaccountaddress 
 
-returns the current qtum address for receiving payments to this account
+returns the current qtum address for receiving payments to this account, (Deprecated, will be removed in V0.18. To use this command, start qtumd with -deprecatedrpc=accounts)
 
 #### Example:
     ./qtum-cli getaccountaddress
@@ -2127,7 +2127,7 @@ in BIP 141 (witness data is discounted).
 
     > qtum-cli estimatesmartfee 6
 
-## fromhexaddress "hexaddress"
+## fromhexaddress
 
 Converts a raw hex address to a base58 pubkeyhash address
 
@@ -2151,7 +2151,7 @@ Converts a raw hex address to a base58 pubkeyhash address
 **test result:**
 
     qTTH1Yr2eKCuDLqfxUyBLCAjmomQ8pyrBt
-## gethexaddress "address"
+## gethexaddress
 
 Converts a base58 pubkeyhash address to a hex address for use in smart contracts.
 
@@ -2268,7 +2268,7 @@ Send the transaction
     > qtum-cli sendrawtransaction "signedtransactionhex"
 
 
-## generate nblocks
+## generate 
 
 Mine up to nblocks blocks immediately (before the RPC call returns) to an address in the wallet.
 
@@ -2780,7 +2780,7 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importaddress", "params": ["myaddress", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## importwallet "filename"
+## importwallet
 
 Imports keys from a wallet dump file (see dumpwallet). Requires a new wallet backup to include imported keys.
 
