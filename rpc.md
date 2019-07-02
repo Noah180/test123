@@ -1057,7 +1057,7 @@ Returns mempool data for given transaction
 
 Get data stored by smart contracts
 
-#### Argument:
+**Argument:**
      1. "address" (string, required) The address to get the storage from
      2. "blockNum" (string, optional) Number of block to get state from,  "latest" keyword supported. Latest if not passed.
      3. "index" (number, optional) Zero-based index position of the storage 
@@ -1276,7 +1276,8 @@ Nodes added using addnode (or -connect) are protected from DoS disconnection and
     
     2. "command" (string, required) 'add' to add a node to the list, 'remove' to remove a node from the list, 'onetry' to try a connection to the node once
 
-#### Examples 
+**Examples:**
+
     - Mainnet port 3888, Testnet port 13888, Regtest port 23888:
     
     > qtum-cli addnode "192.168.0.6:3888" "onetry"
@@ -2087,7 +2088,7 @@ defined in BIP 141 (witness data is discounted).
     
     Results are returned for any horizon which tracks blocks up to the confirmation target.
 
-#### Example:
+**Example:**
 
     > qtum-cli estimaterawfee 6 0.9
 
@@ -2125,7 +2126,7 @@ in BIP 141 (witness data is discounted).
     An error is returned if not enough transactions and blocks
     have been observed to make an estimate for any number of blocks.
 
-#### Example:
+**Example:**
 
     > qtum-cli estimatesmartfee 6
 
@@ -2519,7 +2520,7 @@ Returns an object containing staking-related information.
     }
 
 
-#### Example:
+**Example:**
 
     ./qtum-cli getstakinginfo
 
@@ -2916,7 +2917,7 @@ As a JSON-RPC call
 
 Fills the keypool.
 
-#### Arguments
+**Arguments:**
 
     1. newsize (numeric, optional, default=100) The new keypool size
 
