@@ -1,3 +1,4 @@
+
 ## getblockcount
 
 Returns the number of blocks in the longest blockchain.
@@ -7,138 +8,138 @@ Returns the number of blocks in the longest blockchain.
     n (numeric) The current block count
 
 **Examples:**
-  
 
     >qtum-cli getblockcount 
     
     >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:** 
+**Test example:** 
 
     ./qtum-cli getblockcount
-**test result:** 
+    
+**Test result:** 
 
     395049
 
 ## getblockchaininfo 
+
 Returns an object containing various state info regarding blockchain processing.
+
 **Result:**
-```
-{
-  "chain": "xxxx",              (string) current network name as defined in BIP70 (main, test, regtest)
-  "blocks": xxxxxx,             (numeric) the current number of blocks processed in the server
-  "headers": xxxxxx,            (numeric) the current number of headers we have validated
-  "bestblockhash": "...",       (string) the hash of the currently best block
-  "difficulty": xxxxxx,         (numeric) the current difficulty
-  "mediantime": xxxxxx,         (numeric) median time for the current best block
-  "verificationprogress": xxxx, (numeric) estimate of verification progress [0..1]
-  "initialblockdownload": xxxx, (bool) (debug information) estimate of whether this node is in Initial Block Download mode.
-  "chainwork": "xxxx"           (string) total amount of work in active chain, in hexadecimal
-  "size_on_disk": xxxxxx,       (numeric) the estimated size of the block and undo files on disk
-  "pruned": xx,                 (boolean) if the blocks are subject to pruning
-  "pruneheight": xxxxxx,        (numeric) lowest-height complete block stored (only present if pruning is enabled)
-  "automatic_pruning": xx,      (boolean) whether automatic pruning is enabled (only present if pruning is enabled)
-  "prune_target_size": xxxxxx,  (numeric) the target size used by pruning (only present if automatic pruning is enabled)
-  "softforks": [                (array) status of softforks in progress
-     {
-        "id": "xxxx",           (string) name of softfork
-        "version": xx,          (numeric) block version
-        "reject": {             (object) progress toward rejecting pre-softfork blocks
-           "status": xx,        (boolean) true if threshold reached
-        },
-     }, ...
-  ],
-  "bip9_softforks": {           (object) status of BIP9 softforks in progress
-     "xxxx" : {                 (string) name of the softfork
-        "status": "xxxx",       (string) one of "defined", "started", "locked_in", "active", "failed"
-        "bit": xx,              (numeric) the bit (0-28) in the block version field used to signal this softfork (only for "started" status)
-        "startTime": xx,        (numeric) the minimum median time past of a block at which the bit gains its meaning
-        "timeout": xx,          (numeric) the median time past of a block at which the deployment is considered failed if not yet locked in
-        "since": xx,            (numeric) height of the first block to which the status applies
-        "statistics": {         (object) numeric statistics about BIP9 signalling for a softfork (only for "started" status)
-           "period": xx,        (numeric) the length in blocks of the BIP9 signalling period 
-           "threshold": xx,     (numeric) the number of blocks with the version bit set required to activate the feature 
-           "elapsed": xx,       (numeric) the number of blocks elapsed since the beginning of the current period 
-           "count": xx,         (numeric) the number of blocks with the version bit set in the current period 
-           "possible": xx       (boolean) returns false if there are not enough blocks left in this period to pass activation threshold 
-        }
-     }
-  }
-  "warnings" : "...",           (string) any network and blockchain warnings.
-}
-```
-**test example:** 
+
+    {
+      "chain": "xxxx",              (string) current network name as defined in BIP70 (main, test, regtest)
+      "blocks": xxxxxx,             (numeric) the current number of blocks processed in the server
+      "headers": xxxxxx,            (numeric) the current number of headers we have validated
+      "bestblockhash": "...",       (string) the hash of the currently best block
+      "difficulty": xxxxxx,         (numeric) the current difficulty
+      "mediantime": xxxxxx,         (numeric) median time for the current best block
+      "verificationprogress": xxxx, (numeric) estimate of verification progress [0..1]
+      "initialblockdownload": xxxx, (bool) (debug information) estimate of whether this node is in Initial Block Download mode.
+      "chainwork": "xxxx"           (string) total amount of work in active chain, in hexadecimal
+      "size_on_disk": xxxxxx,       (numeric) the estimated size of the block and undo files on disk
+      "pruned": xx,                 (boolean) if the blocks are subject to pruning
+      "pruneheight": xxxxxx,        (numeric) lowest-height complete block stored (only present if pruning is enabled)
+      "automatic_pruning": xx,      (boolean) whether automatic pruning is enabled (only present if pruning is enabled)
+      "prune_target_size": xxxxxx,  (numeric) the target size used by pruning (only present if automatic pruning is enabled)
+      "softforks": [                (array) status of softforks in progress
+         {
+            "id": "xxxx",           (string) name of softfork
+            "version": xx,          (numeric) block version
+            "reject": {             (object) progress toward rejecting pre-softfork blocks
+               "status": xx,        (boolean) true if threshold reached
+            },
+         }, ...
+      ],
+      "bip9_softforks": {           (object) status of BIP9 softforks in progress
+         "xxxx" : {                 (string) name of the softfork
+            "status": "xxxx",       (string) one of "defined", "started", "locked_in", "active", "failed"
+            "bit": xx,              (numeric) the bit (0-28) in the block version field used to signal this softfork (only for "started" status)
+            "startTime": xx,        (numeric) the minimum median time past of a block at which the bit gains its meaning
+            "timeout": xx,          (numeric) the median time past of a block at which the deployment is considered failed if not yet locked in
+            "since": xx,            (numeric) height of the first block to which the status applies
+            "statistics": {         (object) numeric statistics about BIP9 signalling for a softfork (only for "started" status)
+               "period": xx,        (numeric) the length in blocks of the BIP9 signalling period 
+               "threshold": xx,     (numeric) the number of blocks with the version bit set required to activate the feature 
+               "elapsed": xx,       (numeric) the number of blocks elapsed since the beginning of the current period 
+               "count": xx,         (numeric) the number of blocks with the version bit set in the current period 
+               "possible": xx       (boolean) returns false if there are not enough blocks left in this period to pass activation threshold 
+            }
+         }
+      }
+      "warnings" : "...",           (string) any network and blockchain warnings.
+    }
+
+**Test example:** 
 
     ./qtum-cli getblockchaininfo
 
-**test result:**
-```
-{
-  "chain": "main",
-  "blocks": 401574,
-  "headers": 401574,
-  "bestblockhash": "be4cb62080f36d2c3a45127e016460aca82ea1de17af4166ad9341d1a18e00cc",
-  "difficulty": 1699339.658646735,
-  "moneysupply": 101586296,
-  "mediantime": 1562032592,
-  "verificationprogress": 0.9999994694221126,
-  "initialblockdownload": false,
-  "chainwork": "000000000000000000000000000000000000000000000113f4c983f14834f842",
-  "size_on_disk": 1939468044,
-  "pruned": false,
-  "softforks": [
+**Test result:**
+
     {
-      "id": "bip34",
-      "version": 2,
-      "reject": {
-        "status": true
-      }
-    },
-    {
-      "id": "bip66",
-      "version": 3,
-      "reject": {
-        "status": true
-      }
-    },
-    {
-      "id": "bip65",
-      "version": 4,
-      "reject": {
-        "status": true
-      }
+      "chain": "main",
+      "blocks": 401574,
+      "headers": 401574,
+      "bestblockhash": "be4cb62080f36d2c3a45127e016460aca82ea1de17af4166ad9341d1a18e00cc",
+      "difficulty": 1699339.658646735,
+      "moneysupply": 101586296,
+      "mediantime": 1562032592,
+      "verificationprogress": 0.9999994694221126,
+      "initialblockdownload": false,
+      "chainwork": "000000000000000000000000000000000000000000000113f4c983f14834f842",
+      "size_on_disk": 1939468044,
+      "pruned": false,
+      "softforks": [
+    	{
+    	  "id": "bip34",
+    	  "version": 2,
+    	  "reject": {
+    		"status": true
+    	  }
+    	},
+    	{
+    	  "id": "bip66",
+    	  "version": 3,
+    	  "reject": {
+    		"status": true
+    	  }
+    	},
+    	{
+    	  "id": "bip65",
+    	  "version": 4,
+    	  "reject": {
+    		"status": true
+    	  }
+    	}
+      ],
+      "bip9_softforks": {
+    	"csv": {
+    	  "status": "active",
+    	  "startTime": 0,
+    	  "timeout": 999999999999,
+    	  "since": 6048
+    	},
+    	"segwit": {
+    	  "status": "active",
+    	  "startTime": 0,
+    	  "timeout": 999999999999,
+    	  "since": 6048
+    	}
+      },
+      "warnings": ""
     }
-  ],
-  "bip9_softforks": {
-    "csv": {
-      "status": "active",
-      "startTime": 0,
-      "timeout": 999999999999,
-      "since": 6048
-    },
-    "segwit": {
-      "status": "active",
-      "startTime": 0,
-      "timeout": 999999999999,
-      "since": 6048
-    }
-  },
-  "warnings": ""
-}
-```
+
 ## getblockhash    
 
 Returns hash of block in best-block-chain at height provided.
 
 **Arguments:**
-```
-1. height         (numeric, required) The height index
-```
-**Result:**   
-```
-"hash"         (string) The block hash  
-```
 
+    1. height         (numeric, required) The height index
+
+**Result:**   
+
+    "hash"         (string) The block hash  
 
 **Examples:**
 
@@ -146,13 +147,14 @@ Returns hash of block in best-block-chain at height provided.
     
     >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getblockhash 1
     
-**test result:**
+**Test result:**
 
     0000d5dab5e76310ae640e9bcfa270c2eb23a1e5948bdf01fc7ed1f157110ab7
+    
 ## getbestblockhash
 
 Returns the hash of the best (tip) block in the longest blockchain.
@@ -167,12 +169,11 @@ Returns the hash of the best (tip) block in the longest blockchain.
     
     >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getbestblockhash", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-    
-**test example:**
+**Test example:**
 
     ./qtum-cli getbestblockhash
 
-**test result:**
+**Test result:**
 
     e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03
 
@@ -188,36 +189,35 @@ If verbosity is 2, returns an Object with information about block <hash> and inf
     1. "blockhash" (string, required) The block hash
     2. verbosity (numeric, optional, default=1) 0 for hex encoded data, 1 for a json object, and 2 for json object with transaction data
 
-
 **Result (for verbosity = 0):**
 
 "data" (string) A string that is serialized, hex-encoded data for block 'hash'.
 
 **Result (for verbosity = 1):**
     
-    {
-	    "hash" : "hash", (string) the block hash (same as provided)
-	    "confirmations" : n, (numeric) The number of confirmations, or -1 if the block is not on the main chain
-	    "size" : n, (numeric) The block size
-	    "strippedsize" : n, (numeric) The block size excluding witness data
-	    "weight" : n (numeric) The block weight as defined in BIP 141
-	    "height" : n, (numeric) The block height or index
-	    "version" : n, (numeric) The block version
-	    "versionHex" : "00000000", (string) The block version formatted in hexadecimal
-	    "merkleroot" : "xxxx", (string) The merkle root
-	    "tx" : [ (array of string) The transaction ids
-	    "transactionid" (string) The transaction id
-	    ,...
-	    ],
-	    "time" : ttt, (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
-	    "mediantime" : ttt, (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)
-	    "nonce" : n, (numeric) The nonce
-	    "bits" : "1d00ffff", (string) The bits
-	    "difficulty" : x.xxx, (numeric) The difficulty
-	    "chainwork" : "xxxx", (string) Expected number of hashes required to produce the chain up to this block (in hex)
-	    "nTx" : n, (numeric) The number of transactions in the block.
-	    "previousblockhash" : "hash", (string) The hash of the previous block
-	    "nextblockhash" : "hash" (string) The hash of the next block
+        {
+      "hash" : "hash",       (string) the block hash (same as provided)
+      "confirmations" : n,   (numeric) The number of confirmations, or -1 if the block is not on the main chain
+      "size" : n,            (numeric) The block size
+      "strippedsize" : n,    (numeric) The block size excluding witness data
+      "weight" : n           (numeric) The block weight as defined in BIP 141
+      "height" : n,          (numeric) The block height or index
+      "version" : n,         (numeric) The block version
+      "versionHex" : "00000000", (string) The block version formatted in hexadecimal
+      "merkleroot" : "xxxx", (string) The merkle root
+      "tx" : [               (array of string) The transaction ids
+         "transactionid"     (string) The transaction id
+         ,...
+      ],
+      "time" : ttt,          (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
+      "mediantime" : ttt,    (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)
+      "nonce" : n,           (numeric) The nonce
+      "bits" : "1d00ffff",   (string) The bits
+      "difficulty" : x.xxx,  (numeric) The difficulty
+      "chainwork" : "xxxx",  (string) Expected number of hashes required to produce the chain up to this block (in hex)
+      "nTx" : n,             (numeric) The number of transactions in the block.
+      "previousblockhash" : "hash",  (string) The hash of the previous block
+      "nextblockhash" : "hash"       (string) The hash of the next block
     }
     
 **Result (for verbosity = 2):**
@@ -231,75 +231,73 @@ If verbosity is 2, returns an Object with information about block <hash> and inf
     }
 
 **Examples:**
-```
-> qtum-cli getblock "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
 
-> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblock", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-```
+    > qtum-cli getblock "00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblock", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
 **test examples:**
 
     ./qtum-cli getblock 
     “e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03”
 
-**test result:**
+**Test result:**
+
   
 
-      {
-          "hash": "e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03",
-          "confirmations": 2,
-          "strippedsize": 2476,
-          "size": 2512,
-          "weight": 9940,
-          "height": 395088,
-          "version": 536870912,
-          "versionHex": "20000000",
-          "merkleroot": "5802715bc0fbf2e0c8b57897dce54588e84ad960bbc628fc0f1f32273c38083a",
-          "hashStateRoot": "0005694a50658c62d899a721add29062d967afafd4a00127c1ac686411e21963",
-          "hashUTXORoot": "9e729950c184acd011471252a0c1a4bc279cd4c1e86d543bead4af6df787b2dd",
-          "tx": 
-          [
-		       "33431772ee0cd8f25199b72cf7376ccbc0537071404da7063d000445a4526d63",
-		        "8db77cd5cb3ede61d8ec74120849622a4b55ff8f558446847bf3b38231268f72",
-		        "e90bb01ea9394e4ab52d8fc48f372eb84b73103809aec933f177ce82815a74cc",
-		        "d96440303ee90c580cf1c673eb755de8071afac99a1fd2dc482e89dc7d384736",
-		        "c75406bb75843e34ba261895aaf335255087a140ae9034dcef3b7d477f2102fa"
-          ],
-          "time": 1561106576,
-          "mediantime": 1561106112,
-          "nonce": 0,
-          "bits": "1a0517d8",
-          "difficulty": 3294031.021738609,
-          "chainwork": "0000000000000000000000000000000000000000000001102cf321f6db3a4252",
-          "nTx": 5,
-          "previousblockhash": "a09450133593a207dca70952ce7bd998b630769959677374086cf625736bd54c",
-          "nextblockhash": "0526fc099637edf47f99b03c97e3ee800912bb40c97e37aa67634efe7799e4d9",
-          "flags": "proof-of-stake",
-          "proofhash": "0000517443e18dd77519e269d5ab2827cf136f72af0dc2ed965f49d45d129a59",
-          "modifier": "1737e6f76fbf16f0b93345030a6ad82b9447254fdbf46673beb2c08e58ff2415",
-          "signature": "304402204b22223c5137101e63dae31e2b6de74781f4179a8ebaf4c1284af7f10f9ceded022057e0091402acf50b725b030b22e82ddf84f7c5a78a04f56cd75235c0051f9df7"
-       }
+    {
+      "hash": "e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03",
+      "confirmations": 2,
+      "strippedsize": 2476,
+      "size": 2512,
+      "weight": 9940,
+      "height": 395088,
+      "version": 536870912,
+      "versionHex": "20000000",
+      "merkleroot": "5802715bc0fbf2e0c8b57897dce54588e84ad960bbc628fc0f1f32273c38083a",
+      "hashStateRoot": "0005694a50658c62d899a721add29062d967afafd4a00127c1ac686411e21963",
+      "hashUTXORoot": "9e729950c184acd011471252a0c1a4bc279cd4c1e86d543bead4af6df787b2dd",
+      "tx": 
+      [
+       "33431772ee0cd8f25199b72cf7376ccbc0537071404da7063d000445a4526d63",
+    	"8db77cd5cb3ede61d8ec74120849622a4b55ff8f558446847bf3b38231268f72",
+    	"e90bb01ea9394e4ab52d8fc48f372eb84b73103809aec933f177ce82815a74cc",
+    	"d96440303ee90c580cf1c673eb755de8071afac99a1fd2dc482e89dc7d384736",
+    	"c75406bb75843e34ba261895aaf335255087a140ae9034dcef3b7d477f2102fa"
+      ],
+      "time": 1561106576,
+      "mediantime": 1561106112,
+      "nonce": 0,
+      "bits": "1a0517d8",
+      "difficulty": 3294031.021738609,
+      "chainwork": "0000000000000000000000000000000000000000000001102cf321f6db3a4252",
+      "nTx": 5,
+      "previousblockhash": "a09450133593a207dca70952ce7bd998b630769959677374086cf625736bd54c",
+      "nextblockhash": "0526fc099637edf47f99b03c97e3ee800912bb40c97e37aa67634efe7799e4d9",
+      "flags": "proof-of-stake",
+      "proofhash": "0000517443e18dd77519e269d5ab2827cf136f72af0dc2ed965f49d45d129a59",
+      "modifier": "1737e6f76fbf16f0b93345030a6ad82b9447254fdbf46673beb2c08e58ff2415",
+      "signature": "304402204b22223c5137101e63dae31e2b6de74781f4179a8ebaf4c1284af7f10f9ceded022057e0091402acf50b725b030b22e82ddf84f7c5a78a04f56cd75235c0051f9df7"
+    }
 
- 
 ## getchaintips
 
 Return information about all known tips in the block tree, including the main chain as well as orphaned branches.
 
 **Result:**
 
-   
-
      [
         {
-	        "height": xxxx, (numeric) height of the chain tip
-	        "hash": "xxxx", (string) block hash of the tip
-	        "branchlen": 0 (numeric) zero for main chain
-	        "status": "active" (string) "active" for the main chain
+          "height": xxxx,    (numeric) height of the chain tip
+          "hash": "xxxx",    (string) block hash of the tip
+          "branchlen": 0     (numeric) zero for main chain
+          "status": "active" (string) "active" for the main chain
         },
         {
-	        "height": xxxx,
-	        "hash": "xxxx",
-	        "branchlen": 1 (numeric) length of branch connecting the tip to the main chain
-	        "status": "xxxx" (string) status of the chain (active, valid-fork, valid-headers, headers-only, invalid)
+          "height": xxxx,
+          "hash": "xxxx",
+          "branchlen": 1     (numeric) length of branch connecting the tip to the main chain
+          "status": "xxxx"   (string) status of the chain (active, valid-fork, valid-headers, headers-only, invalid)
         }
       ]
 
@@ -316,7 +314,7 @@ Return information about all known tips in the block tree, including the main ch
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintips", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getchaintips
 
@@ -348,8 +346,7 @@ Return information about all known tips in the block tree, including the main ch
         "status": "valid-fork"
       },...
     ]
-    
-
+   
 ## getdifficulty
 
 Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
@@ -366,15 +363,16 @@ Returns the proof-of-stake difficulty as a multiple of the minimum difficulty.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getdifficulty", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-**test example:**
+**Test example:**
 
     ./qtum-cli getdifficulty
-**test result:**
+**Test result:**
 
     {
       "proof-of-work": 1.52587890625e-05,
       "proof-of-stake": 7022116.100551808
     }
+    
 ## getblockheader
 
 Returns the corresponding block header information according to the given index
@@ -383,28 +381,28 @@ If verbose is true, returns an Object with information about blockheader <hash>.
 
 **Arguments:**
 
-    1. "hash" (string, required) The block hash
+    1. "hash"  (string, required) The block hash
     2. verbose (boolean, optional, default=true) true for a json object, false for the hex encoded data
+    
 **Result (for verbose = true):**
-   
 
-     {
-        "hash" : "hash", (string) the block hash (same as provided)
-        "confirmations" : n, (numeric) The number of confirmations, or -1 if the block is not on the main chain
-        "height" : n, (numeric) The block height or index
-        "version" : n, (numeric) The block version
-        "versionHex" : "00000000", (string) The block version formatted in hexadecimal
-        "merkleroot" : "xxxx", (string) The merkle root
-        "time" : ttt, (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
-        "mediantime" : ttt, (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)
-        "nonce" : n, (numeric) The nonce
-        "bits" : "1d00ffff", (string) The bits
-        "difficulty" : x.xxx, (numeric) The difficulty
-        "chainwork" : "0000...1f3" (string) Expected number of hashes required to produce the current chain (in hex)
-        "nTx" : n, (numeric) The number of transactions in the block.
-        "previousblockhash" : "hash", (string) The hash of the previous block
-        "nextblockhash" : "hash", (string) The hash of the next block
-     }
+        {
+      "hash" : "hash",               (string) the block hash (same as provided)
+      "confirmations" : n,           (numeric) The number of confirmations, or -1 if the block is not on the main chain
+      "height" : n,                  (numeric) The block height or index
+      "version" : n,                 (numeric) The block version
+      "versionHex" : "00000000",     (string) The block version formatted in hexadecimal
+      "merkleroot" : "xxxx",         (string) The merkle root
+      "time" : ttt,                  (numeric) The block time in seconds since epoch (Jan 1 1970 GMT)
+      "mediantime" : ttt,            (numeric) The median block time in seconds since epoch (Jan 1 1970 GMT)
+      "nonce" : n,                   (numeric) The nonce
+      "bits" : "1d00ffff",           (string) The bits
+      "difficulty" : x.xxx,          (numeric) The difficulty
+      "chainwork" : "0000...1f3"     (string) Expected number of hashes required to produce the current chain (in hex)
+      "nTx" : n,                     (numeric) The number of transactions in the block.
+      "previousblockhash" : "hash",  (string) The hash of the previous block
+      "nextblockhash" : "hash",      (string) The hash of the next block
+    }
 
 **Result (for verbose = false):**
 
@@ -416,80 +414,81 @@ If verbose is true, returns an Object with information about blockheader <hash>.
         
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockheader", "params": ["00000000c937983704a73af28acdec37b049d214adbda81d7e2a3dd146f6ed09"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getblockheader 
     “ebd10c9b338247a9ccfd45493b484ae5638a5d97ddaa68c44c6ef214ea443c19”
 
-**test result:**
+**Test result:**
 
      {
-    	  "hash": "ebd10c9b338247a9ccfd45493b484ae5638a5d97ddaa68c44c6ef214ea443c19",
-    	  "confirmations": -1,
-    	  "height": 388910,
-    	  "version": 536870912,
-    	  "versionHex": "20000000",
-    	  "merkleroot": "b1a21dd48f978ea8671383f9454d058d2047d19666348340bea543cf89e31aca",
-    	  "time": 1560222144,
-    	  "mediantime": 1560221568,
-    	  "nonce": 0,
-    	  "bits": "1a097561",
-    	  "difficulty": 1773742.122273433,
-    	  "chainwork": "00000000000000000000000000000000000000000000010ca5944ed9b867aaef",
-    	  "nTx": 7,
-    	  "hashStateRoot": "10504057696a3ad9f96254b86424cc8f49f3ef2b271893f933b18174e538b828",
-    	  "hashUTXORoot": "9e729950c184acd011471252a0c1a4bc279cd4c1e86d543bead4af6df787b2dd",
-    	  "previousblockhash": "56044826105d66a95ab6f97f945a7cd18eef7109c59da64a7b6c57c377eaf4bb",
-    	  "flags": "proof-of-stake",
-    	  "proofhash": "0000000000000000000000000000000000000000000000000000000000000000",
-    	  "modifier": "1551ed22c1a43da60aebcb2d66a1e42d9bf6a007276367a4a189325ea37a1f91"
+        "hash": "ebd10c9b338247a9ccfd45493b484ae5638a5d97ddaa68c44c6ef214ea443c19",
+        "confirmations": -1,
+        "height": 388910,
+        "version": 536870912,
+        "versionHex": "20000000",
+        "merkleroot": "b1a21dd48f978ea8671383f9454d058d2047d19666348340bea543cf89e31aca",
+        "time": 1560222144,
+        "mediantime": 1560221568,
+        "nonce": 0,
+        "bits": "1a097561",
+        "difficulty": 1773742.122273433,
+        "chainwork": "00000000000000000000000000000000000000000000010ca5944ed9b867aaef",
+        "nTx": 7,
+        "hashStateRoot": "10504057696a3ad9f96254b86424cc8f49f3ef2b271893f933b18174e538b828",
+        "hashUTXORoot": "9e729950c184acd011471252a0c1a4bc279cd4c1e86d543bead4af6df787b2dd",
+        "previousblockhash": "56044826105d66a95ab6f97f945a7cd18eef7109c59da64a7b6c57c377eaf4bb",
+        "flags": "proof-of-stake",
+        "proofhash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "modifier": "1551ed22c1a43da60aebcb2d66a1e42d9bf6a007276367a4a189325ea37a1f91"
      }
 
 ## getpeerinfo
+
 Returns data about each connected network node as a json array of objects.
 
 **Result:**
 
     [
-	    {
-		    "id": n, (numeric) Peer index
-		    "addr":"host:port", (string) The IP address and port of the peer
-		    "addrbind":"ip:port", (string) Bind address of the connection to the peer
-		    "addrlocal":"ip:port", (string) Local address as reported by the peer
-		    "services":"xxxxxxxxxxxxxxxx", (string) The services offered
-		    "relaytxes":true|false, (boolean) Whether peer has asked us to relay transactions to it
-		    "lastsend": ttt, (numeric) The time in seconds since epoch (Jan 1 1970 GMT) of the last send
-		    "lastrecv": ttt, (numeric) The time in seconds since epoch (Jan 1 1970 GMT) of the last receive
-		    "bytessent": n, (numeric) The total bytes sent
-		    "bytesrecv": n, (numeric) The total bytes received
-		    "conntime": ttt, (numeric) The connection time in seconds since epoch (Jan 1 1970 GMT)
-		    "timeoffset": ttt, (numeric) The time offset in seconds
-		    "pingtime": n, (numeric) ping time (if available)
-		    "minping": n, (numeric) minimum observed ping time (if any at all)
-		    "pingwait": n, (numeric) ping wait (if non-zero)
-		    "version": v, (numeric) The peer version, such as 70001
-		    "subver": "/Satoshi:0.8.5/", (string) The string version
-		    "inbound": true|false, (boolean) Inbound (true) or Outbound (false)
-		    "addnode": true|false, (boolean) Whether connection was due to addnode/-connect or if it was an automatic/inbound connection
-		    "startingheight": n, (numeric) The starting height (block) of the peer
-		    "banscore": n, (numeric) The ban score
-		    "synced_headers": n, (numeric) The last header we have in common with this peer
-		    "synced_blocks": n, (numeric) The last block we have in common with this peer
-		    "inflight": [
-		    n, (numeric) The heights of blocks we're currently asking from this peer
-		    ...
-		    ],
-		    "whitelisted": true|false, (boolean) Whether the peer is whitelisted
-		    "bytessent_per_msg": {
-		    "addr": n, (numeric) The total bytes sent aggregated by message type
-		    ...
-		    },
-		    "bytesrecv_per_msg": {
-		    "addr": n, (numeric) The total bytes received aggregated by message type
-		    ...
-		    }
-	    }
-	    ,...
+      {
+        "id": n,                   (numeric) Peer index
+        "addr":"host:port",        (string) The IP address and port of the peer
+        "addrbind":"ip:port",      (string) Bind address of the connection to the peer
+        "addrlocal":"ip:port",     (string) Local address as reported by the peer
+        "services":"xxxxxxxxxxxxxxxx",   (string) The services offered
+        "relaytxes":true|false,    (boolean) Whether peer has asked us to relay transactions to it
+        "lastsend": ttt,           (numeric) The time in seconds since epoch (Jan 1 1970 GMT) of the last send
+        "lastrecv": ttt,           (numeric) The time in seconds since epoch (Jan 1 1970 GMT) of the last receive
+        "bytessent": n,            (numeric) The total bytes sent
+        "bytesrecv": n,            (numeric) The total bytes received
+        "conntime": ttt,           (numeric) The connection time in seconds since epoch (Jan 1 1970 GMT)
+        "timeoffset": ttt,         (numeric) The time offset in seconds
+        "pingtime": n,             (numeric) ping time (if available)
+        "minping": n,              (numeric) minimum observed ping time (if any at all)
+        "pingwait": n,             (numeric) ping wait (if non-zero)
+        "version": v,              (numeric) The peer version, such as 70001
+        "subver": "/Satoshi:0.8.5/",  (string) The string version
+        "inbound": true|false,     (boolean) Inbound (true) or Outbound (false)
+        "addnode": true|false,     (boolean) Whether connection was due to addnode/-connect or if it was an automatic/inbound connection
+        "startingheight": n,       (numeric) The starting height (block) of the peer
+        "banscore": n,             (numeric) The ban score
+        "synced_headers": n,       (numeric) The last header we have in common with this peer
+        "synced_blocks": n,        (numeric) The last block we have in common with this peer
+        "inflight": [
+           n,                      (numeric) The heights of blocks we're currently asking from this peer
+           ...
+        ],
+        "whitelisted": true|false, (boolean) Whether the peer is whitelisted
+        "bytessent_per_msg": {
+           "addr": n,              (numeric) The total bytes sent aggregated by message type
+           ...
+        },
+        "bytesrecv_per_msg": {
+           "addr": n,              (numeric) The total bytes received aggregated by message type
+           ...
+        }
+      }
+      ,...
     ]
 
 **Examples:**
@@ -497,13 +496,12 @@ Returns data about each connected network node as a json array of objects.
     > qtum-cli getpeerinfo
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getpeerinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-**test example:**
+**Test example:**
 
     ./qtum-cli getpeerinfo
     
-**test result:**：
+**Test result:**：
   
-
      {
         "id": 1479,
         "addr": "171.96.72.225:63736",
@@ -570,10 +568,9 @@ Returns data about each connected network node as a json array of objects.
           "tx": 106809,
           "verack": 24,
           "version": 127
-        }
-      },
+        },...
+      }
     
-  
 ## getblocktemplate 
 
 If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.
@@ -588,19 +585,18 @@ https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki
 
     1. template_request (json object, optional) A json object in the following spec
     {
-	    "mode":"template" (string, optional) This must be set to "template", "proposal" (see BIP 23), or omitted
-	    "capabilities":[ (array, optional) A list of strings
-	    "support" (string) client side supported feature, 'longpoll', 'coinbasetxn', 'coinbasevalue', 'proposal', 'serverlist', 'workid'
-	     ,...
+      "mode":"template" (string, optional) This must be set to "template", "proposal" (see BIP 23), or omitted
+      "capabilities":[ (array, optional) A list of strings
+      "support" (string) client side supported feature, 'longpoll', 'coinbasetxn', 'coinbasevalue', 'proposal', 'serverlist', 'workid'
+       ,...
         ],
-	    "rules":
-		 [ 
-		    (array, optional) A list of strings
-		    "support" (string) client side supported softfork deployment
-		    ,...
-	    ]
+      "rules":
+     [ 
+        (array, optional) A list of strings
+        "support" (string) client side supported softfork deployment
+        ,...
+      ]
     }
-
 
 **Result:**
 
@@ -662,19 +658,17 @@ Returns the number of connections to other nodes.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getconnectioncount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getconnectioncount
 
-**test result:**
+**Test result:**
 
     7
     
 ## getmininginfo
 
 Returns a json object containing mining-related information.
-
-
 
 **Examples:**
 
@@ -694,11 +688,12 @@ Returns a json object containing mining-related information.
       "chain": "xxxx",           (string) current network name as defined in BIP70 (main, test, regtest)
       "warnings": "..."          (string) any network and blockchain warnings
     }
-**test example:**
+    
+**Test example:**
 
     ./qtum-cli getmininginfo
     
-**test result:**
+**Test result:**
   
      {
       "blocks": 401661,
@@ -724,20 +719,19 @@ Returns a json object containing mining-related information.
       "warnings": ""
     }
 
-
-
 ## getmempoolinfo
+
 Returns details on the active state of the TX memory pool.
 
 **Result:**
 
     {
-    	"size": xxxxx, (numeric) Current tx count  
-    	"bytes": xxxxx, (numeric) Sum of all virtual transaction sizes as defined in BIP 141. Differs from actual serialized size because witness data is discounted  
-    	"usage": xxxxx, (numeric) Total memory usage for the mempool  
-    	"maxmempool": xxxxx, (numeric) Maximum memory usage for the mempool  
-    	"mempoolminfee": xxxxx (numeric) Minimum fee rate in QTUM/kB for tx to be accepted. Is the maximum of minrelaytxfee and minimum mempool fee  
-    	"minrelaytxfee": xxxxx (numeric) Current minimum relay fee for transactions  
+      "size": xxxxx, (numeric) Current tx count  
+      "bytes": xxxxx, (numeric) Sum of all virtual transaction sizes as defined in BIP 141. Differs from actual serialized size because witness data is discounted  
+      "usage": xxxxx, (numeric) Total memory usage for the mempool  
+      "maxmempool": xxxxx, (numeric) Maximum memory usage for the mempool  
+      "mempoolminfee": xxxxx (numeric) Minimum fee rate in QTUM/kB for tx to be accepted. Is the maximum of minrelaytxfee and minimum mempool fee  
+      "minrelaytxfee": xxxxx (numeric) Current minimum relay fee for transactions  
     }
 
 **Examples:**
@@ -746,21 +740,20 @@ Returns details on the active state of the TX memory pool.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getmempoolinfo
     
-**test result:**
-   
+**Test result:**
 
-     {
-          "size": 10,
-          "bytes": 3582,
-          "usage": 14176,
-          "maxmempool": 300000000,
-          "mempoolminfee": 0.00400000,
-          "minrelaytxfee": 0.00400000
-     }
+    {
+      "size": 10,
+      "bytes": 3582,
+      "usage": 14176,
+      "maxmempool": 300000000,
+      "mempoolminfee": 0.00400000,
+      "minrelaytxfee": 0.00400000
+    }
 
 ## getmempoolancestors 
 
@@ -768,48 +761,45 @@ If txid is in the mempool, returns all in-mempool ancestors.
 
 **Arguments:**
 
-    1. "txid" (string, required) The transaction id (must be in mempool)
+    1. "txid"  (string, required) The transaction id (must be in mempool)
     2. verbose (boolean, optional, default=false) True for a json object, false for array of transaction ids
     
    **Result (for verbose = false):**
   
-
       [ 
-	    (json array of strings)
         "transactionid" (string) The transaction id of an in-mempool ancestor transaction
         ,...
       ]
 
 **Result (for verbose=true):**
 
-    { 
-        (json object)
-        "transactionid" : { (json object)
-        "size" : n, (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-        "fee" : n, (numeric) transaction fee in QTUM (DEPRECATED)
-        "modifiedfee" : n, (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
-        "time" : n, (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
-        "height" : n, (numeric) block height when transaction entered pool
-        "descendantcount" : n, (numeric) number of in-mempool descendant transactions (including this one)
-        "descendantsize" : n, (numeric) virtual transaction size of in-mempool descendants (including this one)
-        "descendantfees" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
-        "ancestorcount" : n, (numeric) number of in-mempool ancestor transactions (including this one)
-        "ancestorsize" : n, (numeric) virtual transaction size of in-mempool ancestors (including this one)
-        "ancestorfees" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
-        "wtxid" : hash, (string) hash of serialized transaction, including witness data
+    {                           
+      "transactionid" : {       
+        "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+        "fee" : n,              (numeric) transaction fee in QTUM (DEPRECATED)
+        "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
+        "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+        "height" : n,           (numeric) block height when transaction entered pool
+        "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+        "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+        "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
+        "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+        "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+        "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
+        "wtxid" : hash,         (string) hash of serialized transaction, including witness data
         "fees" : {
-	        "base" : n, (numeric) transaction fee in QTUM
-	        "modified" : n, (numeric) transaction fee with fee deltas used for mining priority in QTUM
-	        "ancestor" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
-	        "descendant" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
+            "base" : n,         (numeric) transaction fee in QTUM
+            "modified" : n,     (numeric) transaction fee with fee deltas used for mining priority in QTUM
+            "ancestor" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
+            "descendant" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
         }
-        "depends" : [ (array) unconfirmed transactions used as inputs for this transaction
-        "transactionid", (string) parent transaction id
-        ... ]
-        "spentby" : [ (array) unconfirmed transactions spending outputs from this transaction
-        "transactionid", (string) child transaction id
-        ... ]
-        }, ...
+        "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+            "transactionid",    (string) parent transaction id
+           ... ]
+        "spentby" : [           (array) unconfirmed transactions spending outputs from this transaction
+            "transactionid",    (string) child transaction id
+           ... ]
+      }, ...
     }
     
 **Examples:**
@@ -818,16 +808,15 @@ If txid is in the mempool, returns all in-mempool ancestors.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolancestors", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getmempoolancestors a957d309824b760814feb6426ba386d082f3b8bc95837e3e7ebada6538cf7e2c     
 
-**test result:**
+**Test result:**
    
-
-     [
-          "c3d044940534fd94fd0c901a895f62505e7beba0dfa44b1563c7aea980279135"
-     ]
+    [
+      "c3d044940534fd94fd0c901a895f62505e7beba0dfa44b1563c7aea980279135"     
+    ]
 
 ## getmempooldescendants
 
@@ -835,60 +824,59 @@ If txid is in the mempool, returns all in-mempool descendants.
 
 **Arguments:**
 
-    1. "txid" (string, required) The transaction id (must be in mempool)
+    1. "txid"   (string, required) The transaction id (must be in mempool)
     2.  verbose (boolean, optional, default=false) True for a json object, false for array of transaction ids
 
 **Result (for verbose = false):**
 
     [ 
-	    (json array of strings)
-	    "transactionid" (string) The transaction id of an in-mempool descendant transaction
-	    ,...
+      "transactionid" (string) The transaction id of an in-mempool descendant transaction
+      ,...
     ]
 
 **Result (for verbose=true):**
-	{ 
-	    (json object)
-	    "transactionid" : { (json object)
-	    "size" : n, (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-	    "fee" : n, (numeric) transaction fee in QTUM (DEPRECATED)
-	    "modifiedfee" : n, (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
-	    "time" : n, (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
-	    "height" : n, (numeric) block height when transaction entered pool
-	    "descendantcount" : n, (numeric) number of in-mempool descendant transactions (including this one)
-	    "descendantsize" : n, (numeric) virtual transaction size of in-mempool descendants (including this one)
-	    "descendantfees" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
-	    "ancestorcount" : n, (numeric) number of in-mempool ancestor transactions (including this one)
-	    "ancestorsize" : n, (numeric) virtual transaction size of in-mempool ancestors (including this one)
-	    "ancestorfees" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
-	    "wtxid" : hash, (string) hash of serialized transaction, including witness data
-	    "fees" : {
-		    "base" : n, (numeric) transaction fee in QTUM
-		    "modified" : n, (numeric) transaction fee with fee deltas used for mining priority in QTUM
-		    "ancestor" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
-		    "descendant" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
-	    }
-	    "depends" : [ (array) unconfirmed transactions used as inputs for this transaction
-	    "transactionid", (string) parent transaction id
-	    ... ]
-	    "spentby" : [ (array) unconfirmed transactions spending outputs from this transaction
-	    "transactionid", (string) child transaction id
-	    ... ]
-	    }, ...
-    }
 
+     {                           
+      "transactionid" : {       
+        "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+        "fee" : n,              (numeric) transaction fee in QTUM (DEPRECATED)
+        "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
+        "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+        "height" : n,           (numeric) block height when transaction entered pool
+        "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+        "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+        "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
+        "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+        "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+        "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
+        "wtxid" : hash,         (string) hash of serialized transaction, including witness data
+        "fees" : {
+            "base" : n,         (numeric) transaction fee in QTUM
+            "modified" : n,     (numeric) transaction fee with fee deltas used for mining priority in QTUM
+            "ancestor" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
+            "descendant" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
+        }
+        "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+            "transactionid",    (string) parent transaction id
+           ... ]
+        "spentby" : [           (array) unconfirmed transactions spending outputs from this transaction
+            "transactionid",    (string) child transaction id
+           ... ]
+      }, ...
+    }
+    
 **Examples:**
 
     > qtum-cli getmempooldescendants "mytxid"
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempooldescendants", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test result:**
+**Test result:**
 
     [
-	    "9d980a4fcdf13fb2c9a5c7769ad6f3e8668aba1f0608be09ef84a11afaf3d03f",
-	    "89874d6f44bb3b8a526c50cecda1cbe06c6c6e8107623b79222ee75b79f91d5a",
-	    "0c2d893fdc510a6fddb18fc3d441b02d5b6050b754dc6f5d5ddd251707c3d995"
+      "9d980a4fcdf13fb2c9a5c7769ad6f3e8668aba1f0608be09ef84a11afaf3d03f",
+      "89874d6f44bb3b8a526c50cecda1cbe06c6c6e8107623b79222ee75b79f91d5a",
+      "0c2d893fdc510a6fddb18fc3d441b02d5b6050b754dc6f5d5ddd251707c3d995"
     ]
 ##  getrawmempool
 
@@ -902,44 +890,34 @@ Hint: use getmempoolentry to fetch a specific transaction from the mempool.
 
 **Result: (for verbose = false):**
 
-    [ 
-	    (json array of string)
-	    "transactionid" (string) The transaction id
-	    ,...
-    ]
-
-**Result: (for verbose = true):**
-   
-
-     { 
-	    (json object)
-        "transactionid" : { (json object)
-        "size" : n, (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-        "fee" : n, (numeric) transaction fee in QTUM (DEPRECATED)
-        "modifiedfee" : n, (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
-        "time" : n, (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
-        "height" : n, (numeric) block height when transaction entered pool
-        "descendantcount" : n, (numeric) number of in-mempool descendant transactions (including this one)
-        "descendantsize" : n, (numeric) virtual transaction size of in-mempool descendants (including this one)
-        "descendantfees" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
-        "ancestorcount" : n, (numeric) number of in-mempool ancestor transactions (including this one)
-        "ancestorsize" : n, (numeric) virtual transaction size of in-mempool ancestors (including this one)
-        "ancestorfees" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
-        "wtxid" : hash, (string) hash of serialized transaction, including witness data
+    {                           
+      "transactionid" : {       
+        "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+        "fee" : n,              (numeric) transaction fee in QTUM (DEPRECATED)
+        "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
+        "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+        "height" : n,           (numeric) block height when transaction entered pool
+        "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+        "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+        "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
+        "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+        "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+        "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
+        "wtxid" : hash,         (string) hash of serialized transaction, including witness data
         "fees" : {
-	        "base" : n, (numeric) transaction fee in QTUM
-	        "modified" : n, (numeric) transaction fee with fee deltas used for mining priority in QTUM
-	        "ancestor" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
-	        "descendant" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
+            "base" : n,         (numeric) transaction fee in QTUM
+            "modified" : n,     (numeric) transaction fee with fee deltas used for mining priority in QTUM
+            "ancestor" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
+            "descendant" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
         }
-        "depends" : [ (array) unconfirmed transactions used as inputs for this transaction
-        "transactionid", (string) parent transaction id
-        ... ]
-        "spentby" : [ (array) unconfirmed transactions spending outputs from this transaction
-        "transactionid", (string) child transaction id
-        ... ]
-        }, ...
-     }
+        "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+            "transactionid",    (string) parent transaction id
+           ... ]
+        "spentby" : [           (array) unconfirmed transactions spending outputs from this transaction
+            "transactionid",    (string) child transaction id
+           ... ]
+      }, ...
+    }
 
 **Examples:**
 
@@ -947,40 +925,41 @@ Hint: use getmempoolentry to fetch a specific transaction from the mempool.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getrawmempool", "params": [true] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:** 
+**Test example:** 
 
     ./qtum-cli getrawmempool
     
-**test result:**
+**Test result:**
   
 
-      [
-          "d4e995b2e0b5ef44f90659323e662f408f7938b5b97c345a40192ca6d0b06704",
-          "9e41daae52ece96732305cb0873b8528e7011c866eb7c3c9bee2c22c03e5bf65",
-          "354297aef68f48044af17c3f01616597dad298304e34728fa9894b3ff73a0f33",
-          "e2c407e5468a3e885b73760e3c6115d6d493786fff5ec070e91ad9b4db58b2ef",
-          "15f9f80b536041ebf5c3958c7b7d9bab72c800882235fc782925137c2addbdd2",
-          "109483b1b06746cf4215f3786907b26213adc71a14145acccbba4f0952a751a3",
-          "b49e03dd14a242803bf8108a10a9f82120e21e7d4b0a9255c632e7b92d879136",
-          "40a295fa44931750c048feb817fad96e079ce193c4eda0770d68be6c1f7241c3",
-          "f1e4f8814a404adce808e9b0aed56f61ec151c745cba3a6ac1f0a917884adb59",
-          "b6772f160e21c4633f95b1c5831c6d0451cab1501c375730ea32de64860f1809",
-          "65894a5fcf0e19e13375ba0d0f2afa6e73f52512bc69cf8225c40af824f740d9",
-          "8199c4f6c9f8be79fff4fc9664755bc0502de92d9856083112e55caaa2cb1974",
-          "c3fb5ef13f87f2988c879c274cfbc1613240a12a66e9259388101d82364f1934",
-          "ca78e53edcfba07d4eee2a1bbfc07e26e79e5677104399c794e51d098c735056",
-          "7f66e7f6443ebd0d3a3a8e6bd83e3a5ffc6d32ef5a1ee6487c7abb5cfae7d409",
-          "97966a9f3baeac334cb547d553baf71bf7c68720f350444d7411e0855f39a574",
-          "78285303f6deef553cd5fcd5084db0bae3ccf504ac66f614cb29a5a6f6b5e815",
-          "e5ae989b9782c1afd2c6f71379e46d162ffbe804c5b8db70b7bc85d939df2efe",
-          "2f09732e25eab121a347471a91be55c798cde96aa7f8009da51c2a2d322e6410",
-          "c302d3177a64a4a3c7f2ba1ea196b69754475192afa8249eb18f6f055556c8e1",
-          "7f1de19f02347ea3744bcb11364c9883b91e4f4883b13f15e9e9f52595c1d3d6",
-          "c241f5896723fec65b3af4f94491679ae8a79c434b2e0749651cf416952abac0",
-          "4d8932af7a7073e2c4a5527767215f7bf5b8c7759a5b49d976f0031d5184fd18"
-       ]
+    [
+      "d4e995b2e0b5ef44f90659323e662f408f7938b5b97c345a40192ca6d0b06704",
+      "9e41daae52ece96732305cb0873b8528e7011c866eb7c3c9bee2c22c03e5bf65",
+      "354297aef68f48044af17c3f01616597dad298304e34728fa9894b3ff73a0f33",
+      "e2c407e5468a3e885b73760e3c6115d6d493786fff5ec070e91ad9b4db58b2ef",
+      "15f9f80b536041ebf5c3958c7b7d9bab72c800882235fc782925137c2addbdd2",
+      "109483b1b06746cf4215f3786907b26213adc71a14145acccbba4f0952a751a3",
+      "b49e03dd14a242803bf8108a10a9f82120e21e7d4b0a9255c632e7b92d879136",
+      "40a295fa44931750c048feb817fad96e079ce193c4eda0770d68be6c1f7241c3",
+      "f1e4f8814a404adce808e9b0aed56f61ec151c745cba3a6ac1f0a917884adb59",
+      "b6772f160e21c4633f95b1c5831c6d0451cab1501c375730ea32de64860f1809",
+      "65894a5fcf0e19e13375ba0d0f2afa6e73f52512bc69cf8225c40af824f740d9",
+      "8199c4f6c9f8be79fff4fc9664755bc0502de92d9856083112e55caaa2cb1974",
+      "c3fb5ef13f87f2988c879c274cfbc1613240a12a66e9259388101d82364f1934",
+      "ca78e53edcfba07d4eee2a1bbfc07e26e79e5677104399c794e51d098c735056",
+      "7f66e7f6443ebd0d3a3a8e6bd83e3a5ffc6d32ef5a1ee6487c7abb5cfae7d409",
+      "97966a9f3baeac334cb547d553baf71bf7c68720f350444d7411e0855f39a574",
+      "78285303f6deef553cd5fcd5084db0bae3ccf504ac66f614cb29a5a6f6b5e815",
+      "e5ae989b9782c1afd2c6f71379e46d162ffbe804c5b8db70b7bc85d939df2efe",
+      "2f09732e25eab121a347471a91be55c798cde96aa7f8009da51c2a2d322e6410",
+      "c302d3177a64a4a3c7f2ba1ea196b69754475192afa8249eb18f6f055556c8e1",
+      "7f1de19f02347ea3744bcb11364c9883b91e4f4883b13f15e9e9f52595c1d3d6",
+      "c241f5896723fec65b3af4f94491679ae8a79c434b2e0749651cf416952abac0",
+      "4d8932af7a7073e2c4a5527767215f7bf5b8c7759a5b49d976f0031d5184fd18"
+    ]
 
 ## getmempoolentry
+
 Returns mempool data for given transaction
 
 **Arguments:**
@@ -988,35 +967,33 @@ Returns mempool data for given transaction
     1. "txid" (string, required) The transaction id (must be in mempool)
 
 **Result:**
-   
-
-     { 
-	    (json object)
-        "size" : n, (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
-        "fee" : n, (numeric) transaction fee in QTUM (DEPRECATED)
-        "modifiedfee" : n, (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
-        "time" : n, (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
-        "height" : n, (numeric) block height when transaction entered pool
-        "descendantcount" : n, (numeric) number of in-mempool descendant transactions (including this one)
-        "descendantsize" : n, (numeric) virtual transaction size of in-mempool descendants (including this one)
-        "descendantfees" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
-        "ancestorcount" : n, (numeric) number of in-mempool ancestor transactions (including this one)
-        "ancestorsize" : n, (numeric) virtual transaction size of in-mempool ancestors (including this one)
-        "ancestorfees" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
-        "wtxid" : hash, (string) hash of serialized transaction, including witness data
+  
+    {                           
+        "size" : n,             (numeric) virtual transaction size as defined in BIP 141. This is different from actual serialized size for witness transactions as witness data is discounted.
+        "fee" : n,              (numeric) transaction fee in QTUM (DEPRECATED)
+        "modifiedfee" : n,      (numeric) transaction fee with fee deltas used for mining priority (DEPRECATED)
+        "time" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT
+        "height" : n,           (numeric) block height when transaction entered pool
+        "descendantcount" : n,  (numeric) number of in-mempool descendant transactions (including this one)
+        "descendantsize" : n,   (numeric) virtual transaction size of in-mempool descendants (including this one)
+        "descendantfees" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) (DEPRECATED)
+        "ancestorcount" : n,    (numeric) number of in-mempool ancestor transactions (including this one)
+        "ancestorsize" : n,     (numeric) virtual transaction size of in-mempool ancestors (including this one)
+        "ancestorfees" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) (DEPRECATED)
+        "wtxid" : hash,         (string) hash of serialized transaction, including witness data
         "fees" : {
-	        "base" : n, (numeric) transaction fee in QTUM
-	        "modified" : n, (numeric) transaction fee with fee deltas used for mining priority in QTUM
-	        "ancestor" : n, (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
-	        "descendant" : n, (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
+            "base" : n,         (numeric) transaction fee in QTUM
+            "modified" : n,     (numeric) transaction fee with fee deltas used for mining priority in QTUM
+            "ancestor" : n,     (numeric) modified fees (see above) of in-mempool ancestors (including this one) in QTUM
+            "descendant" : n,   (numeric) modified fees (see above) of in-mempool descendants (including this one) in QTUM
         }
-        "depends" : [ (array) unconfirmed transactions used as inputs for this transaction
-        "transactionid", (string) parent transaction id
-        ... ]
-        "spentby" : [ (array) unconfirmed transactions spending outputs from this transaction
-        "transactionid", (string) child transaction id
-        ... ]
-     }
+        "depends" : [           (array) unconfirmed transactions used as inputs for this transaction
+            "transactionid",    (string) parent transaction id
+           ... ]
+        "spentby" : [           (array) unconfirmed transactions spending outputs from this transaction
+            "transactionid",    (string) child transaction id
+           ... ]
+    }
 
 **Examples:**
 
@@ -1024,58 +1001,32 @@ Returns mempool data for given transaction
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test result:**
- 
-
-       {
-          "fees": 
-          {
-	        "base": 0.10187027,
-	        "modified": 0.10187027,
-	        "ancestor": 0.10187027,
-	        "descendant": 0.10187027
-          },
-          "size": 446,
-          "fee": 0.10187027,
-          "modifiedfee": 0.10187027,
-          "time": 1561349354,
-          "height": 396786,
-          "descendantcount": 1,
-          "descendantsize": 446,
-          "descendantfees": 10187027,
-          "ancestorcount": 1,
-          "ancestorsize": 446,
-          "ancestorfees": 10187027,
-          "wtxid": "110b5a1946c5d8673ddd07c28924263c57230c04e7f7b4209938c7e343935efd",
-          "depends": [
-          ],
-          "spentby": [
-          ]
-       }
-
 ## getstorage
 
 Get data stored by smart contracts
 
 **Argument:**
-     1. "address" (string, required) The address to get the storage from
+
+     1. "address"  (string, required) The address to get the storage from
      2. "blockNum" (string, optional) Number of block to get state from,  "latest" keyword supported. Latest if not passed.
-     3. "index" (number, optional) Zero-based index position of the storage 
+     3. "index"    (number, optional) Zero-based index position of the storage 
+
 **Examples:**
 
     > qtum-cli getstorage “contract address”
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getstorage", "params": ["address"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     getstorage "fdb9d0873ba524ef3ea67c1719666968e1eeb110"
-**Result:**
+
+**Test result:**
 
     {
       "000756ed9982214a7ba55dbe32d0321f5891e75d3c3c467d4b575d55991e03b1": 
       {
-	    "52adc13b5e472402f13052709f282024cc52e564f96b2183a5737c545229228d": "0000000000000000000000000000000000000000000000000000000000000001"
+        "52adc13b5e472402f13052709f282024cc52e564f96b2183a5737c545229228d": "0000000000000000000000000000000000000000000000000000000000000001"
       },
     }
 
@@ -1091,17 +1042,15 @@ Contract details including balance, storage data and code
 
     Contract details including balance, storage data and code
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getaccountinfo "fdb9d0873ba524ef3ea67c1719666968e1eeb110"
 
-
 ## getaccount 
-
 
 Returns the account associated with the given address, (Deprecated, will be removed in V0.18. To use this command, start qtumd with -deprecatedrpc=accounts)
 
-**test example:** 
+**Test example:** 
 
     ./qtum-cli getaccount “QQrm6av1tWtTmvkTpft3FygcmLFcrEWGWk”
 
@@ -1118,6 +1067,7 @@ returns the current qtum address for receiving payments to this account, (Deprec
     ./qtum-cli getaccountaddress "myaccount"
 
 ## getnewaddress
+
 Returns a new Qtum address for receiving payments.
 If 'label' is specified, it is added to the address book
 so payments received with the address will be associated with 'label'.
@@ -1137,14 +1087,13 @@ so payments received with the address will be associated with 'label'.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnewaddress", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getnewaddress
         
-**test result:**
+**Test result:**
 
     QcMKCuHMFwwGNBdYYes8vKN1Qm1MJkwsQf
-    
     
 ## getaddressesbylabel
 
@@ -1157,10 +1106,9 @@ Returns the list of addresses assigned the specified label.
 **Result:**
 
     { 
-	    (json object with addresses as keys)
-	    "address": { (json object with information about address)
-	    "purpose": "string" (string) Purpose of address ("send" for sending address, "receive" for receiving address)
-	    },...
+      "address": { 
+      "purpose": "string" (string) Purpose of address ("send" for sending address, "receive" for receiving address)
+      },...
     }
 
 **Examples:**
@@ -1169,19 +1117,20 @@ Returns the list of addresses assigned the specified label.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddressesbylabel", "params": ["tabby"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli getaddressesbylabel ""
-**test result:**
+    
+**Test result:**
 
     {
         "QUTYNrXYMQUzZyUekmfakR8bzTuLqYcLtf": 
         {
-	        "purpose": "receive"
+          "purpose": "receive"
         },
         "QZmURd7wViLVKjUu8b3mvdXeSJjFmH7hf2": 
         {
-	        "purpose": "receive"
+          "purpose": "receive"
         }
     }
 
@@ -1196,7 +1145,6 @@ It has no effect on transactions which are already abandoned.
 **Arguments:**
 
     1. "txid" (string, required) The transaction id
-
 
 **Examples:**
 
@@ -1214,20 +1162,20 @@ If 'label' is specified, assign address to that label.
 
 **Arguments:**
 
-    1. nrequired (numeric, required) The number of required signatures out of the n keys or addresses.
-    2. "keys" (string, required) A json array of qtum addresses or hex-encoded public keys
-    [
-	    "address" (string) qtum address or hex-encoded public key
-	    ...,
-    ]
-    3. "label" (string, optional) A label to assign the addresses to.
-    4. "address_type" (string, optional) The address type to use. Options are "legacy", "p2sh-segwit", and "bech32". Default is set by -addresstype.
-
+    1. nrequired                      (numeric, required) The number of required signatures out of the n keys or addresses.
+    2. "keys"                         (string, required) A json array of qtum addresses or hex-encoded public keys
+         [
+           "address"                  (string) qtum address or hex-encoded public key
+           ...,
+         ]
+    3. "label"                        (string, optional) A label to assign the addresses to.
+    4. "address_type"                 (string, optional) The address type to use. Options are "legacy", "p2sh-segwit", and "bech32". Default is set by -addresstype
+    
 **Result:**
 
     {
-	    "address":"multisigaddress", (string) The value of the new multisig address.
-	    "redeemScript":"script" (string) The string value of the hex-encoded redemption script.
+      "address":"multisigaddress", (string) The value of the new multisig address.
+      "redeemScript":"script"      (string) The string value of the hex-encoded redemption script.
     }
 
 **Examples:**
@@ -1239,6 +1187,7 @@ Add a multisig address from 2 addresses
 As json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"QjWnDZxwLhrJDcp4Hisse8RfBo2jRDZY5Z\",\"Q6sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    
 ## abortrescan
 
 Stops current wallet rescan triggered by an RPC call, e.g. by an importprivkey call.
@@ -1257,10 +1206,11 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "abortrescan", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli abortrescan
-**test result:**
+    
+**Test result:**
 
     false
 
@@ -1283,24 +1233,9 @@ Nodes added using addnode (or -connect) are protected from DoS disconnection and
     > qtum-cli addnode "192.168.0.6:3888" "onetry"
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:3888", "onetry"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-
-## witnessaddress
-
-DEPRECATED: set the address_type argument of getnewaddress, or option -addresstype=[bech32|p2sh-segwit] instead.
-Add a witness address for a script (with pubkey or redeemscript known). Requires a new wallet backup.
-It returns the witness script.
-
-**Arguments:**
-
-    1. "address" (string, required) An address known to the wallet
-    2. p2sh (bool, optional, default=true) Embed inside P2SH
-
-**Result:**
-
-    {
-	"witnessaddress", (string) The value of the new address (P2SH or BIP173).
-    }
+    
 ## backupwallet 
+
 backupwallet "destination"
 
 Safely copies current wallet file to destination, which can be a directory or a path with filename.
@@ -1316,6 +1251,7 @@ Safely copies current wallet file to destination, which can be a directory or a 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "backupwallet", "params": ["backup.dat"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## bumpfee
+
 bumpfee "txid" ( options )
 
 Bumps the fee of an opt-in-RBF transaction T, replacing it with a new transaction B.
@@ -1356,10 +1292,10 @@ returned by getnetworkinfo) to enter the node's mempool.
 **Result:**
 
     {
-	    "txid": "value", (string) The id of the new transaction
-	    "origfee": n, (numeric) Fee of the replaced transaction
-	    "fee": n, (numeric) Fee of the new transaction
-	    "errors": [ str... ] (json array of strings) Errors encountered during processing (may be empty)
+      "txid": "value",     (string) The id of the new transaction
+      "origfee": n,        (numeric) Fee of the replaced transaction
+      "fee": n,            (numeric) Fee of the new transaction
+      "errors": [ str... ] (json array of strings) Errors encountered during processing (may be empty)
     }
 
 **Examples:**
@@ -1375,55 +1311,40 @@ callcontract "address" "data" ( address )
 **Argument:**
 
     1. "address" (string, required) The account address
-    2. "data" (string, required) The data hex string
-    3. address (string, optional) The sender address hex string
-    4. gasLimit (string, optional) The gas limit for executing the contract
+    2. "data"    (string, required) The data hex string
+    3. address   (string, optional) The sender address hex string
+    4. gasLimit  (string, optional) The gas limit for executing the contract
 
-**Result:**
-
-    {
-	    "address": "XXX", (string) The address of the contract called
-	    "executionResult": {
-		    "gasUsed": n, (numeric) Fee of the new transaction
-		    "excepted": "None",
-		    "newAddress": “XXX”, a new contract address
-		    "output": “”, (a hex num), according input returns a hex number
-		    "codeDeposit": 0, Failed if an attempt deposit failed due to lack of gas.
-		    "gasRefunded": n, (numeric) Fee of returned gas
-		    "depositSize": 0,  amount of code of the creation’s attempted deposit
-		    "gasForDeposit": 0, amount of gas remaining for the code deposit phase
-	    }
-    },
-
-
-
-**test example:** 
+**Test example:** 
 
     ./qtum-cli callcontract "74045ec0dc26ec1861473828bc140ebc4c1f3eff" "00000000000000000000000000000000000000000000000000000000000000a9"
-**test result:**
+
+**Test result:**
 
     {
-	    "address": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
-	    "executionResult": {
-	    "gasUsed": 39999999,
-	    "excepted": "None",
-	    "newAddress": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
-	    "output": "",
-	    "codeDeposit": 0,
-	    "gasRefunded": 0,
-	    "depositSize": 0,
-	    "gasForDeposit": 0
+      "address": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
+      "executionResult": {
+      "gasUsed": 39999999,
+      "excepted": "None",
+      "newAddress": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
+      "output": "",
+      "codeDeposit": 0,
+      "gasRefunded": 0,
+      "depositSize": 0,
+      "gasForDeposit": 0
       },
-    	    "transactionReceipt": {
-	    "stateRoot": "1253c56cf79597e89ce179f14e6a86a493356dac410c30efc576503687ad2670",
-	    "gasUsed": 39999999,
-	    "bloom": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-    "log": [
-    ]
+      "transactionReceipt": 
+      {
+	      "stateRoot": "1253c56cf79597e89ce179f14e6a86a493356dac410c30efc576503687ad2670",
+	      "gasUsed": 39999999,
+	      "bloom": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+	      "log": [
+	    ]
       }
     }
 
 ## clearbanned
+
 Clear all banned IPs.
 
 **Examples:**
@@ -1442,8 +1363,8 @@ Implements the Combiner role.
 
     1. "txs" (string) A json array of base64 strings of partially signed transactions
     [
-	    "psbt" (string) A base64 string of a PSBT
-	    ,...
+      "psbt" (string) A base64 string of a PSBT
+      ,...
     ]
 
 **Result:**
@@ -1464,8 +1385,8 @@ fully signed transaction.
 
     1. "txs" (string) A json array of hex strings of partially signed transactions
     [
-	    "hexstring" (string) A transaction hash
-	    ,...
+      "hexstring" (string) A transaction hash
+      ,...
     ]
 
 **Result:**
@@ -1476,11 +1397,6 @@ fully signed transaction.
 
     > qtum-cli combinerawtransaction ["myhex1", "myhex2", "myhex3"]
 
-
-## listaccounts 
-
-listaccounts is deprecated and will be removed in V0.18. To use this command, start qtumd with -deprecatedrpc=accounts. (code -32)
-
 ## listaddressgroupings
 
 Lists groups of addresses which have had their common ownership
@@ -1488,13 +1404,12 @@ made public by common use as inputs or as the resulting change
 in past transactions
 
 **Result:**
- 
 
     [
       [
         [
           "address",            (string) The qtum address
-          amount,                 (numeric) The amount in QTUM
+          amount,               (numeric) The amount in QTUM
           "label"               (string, optional) The label
         ]
         ,...
@@ -1508,13 +1423,12 @@ in past transactions
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     ./qtum-cli listaddressgroupings
     
-**test result:**
+**Test result:**
   
-
     [
       [
         [
@@ -1535,31 +1449,27 @@ List all banned IPs/Subnets.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test result:**
-
-    [
-    ]
-
 ## listcontracts 
 
 list all the contracts and default accounts is 20
 
 **Argument:**
+
     1. start (numeric or string, optional) The starting account index, default 1
     2. maxDisplay (numeric or string, optional) Max accounts to list, default 20
 
-**Example:**
+**Test example:**
 
     > ./qtum-cli listcontracts 1 5
 
 **Result:**
 
-    {
-	  "82155d35dc1e0b5dc3d6ca7e536af42394a7003c": 0.00000000,
-	  "c50116ca622b4dbd12205fb9cc61a64f7b63cb8a": 0.00000000,
-	  "28d1140499604664be0037272eb287e1742dcafe": 0.00000000,
-	  "b9fe4ba102c33ba078d90a2cb6fe8fa94fd114a1": 0.00000000,
-	  "954999d28fd46c6de806f9587a82321437771ab2": 0.00000000
+     {
+      "82155d35dc1e0b5dc3d6ca7e536af42394a7003c": 0.00000000,
+      "c50116ca622b4dbd12205fb9cc61a64f7b63cb8a": 0.00000000,
+      "28d1140499604664be0037272eb287e1742dcafe": 0.00000000,
+      "b9fe4ba102c33ba078d90a2cb6fe8fa94fd114a1": 0.00000000,
+      "954999d28fd46c6de806f9587a82321437771ab2": 0.00000000
     }
 
 ## converttopsbt 
@@ -1569,10 +1479,10 @@ createpsbt and walletcreatefundedpsbt should be used for new applications.
 
 **Arguments:**
 
-    1. "hexstring" (string, required) The hex string of a raw transaction
+    1. "hexstring"   (string, required) The hex string of a raw transaction
     2. permitsigdata (boolean, optional, default=false) If true, any signatures in the input will be discarded and conversion.
     will continue. If false, RPC will fail if any signatures are present.
-    3. iswitness (boolean, optional) Whether the transaction hex is a serialized witness transaction.
+    3. iswitness     (boolean, optional) Whether the transaction hex is a serialized witness transaction.
     If iswitness is not present, heuristic tests will be used in decoding. If true, only witness deserializaion
     will be tried. If false, only non-witness deserialization wil be tried. Only has an effect if
     permitsigdata is true.
@@ -1597,14 +1507,14 @@ Creates and loads a new wallet.
 
 **Arguments:**
 
-    1. "wallet_name" (string, required) The name for the new wallet. If this is a path, the wallet will be created at the path location.
+    1. "wallet_name"        (string, required) The name for the new wallet. If this is a path, the wallet will be created at the path location.
     2. disable_private_keys (boolean, optional, default: false) Disable the possibility of private keys (only watchonlys are possible in this mode).
 
 **Result:**
 
     {
-	    "name" : <wallet_name>, (string) The wallet name if created successfully. If the wallet was created using a full path, the wallet_name will be the full path.
-	    "warning" : <warning>, (string) Warning message if wallet was not loaded cleanly.
+      "name" :    <wallet_name>, (string) The wallet name if created successfully. If the wallet was created using a full path, the wallet_name will be the full path.
+      "warning" : <warning>,     (string) Warning message if wallet was not loaded cleanly.
     }
 
 **Examples:**
@@ -1613,11 +1523,11 @@ Creates and loads a new wallet.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createwallet", "params": ["testwallet"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:** 
+**Test example:** 
 
     createwallet “ancd”
-**test result:**
-  
+    
+**Test result:**
 
       {
         "name": "ancd",
@@ -1633,29 +1543,29 @@ Implements the Creator role.
 
 **Arguments:**
 
-    1. "inputs" (array, required) A json array of json objects
+    1. "inputs"           (array, required) A json array of json objects
     [
-	    {
-		    "txid":"id", (string, required) The transaction id
-		    "vout":n, (numeric, required) The output number
-		    "sequence":n (numeric, optional) The sequence number
-	    }
-	    ,...
+      {
+        "txid":"id",      (string, required) The transaction id
+        "vout":n,         (numeric, required) The output number
+        "sequence":n      (numeric, optional) The sequence number
+      }
+      ,...
     ]
-    2. "outputs" (array, required) a json array with outputs (key-value pairs), where none of the keys are duplicated.
+    2. "outputs"          (array, required) a json array with outputs (key-value pairs), where none of the keys are duplicated.
     That is, each address can only appear once and there can only be one 'data' object.
     [
-	    {
-		    "address": x.xxx, (obj, optional) A key-value pair. The key (string) is the qtum address, the value (float or string) is the amount in QTUM
-	    },
-	    {
-		    "data": "hex" (obj, optional) A key-value pair. The key must be "data", the value is hex encoded data
-	    },... 
-	    More key-value pairs of the above form. For compatibility reasons, a dictionary, which holds the key-value pairs directly, is also
+      {
+        "address": x.xxx, (obj, optional) A key-value pair. The key (string) is the qtum address, the value (float or string) is the amount in QTUM
+      },
+      {
+        "data": "hex"     (obj, optional) A key-value pair. The key must be "data", the value is hex encoded data
+      },... 
+      More key-value pairs of the above form. For compatibility reasons, a dictionary, which holds the key-value pairs directly, is also
     accepted as second parameter.
     ]
-    3. locktime (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs
-    4. replaceable (boolean, optional, default=false) Marks this transaction as BIP125 replaceable.
+    3. locktime           (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs
+    4. replaceable        (boolean, optional, default=false) Marks this transaction as BIP125 replaceable.
     Allows this transaction to be replaced by a transaction with higher fees. If provided, it is an error if explicit sequence numbers are incompatible.
 
 **Result:**
@@ -1673,22 +1583,22 @@ Create a contract with bytcode.
 
 **Arguments:**
 
-    1. "bytecode" (string, required) contract bytcode.
-    2. gasLimit (numeric or string, optional) gasLimit, default: 2500000, max: 40000000
-    3. gasPrice (numeric or string, optional) gasPrice QTUM price per gas unit, default: 0.0000004, min:0.0000004
-    4. "senderaddress" (string, optional) The quantum address that will be used to create the contract.
-    5. "broadcast" (bool, optional, default=true) Whether to broadcast the transaction or not.
+    1. "bytecode"       (string, required) contract bytcode.
+    2. gasLimit         (numeric or string, optional) gasLimit, default: 2500000, max: 40000000
+    3. gasPrice         (numeric or string, optional) gasPrice QTUM price per gas unit, default: 0.0000004, min:0.0000004
+    4. "senderaddress"  (string, optional) The quantum address that will be used to create the contract.
+    5. "broadcast"      (bool, optional, default=true) Whether to broadcast the transaction or not.
     6. "changeToSender" (bool, optional, default=true) Return the change to the sender.
 
 **Result:**
 
     [
-	    {
-		    "txid" : (string) The transaction id.
-		    "sender" : (string) QTUM address of the sender.
-		    "hash160" : (string) ripemd-160 hash of the sender.
-		    "address" : (string) expected contract address.
-		}
+      {
+        "txid" :    (string) The transaction id.
+        "sender" :  (string) QTUM address of the sender.
+        "hash160" : (string) ripemd-160 hash of the sender.
+        "address" : (string) expected contract address.
+    }
     ]
 
 **Examples:**
@@ -1709,39 +1619,39 @@ it is not stored in the wallet or transmitted to the network.
 
 **Arguments:**
 
-    1. "inputs" (array, required) A json array of json objects
-    [
-	    {
-		    "txid":"id", (string, required) The transaction id
-		    "vout":n, (numeric, required) The output number
-		    "sequence":n (numeric, optional) The sequence number
-	    }
-	    ,...
-    ]
-    2. "outputs" (array, required) a json array with outputs (key-value pairs), where none of the keys are duplicated.
+     1. "inputs"               (array, required) A json array of json objects
+         [
+           {
+             "txid":"id",      (string, required) The transaction id
+             "vout":n,         (numeric, required) The output number
+             "sequence":n      (numeric, optional) The sequence number
+           } 
+           ,...
+         ]
+    2. "outputs"               (array, required) a json array with outputs (key-value pairs), where none of the keys are duplicated.
     That is, each address can only appear once and there can only be one 'data' object.
-    [
-	    {
-		    "address": x.xxx, (obj, optional) A key-value pair. The key (string) is the qtum address, the value (float or string) is the amount in QTUM
-	    },
-	    {
-		    "data": "hex" (obj, optional) A key-value pair. The key must be "data", the value is hex encoded data
-	    },
-	    {
-	    "contract":
-	    {
-		    "contractAddress":"address", (string, required) Valid contract address (valid hash160 hex data)
-		    "data":"hex", (string, required) Hex data to add in the call output
-		    "amount":x.xxx, (numeric, optional) Value in QTUM to send with the call, should be a valid amount, default 0
-		    "gasLimit":x, (numeric, optional) The gas limit for the transaction
-		    "gasPrice":x.xxx (numeric, optional) The gas price for the transaction
-	    }
-	    {
-	    ,... More key-value pairs of the above form. For compatibility reasons, a dictionary, which holds the key-value pairs directly, is also accepted as second parameter.
-    ]
-    3. locktime (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs
-    4. replaceable (boolean, optional, default=false) Marks this transaction as BIP125 replaceable.
-    Allows this transaction to be replaced by a transaction with higher fees. If provided, it is an error if explicit sequence numbers are incompatible.
+       [
+        {
+          "address": x.xxx,    (obj, optional) A key-value pair. The key (string) is the qtum address, the value (float or string) is the amount in QTUM
+        },
+        {
+          "data": "hex"        (obj, optional) A key-value pair. The key must be "data", the value is hex encoded data
+        },
+        {
+          "contract":{
+             "contractAddress":"address",   (string, required) Valid contract address (valid hash160 hex data)
+             "data":"hex",                  (string, required) Hex data to add in the call output
+             "amount":x.xxx,                (numeric, optional) Value in QTUM to send with the call, should be a valid amount, default 0
+             "gasLimit":x,                  (numeric, optional) The gas limit for the transaction
+             "gasPrice":x.xxx               (numeric, optional) The gas price for the transaction
+           } 
+        {
+        ,...                     More key-value pairs of the above form. For compatibility reasons, a dictionary, which holds the key-value pairs directly, is also
+                                 accepted as second parameter.
+       ]
+    3. locktime                  (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs
+    4. replaceable               (boolean, optional, default=false) Marks this transaction as BIP125 replaceable.
+                                 Allows this transaction to be replaced by a transaction with higher fees. If provided, it is an error if explicit sequence numbers are incompatible.
 
 **Result:**
 
@@ -1771,7 +1681,6 @@ Return a JSON object representing the serialized, base64-encoded partially signe
 
 **Result:**
    
-
     {
       "tx" : {                   (json object) The decoded network-serialized unsigned transaction.
         ...                                      The layout is the same as the output of decoderawtransaction.
@@ -1870,15 +1779,14 @@ Return a JSON object representing the serialized, hex-encoded transaction.
 **Arguments:**
 
     1. "hexstring" (string, required) The transaction hex string
-    2. iswitness (boolean, optional) Whether the transaction hex is a serialized witness transaction
+    2. iswitness   (boolean, optional) Whether the transaction hex is a serialized witness transaction
     If iswitness is not present, heuristic tests will be used in decoding
 
 **Result:**
-  
-
+ 
     {
-      "txid" : "id",        (string) The transaction id
-      "hash" : "id",        (string) The transaction hash (differs from txid for witness transactions)
+      "txid" : "id",          (string) The transaction id
+      "hash" : "id",          (string) The transaction hash (differs from txid for witness transactions)
       "size" : n,             (numeric) The transaction size
       "vsize" : n,            (numeric) The virtual transaction size (differs from size for witness transactions)
       "weight" : n,           (numeric) The transaction's weight (between vsize*4 - 3 and vsize*4)
@@ -1886,7 +1794,7 @@ Return a JSON object representing the serialized, hex-encoded transaction.
       "locktime" : ttt,       (numeric) The lock time
       "vin" : [               (array of json objects)
          {
-           "txid": "id",    (string) The transaction id
+           "txid": "id",      (string) The transaction id
            "vout": n,         (numeric) The output number
            "scriptSig": {     (json object) The script
              "asm": "asm",  (string) asm
@@ -1916,17 +1824,17 @@ Return a JSON object representing the serialized, hex-encoded transaction.
       ],
     }
 
-
 **Examples:**
 
     > qtum-cli decoderawtransaction "hexstring"
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decoderawtransaction", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:** 
+**Test example:** 
 
     ./qtum-cli decoderawtransaction "0100000001697f98c004bbb7d184119a31b2b8c96683fa8c7ca0d7755c6196888fb6ba046e010000006a473044022077de54191ae91b502d03a83bd1d580a8b4467fc3d205c7bce169f13e6abc1c91022064f759845c960b04ddf9dd5a635da5f8b990fc934fced06747d52f2658603735012103c426034f05b3b66700f151991e6e45f2d63545a73b36c0a8e8c4200c53f7fd2cfeffffff02a0f53813000000001976a914e85324d4402d9758122c5498de80d1cfcc6330cb88aca09f6636000000001976a914093f4c533deb449f6bd0a427bddb0f02c297101388ac5dad0700"
-**test result:**
+    
+**Test result:**
 
     {
       "txid": "27f5f35b447e219d0b3a3ac55f9dc6aacf2d4145fbd930207ef5b7710c47d883",
@@ -1988,15 +1896,15 @@ Decode a hex-encoded script.
 **Result:**
 
     {
-	    "asm":"asm", (string) Script public key
-	    "hex":"hex", (string) hex encoded public key
-	    "type":"type", (string) The output type
-	    "reqSigs": n, (numeric) The required signatures
-	    "addresses": [ (json array of string)
-	    "address" (string) qtum address
-	    ,...
-	    ],
-	    "p2sh","address" (string) address of P2SH script wrapping this redeem script (not returned if the script is already a P2SH).
+      "asm":"asm",   (string) Script public key
+      "hex":"hex",   (string) hex encoded public key
+      "type":"type", (string) The output type
+      "reqSigs": n,  (numeric) The required signatures
+      "addresses": [ (json array of string)
+      "address"      (string) qtum address
+      ,...
+      ],
+      "p2sh","address" (string) address of P2SH script wrapping this redeem script (not returned if the script is already a P2SH).
     }
     
 **Examples:**
@@ -2004,14 +1912,17 @@ Decode a hex-encoded script.
     > qtum-cli decodescript "hexstring"
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodescript", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-
-
-##  ehco
+    
+##  echo
 
 echo|echojson "message" ...
+
 Simply echo back the input arguments. This command is for testing.
+
 The difference between echo and echojson is that echojson has argument conversion enabled in the client-side table inqtum-cli and the GUI. There is no server-side difference.
+
 ## encryptwallet 
+
 Encrypts the wallet with 'passphrase'. This is for first time encryption.
 After this, any calls that interact with private keys such as sending or signing
 will require the passphrase to be set prior the making these calls.
@@ -2045,7 +1956,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "encryptwallet", "params": ["my pass phrase"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-## estimaterawfee conf_target
+## estimaterawfee
 
 WARNING: This interface is unstable and may disappear or change!
 
@@ -2060,30 +1971,30 @@ defined in BIP 141 (witness data is discounted).
 **Arguments:**
 
     1. conf_target (numeric) Confirmation target in blocks (1 - 1008)
-    2. threshold (numeric, optional) The proportion of transactions in a given feerate range that must have been
+    2. threshold   (numeric, optional) The proportion of transactions in a given feerate range that must have been
     confirmed within conf_target in order to consider those feerates as high enough and proceed to check
     lower buckets. Default: 0.95
 
 **Result:**
 
     {
-	    "short" : { (json object, optional) estimate for short time horizon
-	    "feerate" : x.x, (numeric, optional) estimate fee rate in QTUM/kB
-	    "decay" : x.x, (numeric) exponential decay (per block) for historical moving average of confirmation data
-	    "scale" : x, (numeric) The resolution of confirmation targets at this time horizon
-	    "pass" : { (json object, optional) information about the lowest range of feerates to succeed in meeting the threshold
-	    "startrange" : x.x, (numeric) start of feerate range
-	    "endrange" : x.x, (numeric) end of feerate range
-	    "withintarget" : x.x, (numeric) number of txs over history horizon in the feerate range that were confirmed within target
-	    "totalconfirmed" : x.x, (numeric) number of txs over history horizon in the feerate range that were confirmed at any point
-	    "inmempool" : x.x, (numeric) current number of txs in mempool in the feerate range unconfirmed for at least target blocks
-	    "leftmempool" : x.x, (numeric) number of txs over history horizon in the feerate range that left mempool unconfirmed after target
-	    },
-	    "fail" : { ... }, (json object, optional) information about the highest range of feerates to fail to meet the threshold
-	    "errors": [ str... ] (json array of strings, optional) Errors encountered during processing
-	    },
-	    "medium" : { ... }, (json object, optional) estimate for medium time horizon
-	    "long" : { ... } (json object) estimate for long time horizon
+      "short" : {                 estimate for short time horizon
+          "feerate" : x.x,        (numeric, optional) estimate fee rate in QTUM/kB
+          "decay" : x.x,          (numeric) exponential decay (per block) for historical moving average of confirmation data
+          "scale" : x,            (numeric) The resolution of confirmation targets at this time horizon
+          "pass" : {              (json object, optional) information about the lowest range of feerates to succeed in meeting the threshold
+              "startrange" : x.x,     (numeric) start of feerate range
+              "endrange" : x.x,       (numeric) end of feerate range
+              "withintarget" : x.x,   (numeric) number of txs over history horizon in the feerate range that were confirmed within target
+              "totalconfirmed" : x.x, (numeric) number of txs over history horizon in the feerate range that were confirmed at any point
+              "inmempool" : x.x,      (numeric) current number of txs in mempool in the feerate range unconfirmed for at least target blocks
+              "leftmempool" : x.x,    (numeric) number of txs over history horizon in the feerate range that left mempool unconfirmed after target
+          },
+          "fail" : { ... },       (json object, optional) information about the highest range of feerates to fail to meet the threshold
+          "errors":  [ str... ]   (json array of strings, optional) Errors encountered during processing
+      },
+      "medium" : { ... },    (json object, optional) estimate for medium time horizon
+      "long" : { ... }       (json object) estimate for long time horizon
     }
     
     Results are returned for any horizon which tracks blocks up to the confirmation target.
@@ -2102,29 +2013,29 @@ in BIP 141 (witness data is discounted).
 
 **Arguments:**
 
-    1. conf_target (numeric) Confirmation target in blocks (1 - 1008)
+    1. conf_target     (numeric) Confirmation target in blocks (1 - 1008)
     2. "estimate_mode" (string, optional, default=CONSERVATIVE) The fee estimate mode.
-    Whether to return a more conservative estimate which also satisfies
-    a longer history. A conservative estimate potentially returns a
-    higher feerate and is more likely to be sufficient for the desired
-    target, but is not as responsive to short term drops in the
-    prevailing fee market. Must be one of:
-    "UNSET" (defaults to CONSERVATIVE)
-    "ECONOMICAL"
-    "CONSERVATIVE"
+                       Whether to return a more conservative estimate which also satisfies
+                       a longer history. A conservative estimate potentially returns a
+                       higher feerate and is more likely to be sufficient for the desired
+                       target, but is not as responsive to short term drops in the
+                       prevailing fee market.  Must be one of:
+           "UNSET"     (defaults to CONSERVATIVE)
+           "ECONOMICAL"
+           "CONSERVATIVE"
 
 **Result:**
 
     {
-	    "feerate" : x.x, (numeric, optional) estimate fee-per-kilobyte (in QTUM)
-	    "errors": [ str... ] (json array of strings, optional) Errors encountered during processing
-	    "blocks" : n (numeric) block number where estimate was found
+      "feerate" : x.x,     (numeric, optional) estimate fee-per-kilobyte (in QTUM)
+      "errors": [ str... ] (json array of strings, optional) Errors encountered during processing
+      "blocks" : n         (numeric) block number where estimate was found
     }
-    
-    The request target will be clamped between 2 and the highest target
-    fee estimation is able to return based on how long it has been running.
-    An error is returned if not enough transactions and blocks
-    have been observed to make an estimate for any number of blocks.
+
+The request target will be clamped between 2 and the highest target
+fee estimation is able to return based on how long it has been running.
+An error is returned if not enough transactions and blocks
+have been observed to make an estimate for any number of blocks.
 
 **Example:**
 
@@ -2134,7 +2045,7 @@ in BIP 141 (witness data is discounted).
 
 Converts a raw hex address to a base58 pubkeyhash address
 
-## Arguments:
+**Arguments:**
 
     1. "hexaddress" (string, required) The raw hex address
 
@@ -2148,12 +2059,14 @@ Converts a raw hex address to a base58 pubkeyhash address
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "fromhexaddress", "params": ["hexaddress"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-**test example:**
+**Test example:**
 
     fromhexaddress "6c89a1a6ca2ae7c00b248bb2832d6f480f27da68"
-**test result:**
+    
+**Test result:**
 
     qTTH1Yr2eKCuDLqfxUyBLCAjmomQ8pyrBt
+    
 ## gethexaddress
 
 Converts a base58 pubkeyhash address to a hex address for use in smart contracts.
@@ -2172,11 +2085,11 @@ Converts a base58 pubkeyhash address to a hex address for use in smart contracts
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gethexaddress", "params": ["address"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-**test example:**
+**Test example:**
 
     gethexaddress "qTTH1Yr2eKCuDLqfxUyBLCAjmomQ8pyrBt"
     
-**test result:**
+**Test result:**
 
     6c89a1a6ca2ae7c00b248bb2832d6f480f27da68
 
@@ -2186,9 +2099,8 @@ Finalize the inputs of a PSBT. If the transaction is fully signed, it will produ
 
 **Arguments:**
 
-    1. "psbt" (string) A base64 string of a PSBT
-    2. "extract" (boolean, optional, default=true) If true and the transaction is complete,
-    extract and return the complete transaction in normal network serialization instead of the PSBT.
+    1. "psbt"    (string) A base64 string of a PSBT
+    2. "extract" (boolean, optional, default=true) If true and the transaction is complete, extract and return the complete transaction in normal network serialization instead of the PSBT.
 
 **Result:**
 
@@ -2217,39 +2129,40 @@ Only pay-to-pubkey, multisig, and P2SH versions thereof are currently supported 
 
 **Arguments:**
 
-    1. "hexstring" (string, required) The hex string of the raw transaction
-    2. options (object, optional)
-    {
-	    "changeAddress" (string, optional, default pool address) The qtum address to receive the change
-	    "changePosition" (numeric, optional, default random) The index of the change output
-	    "change_type" (string, optional) The output type to use. Only valid if changeAddress is not specified. Options are "legacy", "p2sh-segwit", and "bech32". Default is set by -changetype.
-	    "includeWatching" (boolean, optional, default false) Also select inputs which are watch only
-	    "lockUnspents" (boolean, optional, default false) Lock selected unspent outputs
-	    "feeRate" (numeric, optional, default not set: makes wallet determine the fee) Set a specific fee rate in QTUM/kB
-	    "subtractFeeFromOutputs" (array, optional) A json array of integers.
-	    The fee will be equally deducted from the amount of each specified output.
-	    The outputs are specified by their zero-based index, before any change output is added.
-	    Those recipients will receive less qtums than you enter in their corresponding amount field.
-	    If no outputs are specified here, the sender pays the fee.
-	    [vout_index,...]
-	    "replaceable" (boolean, optional) Marks this transaction as BIP125 replaceable.
-	    Allows this transaction to be replaced by a transaction with higher fees
-	    "conf_target" (numeric, optional) Confirmation target (in blocks)
-	    "estimate_mode" (string, optional, default=UNSET) The fee estimate mode, must be one of:
-	    "UNSET"
-	    "ECONOMICAL"
-	    "CONSERVATIVE"
-    }
-    for backward compatibility: passing in a true instead of an object will result in {"includeWatching":true}
-    3. iswitness (boolean, optional) Whether the transaction hex is a serialized witness transaction
-    If iswitness is not present, heuristic tests will be used in decoding
+    1. "hexstring"                (string, required) The hex string of the raw transaction
+    2. options                    (object, optional)
+       {
+         "changeAddress"          (string, optional, default pool address) The qtum address to receive the change
+         "changePosition"         (numeric, optional, default random) The index of the change output
+         "change_type"            (string, optional) The output type to use. Only valid if changeAddress is not specified. Options are "legacy", "p2sh-segwit", and "bech32". Default is set by -changetype.
+         "includeWatching"        (boolean, optional, default false) Also select inputs which are watch only
+         "lockUnspents"           (boolean, optional, default false) Lock selected unspent outputs
+         "feeRate"                (numeric, optional, default not set: makes wallet determine the fee) Set a specific fee rate in QTUM/kB
+         "subtractFeeFromOutputs" (array, optional) A json array of integers.
+                                  The fee will be equally deducted from the amount of each specified output.
+                                  The outputs are specified by their zero-based index, before any change output is added.
+                                  Those recipients will receive less qtums than you enter in their corresponding amount field.
+                                  If no outputs are specified here, the sender pays the fee.
+                                      [vout_index,...]
+         "replaceable"            (boolean, optional) Marks this transaction as BIP125 replaceable.
+                                  Allows this transaction to be replaced by a transaction with higher fees
+         "conf_target"            (numeric, optional) Confirmation target (in blocks)
+         "estimate_mode"          (string, optional, default=UNSET) The fee estimate mode, must be one of:
+             "UNSET"
+             "ECONOMICAL"
+             "CONSERVATIVE"
+       }
+                                  for backward compatibility: passing in a true instead of an object will result in {"includeWatching":true}
+    3. iswitness                  (boolean, optional) Whether the transaction hex is a serialized witness transaction 
+                                  If iswitness is not present, heuristic tests will be used in decoding
+
 
 **Result:**
 
     {
-	    "hex": "value", (string) The resulting raw transaction (hex-encoded string)
-	    "fee": n, (numeric) Fee in QTUM the resulting transaction pays
-	    "changepos": n (numeric) The position of the added change output, or -1
+      "hex": "value", (string) The resulting raw transaction (hex-encoded string)
+      "fee": n,       (numeric) Fee in QTUM the resulting transaction pays
+      "changepos": n  (numeric) The position of the added change output, or -1
     }
 
 **Examples:**
@@ -2270,14 +2183,13 @@ Send the transaction
 
     > qtum-cli sendrawtransaction "signedtransactionhex"
 
-
 ## generate 
 
 Mine up to nblocks blocks immediately (before the RPC call returns) to an address in the wallet.
 
 **Arguments:**
 
-    1. nblocks (numeric, required) How many blocks are generated immediately.
+    1. nblocks  (numeric, required) How many blocks are generated immediately.
     2. maxtries (numeric, optional) How many iterations to try (default = 1000000).
 
 **Result:**
@@ -2295,8 +2207,8 @@ Mine blocks immediately to a specified address (before the RPC call returns)
 
 **Arguments:**
 
-    1. nblocks (numeric, required) How many blocks are generated immediately.
-    2. address (string, required) The address to send the newly generated qtum to.
+    1. nblocks  (numeric, required) How many blocks are generated immediately.
+    2. address  (string, required) The address to send the newly generated qtum to.
     3. maxtries (numeric, optional) How many iterations to try (default = 1000000).
 
 **Result:**
@@ -2320,22 +2232,20 @@ Returns information about the given added node, or all added nodes
 
 **Result:**
 
-    [
-	    {
-		    "addednode" : "192.168.0.201", (string) The node IP address or name (as provided to addnode)
-		    "connected" : true|false, (boolean) If connected
-		    "addresses" : 
-			 [ 
-				   (list of objects) Only when connected = true
-				   {
-					    "address" : "192.168.0.201:3888", (string) The qtum server IP and port we're connected to
-					    "connected" : "outbound" (string) connection, inbound or outbound
-				   }
-		     ]
-	    }
-	    ,...
+     [
+      {
+        "addednode" : "192.168.0.201",          (string) The node IP address or name (as provided to addnode)
+        "connected" : true|false,               (boolean) If connected
+        "addresses" : [                         (list of objects) Only when connected = true
+           {
+             "address" : "192.168.0.201:3888",  (string) The qtum server IP and port we're connected to
+             "connected" : "outbound"           (string) connection, inbound or outbound
+           }
+         ]
+      }
+      ,...
     ]
-
+    
 **Examples:**
  
     > qtum-cli getaddednodeinfo "192.168.0.201"
@@ -2350,53 +2260,52 @@ It won't work without -txindex for utxo_size_inc, *fee or *feerate stats.
 
 **Arguments:**
 
-    1. "hash_or_height" (string or numeric, required) The block hash or height of the target block
-    2. "stats" (array, optional) Values to plot, by default all values (see result below)
-    [
-	    "height", (string, optional) Selected statistic
-	    "time", (string, optional) Selected statistic
-	    ,...
-    ]
+    1. "hash_or_height"     (string or numeric, required) The block hash or height of the target block
+    2. "stats"              (array,  optional) Values to plot, by default all values (see result below)
+        [
+          "height",         (string, optional) Selected statistic
+          "time",           (string, optional) Selected statistic
+          ,...
+        ]
 
 **Result:**
 
-    { 
-	    (json object)
-	    "avgfee": xxxxx, (numeric) Average fee in the block
-	    "avgfeerate": xxxxx, (numeric) Average feerate (in satoshis per virtual byte)
-	    "avgtxsize": xxxxx, (numeric) Average transaction size
-	    "blockhash": xxxxx, (string) The block hash (to check for potential reorgs)
-	    "feerate_percentiles": [ (array of numeric) Feerates at the 10th, 25th, 50th, 75th, and 90th percentile weight unit (in satoshis per virtual byte)
-	    "10th_percentile_feerate", (numeric) The 10th percentile feerate
-	    "25th_percentile_feerate", (numeric) The 25th percentile feerate
-	    "50th_percentile_feerate", (numeric) The 50th percentile feerate
-	    "75th_percentile_feerate", (numeric) The 75th percentile feerate
-	    "90th_percentile_feerate", (numeric) The 90th percentile feerate
-	    ],
-	    "height": xxxxx, (numeric) The height of the block
-	    "ins": xxxxx, (numeric) The number of inputs (excluding coinbase)
-	    "maxfee": xxxxx, (numeric) Maximum fee in the block
-	    "maxfeerate": xxxxx, (numeric) Maximum feerate (in satoshis per virtual byte)
-	    "maxtxsize": xxxxx, (numeric) Maximum transaction size
-	    "medianfee": xxxxx, (numeric) Truncated median fee in the block
-	    "mediantime": xxxxx, (numeric) The block median time past
-	    "mediantxsize": xxxxx, (numeric) Truncated median transaction size
-	    "minfee": xxxxx, (numeric) Minimum fee in the block
-	    "minfeerate": xxxxx, (numeric) Minimum feerate (in satoshis per virtual byte)
-	    "mintxsize": xxxxx, (numeric) Minimum transaction size
-	    "outs": xxxxx, (numeric) The number of outputs
-	    "subsidy": xxxxx, (numeric) The block subsidy
-	    "swtotal_size": xxxxx, (numeric) Total size of all segwit transactions
-	    "swtotal_weight": xxxxx, (numeric) Total weight of all segwit transactions divided by segwit scale factor (4)
-	    "swtxs": xxxxx, (numeric) The number of segwit transactions
-	    "time": xxxxx, (numeric) The block time
-	    "total_out": xxxxx, (numeric) Total amount in all outputs (excluding coinbase and thus reward [ie subsidy + totalfee])
-	    "total_size": xxxxx, (numeric) Total size of all non-coinbase transactions
-	    "total_weight": xxxxx, (numeric) Total weight of all non-coinbase transactions divided by segwit scale factor (4)
-	    "totalfee": xxxxx, (numeric) The fee total
-	    "txs": xxxxx, (numeric) The number of transactions (excluding coinbase)
-	    "utxo_increase": xxxxx, (numeric) The increase/decrease in the number of unspent outputs
-	    "utxo_size_inc": xxxxx, (numeric) The increase/decrease in size for the utxo index (not discounting op_return and similar)
+     {                           
+      "avgfee": xxxxx,          (numeric) Average fee in the block
+      "avgfeerate": xxxxx,      (numeric) Average feerate (in satoshis per virtual byte)
+      "avgtxsize": xxxxx,       (numeric) Average transaction size
+      "blockhash": xxxxx,       (string) The block hash (to check for potential reorgs)
+      "feerate_percentiles": [  (array of numeric) Feerates at the 10th, 25th, 50th, 75th, and 90th percentile weight unit (in satoshis per virtual byte)
+          "10th_percentile_feerate",      (numeric) The 10th percentile feerate
+          "25th_percentile_feerate",      (numeric) The 25th percentile feerate
+          "50th_percentile_feerate",      (numeric) The 50th percentile feerate
+          "75th_percentile_feerate",      (numeric) The 75th percentile feerate
+          "90th_percentile_feerate",      (numeric) The 90th percentile feerate
+      ],
+      "height": xxxxx,          (numeric) The height of the block
+      "ins": xxxxx,             (numeric) The number of inputs (excluding coinbase)
+      "maxfee": xxxxx,          (numeric) Maximum fee in the block
+      "maxfeerate": xxxxx,      (numeric) Maximum feerate (in satoshis per virtual byte)
+      "maxtxsize": xxxxx,       (numeric) Maximum transaction size
+      "medianfee": xxxxx,       (numeric) Truncated median fee in the block
+      "mediantime": xxxxx,      (numeric) The block median time past
+      "mediantxsize": xxxxx,    (numeric) Truncated median transaction size
+      "minfee": xxxxx,          (numeric) Minimum fee in the block
+      "minfeerate": xxxxx,      (numeric) Minimum feerate (in satoshis per virtual byte)
+      "mintxsize": xxxxx,       (numeric) Minimum transaction size
+      "outs": xxxxx,            (numeric) The number of outputs
+      "subsidy": xxxxx,         (numeric) The block subsidy
+      "swtotal_size": xxxxx,    (numeric) Total size of all segwit transactions
+      "swtotal_weight": xxxxx,  (numeric) Total weight of all segwit transactions divided by segwit scale factor (4)
+      "swtxs": xxxxx,           (numeric) The number of segwit transactions
+      "time": xxxxx,            (numeric) The block time
+      "total_out": xxxxx,       (numeric) Total amount in all outputs (excluding coinbase and thus reward [ie subsidy + totalfee])
+      "total_size": xxxxx,      (numeric) Total size of all non-coinbase transactions
+      "total_weight": xxxxx,    (numeric) Total weight of all non-coinbase transactions divided by segwit scale factor (4)
+      "totalfee": xxxxx,        (numeric) The fee total
+      "txs": xxxxx,             (numeric) The number of transactions (excluding coinbase)
+      "utxo_increase": xxxxx,   (numeric) The increase/decrease in the number of unspent outputs
+      "utxo_size_inc": xxxxx,   (numeric) The increase/decrease in size for the utxo index (not discounting op_return and similar)
     }
     
 **Examples:**
@@ -2411,19 +2320,19 @@ Compute statistics about the total number and rate of transactions in the chain.
 
 **Arguments:**
 
-    1. nblocks (numeric, optional) Size of the window in number of blocks (default: one month).
+    1. nblocks     (numeric, optional) Size of the window in number of blocks (default: one month).
     2. "blockhash" (string, optional) The hash of the block that ends the window.
 
 **Result:**
 
-    {
-	    "time": xxxxx, (numeric) The timestamp for the final block in the window in UNIX format.
-	    "txcount": xxxxx, (numeric) The total number of transactions in the chain up to that point.
-	    "window_final_block_hash": "...", (string) The hash of the final block in the window.
-	    "window_block_count": xxxxx, (numeric) Size of the window in number of blocks.
-	    "window_tx_count": xxxxx, (numeric) The number of transactions in the window. Only returned if "window_block_count" is > 0.
-	    "window_interval": xxxxx, (numeric) The elapsed time in the window in seconds. Only returned if "window_block_count" is > 0.
-	    "txrate": x.xx, (numeric) The average rate of transactions per second in the window. Only returned if "window_interval" is > 0.
+     {
+      "time": xxxxx,                         (numeric) The timestamp for the final block in the window in UNIX format.
+      "txcount": xxxxx,                      (numeric) The total number of transactions in the chain up to that point.
+      "window_final_block_hash": "...",      (string) The hash of the final block in the window.
+      "window_block_count": xxxxx,           (numeric) Size of the window in number of blocks.
+      "window_tx_count": xxxxx,              (numeric) The number of transactions in the window. Only returned if "window_block_count" is > 0.
+      "window_interval": xxxxx,              (numeric) The elapsed time in the window in seconds. Only returned if "window_block_count" is > 0.
+      "txrate": x.xx,                        (numeric) The average rate of transactions per second in the window. Only returned if "window_interval" is > 0.
     }
 
 **Examples:**
@@ -2432,19 +2341,17 @@ Compute statistics about the total number and rate of transactions in the chain.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getchaintxstats", "params": [2016] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-
-**test result:**
+**Test result:**
 
     {
-	    "time": 1561602624,
-	    "txcount": 866823,
-	    "window_final_block_hash": "ea6b26303facc34404da3174962a5c1d8d00369a3ff27aa50238ba8f24170280",
-	    "window_block_count": 20250,
-	    "window_tx_count": 41012,
-	    "window_interval": 2655920,
-	    "txrate": 0.01544173017259556
+      "time": 1561602624,
+      "txcount": 866823,
+      "window_final_block_hash": "ea6b26303facc34404da3174962a5c1d8d00369a3ff27aa50238ba8f24170280",
+      "window_block_count": 20250,
+      "window_tx_count": 41012,
+      "window_interval": 2655920,
+      "txrate": 0.01544173017259556
     }
-
 
 ## getnettotals
 
@@ -2454,18 +2361,18 @@ and current time.
 **Result:**
 
     {
-	    "totalbytesrecv": n, (numeric) Total bytes received
-	    "totalbytessent": n, (numeric) Total bytes sent
-	    "timemillis": t, (numeric) Current UNIX time in milliseconds
-	    "uploadtarget":
-	    {
-		    "timeframe": n, (numeric) Length of the measuring timeframe in seconds
-		    "target": n, (numeric) Target in bytes
-		    "target_reached": true|false, (boolean) True if target is reached
-		    "serve_historical_blocks": true|false, (boolean) True if serving historical blocks
-		    "bytes_left_in_cycle": t, (numeric) Bytes left in current time cycle
-		    "time_left_in_cycle": t (numeric) Seconds left in current time cycle
-	    }
+      "totalbytesrecv": n,                     (numeric) Total bytes received
+      "totalbytessent": n,                     (numeric) Total bytes sent
+      "timemillis": t,                         (numeric) Current UNIX time in milliseconds
+      "uploadtarget":
+      {
+        "timeframe": n,                        (numeric) Length of the measuring timeframe in seconds
+        "target": n,                           (numeric) Target in bytes
+        "target_reached": true|false,          (boolean) True if target is reached
+        "serve_historical_blocks": true|false, (boolean) True if serving historical blocks
+        "bytes_left_in_cycle": t,              (numeric) Bytes left in current time cycle
+        "time_left_in_cycle": t                (numeric) Seconds left in current time cycle
+      }
     }
 
 **Examples:**
@@ -2483,7 +2390,7 @@ Pass in [height] to estimate the network speed at the time when a certain block 
 **Arguments:**
 
     1. nblocks (numeric, optional, default=120) The number of blocks, or -1 for blocks since last difficulty change.
-    2. height (numeric, optional, default=-1) To estimate at the time of the given height.
+    2. height  (numeric, optional, default=-1) To estimate at the time of the given height.
 
 **Result:**
 
@@ -2495,30 +2402,13 @@ Pass in [height] to estimate the network speed at the time when a certain block 
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkhashps", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-
-**test result:**
-
+**Test result:**
 
     3.514351301619956e-008
 
 ## getstakinginfo
+
 Returns an object containing staking-related information.
-
-**test result:**
-
-    {
-	    "enabled": true,
-	    "staking": false,
-	    "errors": "",
-	    "currentblocktx": 0,
-	    "pooledtx": 0,
-	    "difficulty": 4.656542373906925e-010,
-	    "search-interval": 0,
-	    "weight": 0,
-	    "netstakeweight": 0,
-	    "expectedtime": 0
-    }
-
 
 **Example:**
 
@@ -2527,16 +2417,35 @@ Returns an object containing staking-related information.
 **Result:**
 
     {
-	    "enabled": true or false,(bool),if HD key is enabled, the value if true,else is false.
-	    "staking": true or false,(bool),if wallet staking token or not.
-	    "errors": "XXX", (string), any network and blockchain errors
-	    "currentblocktx": n,(numberic),the last block transaction
-	    "pooledtx": n, (numberic), The size of the mempool
-	    "difficulty": n,(number),the current proof-of-work difficulty
-	    "search-interval": n,
-	    "weight": n,(number), the total staking token number
-	    "netstakeweight": 0, 
-	    "expectedtime": 0
+      "enabled": true or false,(bool),if HD key is enabled, the value if true,else is false.
+      "staking": true or false,(bool),if wallet staking token or not.
+      "errors": "XXX",         (string), any network and blockchain errors
+      "currentblocktx": n,     (numberic),the last block transaction
+      "pooledtx": n,           (numberic), The size of the mempool
+      "difficulty": n,         (numberic),the current proof-of-work difficulty
+      "search-interval": n,
+      "weight": n,             (numberic), the total staking token number
+      "netstakeweight": n,     (numberic), the total numbers of staking in the network
+      "expectedtime": n,       (numberic), the time that to get the rights to cast the block
+    }
+
+**Test example:**
+
+    ./qtum-cli getstakinginfo
+
+**Test result:**
+
+    {
+      "enabled": true,
+      "staking": false,
+      "errors": "",
+      "currentblocktx": 0,
+      "pooledtx": 0,
+      "difficulty": 4.656542373906925e-010,
+      "search-interval": 0,
+      "weight": 0,
+      "netstakeweight": 0,
+      "expectedtime": 0
     }
 
 
@@ -2544,7 +2453,7 @@ Returns an object containing staking-related information.
 
 Returns subsidy value for the specified value of target.
 
-**test result:**
+**Test result:**
 
     2000000000000
 
@@ -2555,30 +2464,28 @@ Returns an object containing various wallet state info.
 **Result:**
 
     {
-	    "walletname": xxxxx, (string) the wallet name
-	    "walletversion": xxxxx, (numeric) the wallet version
-	    "balance": xxxxxxx, (numeric) the total confirmed balance of the wallet in QTUM
-	    "stake": xxxxxxx, (numeric) the total stake balance of the wallet in QTUM
-	    "unconfirmed_balance": xxx, (numeric) the total unconfirmed balance of the wallet in QTUM
-	    "immature_balance": xxxxxx, (numeric) the total immature balance of the wallet in QTUM
-	    "txcount": xxxxxxx, (numeric) the total number of transactions in the wallet
-	    "keypoololdest": xxxxxx, (numeric) the timestamp (seconds since Unix epoch) of the oldest pre-generated key in the key pool
-	    "keypoolsize": xxxx, (numeric) how many new keys are pre-generated (only counts external keys)
-	    "keypoolsize_hd_internal": xxxx, (numeric) how many new keys are pre-generated for internal use (used for change outputs, only appears if the wallet is using this feature, otherwise external keys are used)
-	    "unlocked_until": ttt, (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked
-	    "paytxfee": x.xxxx, (numeric) the transaction fee configuration, set in QTUM/kB
-	    "hdseedid": "<hash160>" (string, optional) the Hash160 of the HD seed (only present when HD is enabled)
-	    "hdmasterkeyid": "<hash160>" (string, optional) alias for hdseedid retained for backwards-compatibility. Will be removed in V0.18.
-	    "private_keys_enabled": true|false (boolean) false if privatekeys are disabled for this wallet (enforced watch-only wallet)
+      "walletname": xxxxx,               (string) the wallet name
+      "walletversion": xxxxx,            (numeric) the wallet version
+      "balance": xxxxxxx,                (numeric) the total confirmed balance of the wallet in QTUM
+      "stake": xxxxxxx,                  (numeric) the total stake balance of the wallet in QTUM
+      "unconfirmed_balance": xxx,        (numeric) the total unconfirmed balance of the wallet in QTUM
+      "immature_balance": xxxxxx,        (numeric) the total immature balance of the wallet in QTUM
+      "txcount": xxxxxxx,                (numeric) the total number of transactions in the wallet
+      "keypoololdest": xxxxxx,           (numeric) the timestamp (seconds since Unix epoch) of the oldest pre-generated key in the key pool
+      "keypoolsize": xxxx,               (numeric) how many new keys are pre-generated (only counts external keys)
+      "keypoolsize_hd_internal": xxxx,   (numeric) how many new keys are pre-generated for internal use (used for change outputs, only appears if the wallet is using this feature, otherwise external keys are used)
+      "unlocked_until": ttt,             (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked
+      "paytxfee": x.xxxx,                (numeric) the transaction fee configuration, set in QTUM/kB
+      "hdseedid": "<hash160>"            (string, optional) the Hash160 of the HD seed (only present when HD is enabled)
+      "hdmasterkeyid": "<hash160>"       (string, optional) alias for hdseedid retained for backwards-compatibility. Will be removed in V0.18.
+      "private_keys_enabled": true|false (boolean) false if privatekeys are disabled for this wallet (enforced watch-only wallet)
     }
     
 **Examples:**
   
-
       > qtum-cli getwalletinfo
       
       > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-
 
 ## getzmqnotifications
 
@@ -2587,12 +2494,11 @@ Returns information about the active ZeroMQ notifications.
 **Result:**
 
     [
-	    { 
-		    (json object)
-		    "type": "pubhashtx", (string) Type of notification
-		    "address": "..." (string) Address of the publisher
-	    },
-	    ...
+      { 
+        "type": "pubhashtx", (string) Type of notification
+        "address": "..."     (string) Address of the publisher
+      },
+      ...
     ]
 
 **Examples:**
@@ -2613,14 +2519,14 @@ Note this call may take some time.
 **Result:**
 
     {
-	    "height":n, (numeric) The current block height (index)
-	    "bestblock": "hex", (string) The hash of the block at the tip of the chain
-	    "transactions": n, (numeric) The number of transactions with unspent outputs
-	    "txouts": n, (numeric) The number of unspent transaction outputs
-	    "bogosize": n, (numeric) A meaningless metric for UTXO set size
-	    "hash_serialized_2": "hash", (string) The serialized hash
-	    "disk_size": n, (numeric) The estimated size of the chainstate on disk
-	    "total_amount": x.xxx (numeric) The total amount
+      "height":n,                  (numeric) The current block height (index)
+      "bestblock": "hex",          (string) The hash of the block at the tip of the chain
+      "transactions": n,           (numeric) The number of transactions with unspent outputs
+      "txouts": n,                 (numeric) The number of unspent transaction outputs
+      "bogosize": n,               (numeric) A meaningless metric for UTXO set size
+      "hash_serialized_2": "hash", (string) The serialized hash
+      "disk_size": n,              (numeric) The estimated size of the chainstate on disk
+      "total_amount": x.xxx        (numeric) The total amount
     }
 
 **Examples:**
@@ -2629,8 +2535,8 @@ Note this call may take some time.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxoutsetinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-
 ## gettxoutproof
+
 Returns a hex-encoded proof that "txid" was included in a block.
 
 NOTE: By default this function only works sometimes. This is when there is an
@@ -2641,24 +2547,22 @@ specify the block in which the transaction is included manually (by blockhash).
 **Arguments:**
 
     1. "txids" (string,required) A json array of txids to filter
-	    [
-		    "txid" (string) A transaction hash
-		    ,...
-	    ]
+      [
+        "txid" (string) A transaction hash
+        ,...
+      ]
     2. "blockhash" (string, optional) If specified, looks for txid in the block with this hash
 
 **Result:**
 
     "data" (string) A string that is a serialized, hex-encoded data for the proof.
 
-**test example:** 
+**Test example:** 
 
     ./qtum-cli gettxoutproof [\"5caa24c8c78f441a5c37dff602cdacc27b4530b03c09569f62dc3cd20e674918\"]
 
-**test result:**
-
+**Test result:**
     0000002081d3145a457b724b725171603a991b8d8186f0506c65722e436a6a33d039690ed689a1e4bdea746f8a3c47d6856765282fb5f7f20c9c43cc9e0170b6ba1214076010135d8683001b0000000052ef386ec7ae80719e408c3ea4193583bd0665fffd633d5e10b19e26375ac9b6386faa7484bfd98fc4789fd584229d5c20f72f772a8b3024ea94d1563e84e964b7e989413b1f509a5c14f24dadcf6da7e4f9e8559e5f6ff185cbc978fa1693fc0100000046304402205c0fbeff48e49b24848fba7428ea1c821ef4942135d60f51f6a4260e76941ac5022012a051fc518ec6b684a49eaf75631cdfa5574b170ccab6a0612da44585eab5600300000002fc77727661996828f410e89871d981a1c37f951d35d4ed196745d348cc74ca611849670ed23cdc629f56093cb030457bc2accd02f6df375c1a448fc7c824aa5c010d
-
 
 ## gettxout
 
@@ -2666,29 +2570,28 @@ Returns details about an unspent transaction output.
 
 **Arguments:**
 
-    1. "txid" (string, required) The transaction id
-    2. "n" (numeric, required) vout number
+    1. "txid"            (string, required) The transaction id
+    2. "n"               (numeric, required) vout number
     3. "include_mempool" (boolean, optional) Whether to include the mempool. Default: true. Note that an unspent output that is spent in the mempool won't appear.
 
 **Result:**
 
     {
-	    "bestblock": "hash", (string) The hash of the block at the tip of the chain
-	    "confirmations" : n, (numeric) The number of confirmations
-	    "value" : x.xxx, (numeric) The transaction value in QTUM
-	    "scriptPubKey" : 
-	    { 
-		    (json object)
-		    "asm" : "code", (string)
-		    "hex" : "hex", (string)
-		    "reqSigs" : n, (numeric) Number of required signatures
-		    "type" : "pubkeyhash", (string) The type, eg pubkeyhash
-		    "addresses" : [ (array of string) array of qtum addresses
-		    "address" (string) qtum address
-		    ,...
-		    ]
-        },
-	    "coinbase" : true|false (boolean) Coinbase or not
+      "bestblock": "hash",    (string) The hash of the block at the tip of the chain
+      "confirmations" : n,    (numeric) The number of confirmations
+      "value" : x.xxx,        (numeric) The transaction value in QTUM
+      "scriptPubKey" : 
+      { 
+        "asm" : "code",       (string)
+        "hex" : "hex",        (string)
+        "reqSigs" : n,        (numeric) Number of required signatures
+        "type" : "pubkeyhash",(string) The type, eg pubkeyhash
+        "addresses" : [ (array of string) array of qtum addresses
+        "address"             (string) qtum address
+        ,...
+        ]
+       },
+      "coinbase" : true|false (boolean) Coinbase or not
     }
 
 **Examples:**
@@ -2707,50 +2610,47 @@ As a json rpc call
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxout", "params": ["txid", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## gettransactionreceipt
+
 requires -logevents to be enabled
+
 **Argument:**
 
     1. "hash" (string, required) The contract transaction hash
 
 **Result:**
-
-
     
     {
-	    "blockHash": "XXX" (String), 32 bytes, the blockhash included this tx.
-	    "blockNumber": n (Number), the blocknumber included this transaction.
-	    "transaction": "XXX": (String), 32 bytes，the hash of this transaction.
-	    "transactionIndex": n(numberic), the index in the block for this tx.
-	    "from": "XXX"(String), 20 bytes，the sender address of this tx.
-	    "to"  : "XXXX"(String), 20 bytes，the receiver address of this tx. if this  address is created by a contract,return null. 
-	    "cumulativeGasUsed": n (numberic), The total amount of gas used after execution of the current transaction
-	    "gasUsed": n (numberic), The gas cost alone to execute the current transaction。
-	    "contractAddress": "XXX"(String), 20 bytes，the created contract address.
-	    if this tx is created by the contract, return the contract address. else return null.
-	    "logs": []
+      "blockHash":  "XXX"        (String), 32 bytes, the blockhash included this tx.
+      "blockNumber": n           (Number), the blocknumber included this transaction.
+      "transaction": "XXX":      (String), 32 bytes，the hash of this transaction.
+      "transactionIndex": n      (numberic), the index in the block for this tx.
+      "from": "XXX"              (String), 20 bytes，the sender address of this tx.
+      "to"  : "XXXX"             (String), 20 bytes，the receiver address of this tx. if this  address is created by a contract,return null. 
+      "cumulativeGasUsed": n     (numberic), The total amount of gas used after execution of the current transaction
+      "gasUsed": n (numberic), The gas cost alone to execute the current transaction。
+      "contractAddress": "XXX"   (String), 20 bytes，the created contract address.
+       if this tx is created by the contract, return the contract address. else return null.
+      "logs": []
     }
 
-
-**test result:**
+**Test result:**
 
     [
-	    {
-		    "blockHash": "1e34edb316f9c442d1db71ad5bd5376650387c6deb275c63c459b6624880180b",
-		    "blockNumber": 196529,
-		    "transactionHash": "acccfb57aaeb94127560f4762d5372af3dcb4faddf9de3b2ce6bde0fdd1d57d5",
-		    "transactionIndex": 2,
-		    "from": "83c2436854450b0895d4c1d965720ef5e6a125be",
-		    "to": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
-		    "cumulativeGasUsed": 23619,
-		    "gasUsed": 23619,
-		    "contractAddress": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
-		    "excepted": "None",
-		    "log": [
-		    ]
-	    }
+      {
+        "blockHash": "1e34edb316f9c442d1db71ad5bd5376650387c6deb275c63c459b6624880180b",
+        "blockNumber": 196529,
+        "transactionHash": "acccfb57aaeb94127560f4762d5372af3dcb4faddf9de3b2ce6bde0fdd1d57d5",
+        "transactionIndex": 2,
+        "from": "83c2436854450b0895d4c1d965720ef5e6a125be",
+        "to": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
+        "cumulativeGasUsed": 23619,
+        "gasUsed": 23619,
+        "contractAddress": "74045ec0dc26ec1861473828bc140ebc4c1f3eff",
+        "excepted": "None",
+        "log": [
+        ]
+      }
     ]
-
-
 
 ## importaddress
 
@@ -2759,9 +2659,9 @@ Adds an address or script (in hex) that can be watched as if it were in your wal
 **Arguments:**
 
     1. "address" (string, required) The Bitcoin address (or hex-encoded script)
-    2. "label" (string, optional, default="") An optional label
-    3. rescan (boolean, optional, default=true) Rescan the wallet for transactions
-    4. p2sh (boolean, optional, default=false) Add the P2SH version of the script as well
+    2. "label"   (string, optional, default="") An optional label
+    3. rescan    (boolean, optional, default=true) Rescan the wallet for transactions
+    4. p2sh      (boolean, optional, default=false) Add the P2SH version of the script as well
 
 Note: This call can take over an hour to complete if rescan is true, during that time, other rpc calls
 may report that the imported address exists but related transactions are still missing, leading to temporarily incorrect/bogus balances and unspent outputs until rescan completes.
@@ -2805,15 +2705,14 @@ Import using the json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-
 ## importmulti
 
 Import addresses/scripts (with private or public keys, redeem script (P2SH)), rescanning all addresses in one-shot-only (rescan can be disabled via options). Requires a new wallet backup.
 
 **Arguments:**
 
-    1. requests     (array, required) Data to be imported
-      [     (array of json objects)
+    1. requests                                                   (array, required) Data to be imported
+      [     
         {
           "scriptPubKey": "<script>" | { "address":"<address>" }, (string / json, required) Type of scriptPubKey (string for script, json for address)
           "timestamp": timestamp | "now"                        , (integer / string, required) Creation time of the key in seconds since epoch (Jan 1 1970 GMT),
@@ -2847,7 +2746,6 @@ Import addresses/scripts (with private or public keys, redeem script (P2SH)), re
     
     Response is an array with the same size as the input that has the execution result :
     [{ "success": true } , { "success": false, "error": { "code": -1, "message": "Internal Server Error"} }, ... ]
-
 
 ## importprivkey
 
@@ -2885,15 +2783,14 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["mykey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-
 ## importpubkey
 Adds a public key (in hex) that can be watched as if it were in your wallet but cannot be used to spend. Requires a new wallet backup.
 
 **Arguments:**
 
     1. "pubkey" (string, required) The hex-encoded public key
-    2. "label" (string, optional, default="") An optional label
-    3. rescan (boolean, optional, default=true) Rescan the wallet for transactions
+    2. "label"  (string, optional, default="") An optional label
+    3. rescan   (boolean, optional, default=true) Rescan the wallet for transactions
     
     Note: This call can take over an hour to complete if rescan is true, during that time, other rpc calls
     may report that the imported pubkey exists but related transactions are still missing, leading to temporarily incorrect/bogus balances and unspent outputs until rescan completes.
@@ -2911,7 +2808,6 @@ Import using a label without rescan
 As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importpubkey", "params": ["mypubkey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-
 
 ## keypoolrefill
 
@@ -2937,15 +2833,15 @@ in past transactions
 **Result:**
 
     [
-	    [
-		    [
-			    "address", (string) The qtum address
-			     amount, (numeric) The amount in QTUM
-			    "label" (string, optional) The label
-		    ]
-		    ,...
-	    ]
-	    ,...
+      [
+        [
+          "address", (string) The qtum address
+           amount,   (numeric) The amount in QTUM
+          "label"    (string, optional) The label
+        ]
+        ,...
+      ]
+      ,...
     ]
 
 **Examples:**
@@ -2953,14 +2849,7 @@ in past transactions
     > qtum-cli listaddressgroupings
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
-
-## listcontracts 
-**Argument:**
-
-    1. start (numeric or string, optional) The starting account index, default 1
-    2. maxDisplay (numeric or string, optional) Max accounts to list, default 2
-    
-   
+       
 
 ## listlabels
 
@@ -2973,13 +2862,11 @@ Returns the list of all labels, or labels that are assigned to addresses with a 
 **Result:**
 
     [ 
-	    (json array of string)
-	    "label", (string) Label name
-	    ...
+      "label", (string) Label name
+      ...
     ]
 
 **Examples:**
-
 
 List all labels
 
@@ -3003,12 +2890,13 @@ Returns list of temporarily unspendable outputs.
 See the lockunspent call to lock and unlock transactions for spending.
 
 **Result:**
+
     [
-	    {
-		    "txid" : "transactionid", (string) The transaction id locked
-		    "vout" : n (numeric) The vout value
-	    }
-	    ,...
+      {
+        "txid" : "transactionid", (string) The transaction id locked
+        "vout" : n ,              (numeric) The vout value
+      }
+      ,...
     ]
 
 **Examples:**
@@ -3033,8 +2921,6 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listlockunspent", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-
-
 **Examples:**
 
     > qtum-cli listreceivedbyaddress
@@ -3046,7 +2932,6 @@ As a json rpc call
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaddress", "params": [6, true, true, "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## listsinceblock
-
 
 Get all transactions in blocks since block [blockhash], or all transactions if omitted.
 If "blockhash" is no longer a part of the main chain, transactions from the fork point onward are included.
@@ -3063,28 +2948,30 @@ Additionally, if include_removed is set, transactions affecting the wallet which
 **Result:**
 
     {
-      "transactions": [
+      "transactions": 
+      [
         "account":"accountname",       (string) DEPRECATED. This field will be removed in V0.18. To see this deprecated field, start qtumd with -deprecatedrpc=accounts. The account name associated with the transaction. Will be "" for the default account.
-        "address":"address",    (string) The qtum address of the transaction. Not present for move transactions (category = move).
+        "address":"address",           (string) The qtum address of the transaction. Not present for move transactions (category = move).
         "category":"send|receive",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.
-        "amount": x.xxx,          (numeric) The amount in QTUM. This is negative for the 'send' category, and for the 'move' category for moves 
-                                              outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.
-        "vout" : n,               (numeric) the vout value
-        "fee": x.xxx,             (numeric) The amount of the fee in QTUM. This is negative and only available for the 'send' category of transactions.
-        "confirmations": n,       (numeric) The number of confirmations for the transaction. Available for 'send' and 'receive' category of transactions.
+        "amount": x.xxx,               (numeric) The amount in QTUM. This is negative for the 'send' category, and for the 'move' category for moves 
+                                               outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.
+        "vout" : n,                    (numeric) the vout value
+        "fee": x.xxx,                  (numeric) The amount of the fee in QTUM. This is negative and only available for the 'send' category of transactions.
+        "confirmations": n,            (numeric) The number of confirmations for the transaction. Available for 'send' and 'receive' category of transactions.
                                               When it's < 0, it means the transaction conflicted that many blocks ago.
-        "blockhash": "hashvalue",     (string) The block hash containing the transaction. Available for 'send' and 'receive' category of transactions.
-        "blockindex": n,          (numeric) The index of the transaction in the block that includes it. Available for 'send' and 'receive' category of transactions.
-        "blocktime": xxx,         (numeric) The block time in seconds since epoch (1 Jan 1970 GMT).
-        "txid": "transactionid",  (string) The transaction id. Available for 'send' and 'receive' category of transactions.
-        "time": xxx,              (numeric) The transaction time in seconds since epoch (Jan 1 1970 GMT).
-        "timereceived": xxx,      (numeric) The time received in seconds since epoch (Jan 1 1970 GMT). Available for 'send' and 'receive' category of transactions.
-        "bip125-replaceable": "yes|no|unknown",  (string) Whether this transaction could be replaced due to BIP125 (replace-by-fee);
-                                                       may be unknown for unconfirmed transactions not in the mempool
-        "abandoned": xxx,         (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the 'send' category of transactions.
-        "comment": "...",       (string) If a comment is associated with the transaction.
-        "label" : "label"       (string) A comment for the address/transaction, if any
-        "to": "...",            (string) If a comment to is associated with the transaction.
+        "blockhash": "hashvalue",      (string) The block hash containing the transaction. Available for 'send' and 'receive' category of transactions.
+        "blockindex": n,               (numeric) The index of the transaction in the block that includes it. Available for 'send' and 'receive' category of transactions.
+        "blocktime": xxx,              (numeric) The block time in seconds since epoch (1 Jan 1970 GMT).
+        "txid": "transactionid",       (string) The transaction id. Available for 'send' and 'receive' category of transactions.
+        "time": xxx,                   (numeric) The transaction time in seconds since epoch (Jan 1 1970 GMT).
+        "timereceived": xxx,           (numeric) The time received in seconds since epoch (Jan 1 1970 GMT). Available for 'send' and 'receive' category of transactions.
+        "bip125-replaceable": "yes|no|unknown",  
+                                       (string) Whether this transaction could be replaced due to BIP125 (replace-by-fee);
+                                              may be unknown for unconfirmed transactions not in the mempool
+        "abandoned": xxx,              (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the 'send' category of transactions.
+        "comment": "...",              (string) If a comment is associated with the transaction.
+        "label" : "label"              (string) A comment for the address/transaction, if any
+        "to": "...",                   (string) If a comment to is associated with the transaction.
       ],
       "removed": [
         <structure is the same as "transactions" above, only present if include_removed=true>
@@ -3092,8 +2979,6 @@ Additionally, if include_removed is set, transactions affecting the wallet which
       ],
       "lastblock": "lastblockhash"     (string) The hash of the block (target_confirmations-1) from the best block on the main chain. This is typically used to feed back into listsinceblock the next time you call it. So you would generally use a target_confirmations of say 6, so you will be continually re-notified of transactions until they've reached 6 confirmations plus any new ones
     }
-
-   
 
 **Examples:**
 
@@ -3103,28 +2988,90 @@ Additionally, if include_removed is set, transactions affecting the wallet which
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listreceivedbylabel
+## listtransactions
 
+listtransactions (label count skip include_watchonly)
+
+If a label name is provided, this will return only incoming transactions paying to addresses with the specified label.
+
+Returns up to 'count' most recent transactions skipping the first 'from' transactions.
+
+Note that the "account" argument and "otheraccount" return value have been removed in V0.17. To use this RPC with an "account" argument, restart
+qtumd with -deprecatedrpc=accounts
+
+**Arguments:**
+
+    1. "label"           (string, optional) If set, should be a valid label name to return only incoming transactions
+                  with the specified label, or "*" to disable filtering and return all transactions.
+    2. count             (numeric, optional, default=10) The number of transactions to return
+    3. skip              (numeric, optional, default=0) The number of transactions to skip
+    4. include_watchonly (bool, optional, default=false) Include transactions to watch-only addresses (see 'importaddress')
+  
+  **Result:**
+
+    [
+      {
+        "address":"address",      (string) The qtum address of the transaction.
+        "category":"send|receive", (string) The transaction category.
+        "amount": x.xxx,          (numeric) The amount in QTUM. This is negative for the 'send' category, and is positive
+                                            for the 'receive' category,
+        "label": "label",         (string) A comment for the address/transaction, if any
+        "vout": n,                (numeric) the vout value
+        "fee": x.xxx,             (numeric) The amount of the fee in QTUM. This is negative and only available for the 
+                                             'send' category of transactions.
+        "confirmations": n,       (numeric) The number of confirmations for the transaction. Negative confirmations indicate the
+                                             transaction conflicts with the block chain
+        "trusted": xxx,           (bool) Whether we consider the outputs of this unconfirmed transaction safe to spend.
+        "blockhash": "hashvalue", (string) The block hash containing the transaction.
+        "blockindex": n,          (numeric) The index of the transaction in the block that includes it.
+        "blocktime": xxx,         (numeric) The block time in seconds since epoch (1 Jan 1970 GMT).
+        "txid": "transactionid",  (string) The transaction id.
+        "time": xxx,              (numeric) The transaction time in seconds since epoch (midnight Jan 1 1970 GMT).
+        "timereceived": xxx,      (numeric) The time received in seconds since epoch (midnight Jan 1 1970 GMT).
+        "comment": "...",         (string) If a comment is associated with the transaction. 
+        "bip125-replaceable": "yes|no|unknown",  (string) Whether this transaction could be replaced due to BIP125 (replace-by-fee);
+                                                         may be unknown for unconfirmed transactions not in the mempool
+        "abandoned": xxx          (bool) 'true' if the transaction has been abandoned (inputs are respendable). Only available for the 
+                                             'send' category of transactions.
+      }
+    ]
+
+**Examples:**
+
+List the most recent 10 transactions in the systems
+
+    > qtum-cli listtransactions 
+
+List transactions 100 to 120
+
+    > qtum-cli listtransactions "*" 20 100
+
+As a json rpc call
+
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## 
+## listreceivedbylabel
 
 List received transactions by label.
 
 **Arguments:**
 
-    1. minconf (numeric, optional, default=1) The minimum number of confirmations before payments are included.
-    2. include_empty (bool, optional, default=false) Whether to include labels that haven't received any payments.
+    1. minconf           (numeric, optional, default=1) The minimum number of confirmations before payments are included.
+    2. include_empty     (bool, optional, default=false) Whether to include labels that haven't received any payments.
     3. include_watchonly (bool, optional, default=false) Whether to include watch-only addresses (see 'importaddress').
 
 **Result:**
 
     [
-	    {
-		    "involvesWatchonly" : true, (bool) Only returned if imported addresses were involved in transaction
-		    "account" : "accountname", (string) DEPRECATED. Backwards compatible alias for label.
-		    "amount" : x.xxx, (numeric) The total amount received by addresses with this label
-		    "confirmations" : n, (numeric) The number of confirmations of the most recent transaction included
-		    "label" : "label" (string) The label of the receiving address. The default label is "".
-	    }
-	    ,...
+      {
+        "involvesWatchonly" : true, (bool) Only returned if imported addresses were involved in transaction
+        "account" : "accountname",  (string) DEPRECATED. Backwards compatible alias for label.
+        "amount" : x.xxx,           (numeric) The total amount received by addresses with this label
+        "confirmations" : n,        (numeric) The number of confirmations of the most recent transaction included
+        "label" : "label"           (string) The label of the receiving address. The default label is "".
+      }
+      ,...
     ]
 
 **Examples:**
@@ -3134,6 +3081,206 @@ List received transactions by label.
     > qtum-cli listreceivedbylabel 6 true
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbylabel", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## listunspent 
+
+listunspent ( minconf maxconf  ["addresses",...] [include_unsafe] [query_options])
+
+Returns array of unspent transaction outputs with between minconf and maxconf (inclusive) confirmations.
+
+Optionally filter to only include txouts paid to specified addresses.
+
+**Arguments:**
+
+    1. minconf               (numeric, optional, default=1) The minimum confirmations to filter
+    2. maxconf               (numeric, optional, default=9999999) The maximum confirmations to filter
+    3. "addresses"           (string) A json array of qtum addresses to filter
+        [
+          "address"          (string) qtum address
+          ,...
+        ]
+    4. include_unsafe        (bool, optional, default=true) Include outputs that are not safe to spend See description of "safe" attribute below.
+    5. query_options         (json, optional) JSON with query options
+        {
+          "minimumAmount"    (numeric or string, default=0) Minimum value of each UTXO in QTUM
+          "maximumAmount"    (numeric or string, default=unlimited) Maximum value of each UTXO in QTUM
+          "maximumCount"     (numeric or string, default=unlimited) Maximum number of UTXOs
+          "minimumSumAmount" (numeric or string, default=unlimited) Minimum sum value of all UTXOs in QTUM
+        }
+
+**Result：**
+
+    [                
+      {
+        "txid" : "txid",          (string) the transaction id 
+        "vout" : n,               (numeric) the vout value
+        "address" : "address",    (string) the qtum address
+        "label" : "label",        (string) The associated label, or "" for the default label
+        "account" : "account",    (string) DEPRECATED. This field will be removed in V0.18. To see this deprecated field, start qtumd with -deprecatedrpc=accounts. The associated account, or "" for the default account
+        "scriptPubKey" : "key",   (string) the script key
+        "amount" : x.xxx,         (numeric) the transaction output amount in QTUM
+        "confirmations" : n,      (numeric) The number of confirmations
+        "redeemScript" : n        (string) The redeemScript if scriptPubKey is P2SH
+        "spendable" : xxx,        (bool) Whether we have the private keys to spend this output
+        "solvable" : xxx,         (bool) Whether we know how to spend this output, ignoring the lack of keys
+        "safe" : xxx              (bool) Whether this output is considered safe to spend. Unconfirmed transactions
+                                  from outside keys and unconfirmed replacement transactions are considered unsafe
+                                  and are not eligible for spending by fundrawtransaction and sendtoaddress.
+      }
+      ,...
+    ]
+
+**Examples：**
+
+    > qtum-cli listunspent 
+    
+    > qtum-cli listunspent 6 9999999 "[\"QjWnDZxwLhrJDcp4Hisse8RfBo2jRDZY5Z\",\"Q6sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\"]"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listunspent", "params": [6, 9999999 "[\"QjWnDZxwLhrJDcp4Hisse8RfBo2jRDZY5Z\",\"Q6sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    
+    > qtum-cli listunspent 6 9999999 '[]' true '{ "minimumAmount": 0.005 }'
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listunspent", "params": [6, 9999999, [] , true, { "minimumAmount": 0.005 } ] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## listwallets
+
+Returns a list of currently loaded wallets.
+For full information on the wallet, use "getwalletinfo"
+
+**Result:**
+
+    [                         
+      "walletname"            (string) the wallet name
+       ...
+    ]
+
+**Examples:**
+
+    > qtum-cli listwallets 
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listwallets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## loadwallet
+
+loadwallet "filename"
+
+Loads a wallet from a wallet file or directory.
+Note that all wallet command-line options used when starting qtumd will be
+applied to the new wallet (eg -zapwallettxes, upgradewallet, rescan, etc).
+
+**Arguments:**
+
+    1. "filename"    (string, required) The wallet directory or .dat file.
+
+**Result:**
+
+    {
+      "name" :    <wallet_name>,        (string) The wallet name if loaded successfully.
+      "warning" : <warning>,            (string) Warning message if wallet was not loaded cleanly.
+    }
+
+**Examples:**
+
+    > qtum-cli loadwallet "test.dat"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "loadwallet", "params": ["test.dat"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## lockunspent
+
+lockunspent unlock ([{"txid":"txid","vout":n},...])
+
+Updates list of temporarily unspendable outputs.
+
+Temporarily lock (unlock=false) or unlock (unlock=true) specified transaction outputs.
+
+If no transaction outputs are specified when unlocking then all current locked transaction outputs are unlocked.
+
+A locked transaction output will not be chosen by automatic coin selection, when spending qtums.
+
+Locks are stored in memory only. Nodes start with zero locked outputs, and the locked output list is always cleared (by virtue of process exit) when a node stops or fails. Also see the listunspent call.
+
+**Arguments:**
+
+    1. unlock            (boolean, required) Whether to unlock (true) or lock (false) the specified transactions
+    2. "transactions"  (string, optional) A json array of objects. Each object the txid (string) vout (numeric)
+         [           (json array of json objects)
+           {
+             "txid":"id",    (string) The transaction id
+             "vout": n         (numeric) The output number
+           }
+           ,...
+         ]
+     
+**Result:**
+
+    true|false (boolean) Whether the command was successful or not
+
+**Examples:**
+
+List the unspent transactions
+
+    > qtum-cli listunspent
+
+Lock an unspent transaction
+
+    > qtum-cli lockunspent false "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+
+List the locked transactions
+
+    > qtum-cli listlockunspent
+
+Unlock the transaction again
+
+    > qtum-cli lockunspent true "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"
+
+As a json rpc call
+
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "lockunspent", "params": [false, "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## logging
+
+logging ( <include> <exclude> )
+
+Gets and sets the logging configuration.
+
+When called without an argument, returns the list of categories with status that are currently being debug logged or not.
+
+When called with arguments, adds or removes categories from debug logging and return the lists above.
+The arguments are evaluated in order "include", "exclude".
+
+If an item is both included and excluded, it will thus end up being excluded.
+
+The valid logging categories are: net, tor, mempool, http, bench, zmq, db, rpc, estimatefee, addrman, selectcoins, reindex, cmpctblock, rand, prune, proxy, mempoolrej, libevent, coindb, qt, leveldb, coinstake, http-poll.
+
+In addition, the following are available as category names with special meanings:
+  - "all",  "1" : represent all logging categories.
+  - "none", "0" : even if other logging categories are specified, ignore all of them.
+
+**Arguments:**
+
+    1. "include"        (array of strings, optional) A json array of categories to add debug logging
+         [
+           "category"   (string) the valid logging category
+           ,...
+         ]
+    2. "exclude"        (array of strings, optional) A json array of categories to remove debug logging
+         [
+           "category"   (string) the valid logging category
+           ,...
+         ]
+
+**Result:**
+
+    {                  
+      "category": 0|1,  (numeric) if being debug logged or not. 0:inactive, 1:active
+      ...
+    }
+
+**Examples:**
+
+    > qtum-cli logging "[\"all\"]" "[\"http\"]"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "logging", "params": [["all"], "[libevent]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## ping
 
@@ -3159,8 +3306,6 @@ The effects of preciousblock are not retained across restarts.
 
     1. "blockhash" (string, required) the hash of the block to mark as precious
     
-**Result:**
-
 **Examples:**
 
     > qtum-cli preciousblock "blockhash"
@@ -3173,13 +3318,13 @@ Accepts the transaction into mined blocks at a higher (or lower) priority
 
 **Arguments:**
 
-    1. "txid" (string, required) The transaction id.
-    2. dummy (numeric, optional) API-Compatibility for previous API. Must be zero or null.
-    DEPRECATED. For forward compatibility use named arguments and omit this parameter.
-    3. fee_delta (numeric, required) The fee value (in satoshis) to add (or subtract, if negative).
-    Note, that this value is not a fee rate. It is a value to modify absolute fee of the TX.
-    The fee is not actually paid, only the algorithm for selecting transactions into a block
-    considers the transaction as it would have paid a higher (or lower) fee.
+    1. "txid"         (string, required) The transaction id.
+    2. dummy          (numeric, optional) API-Compatibility for previous API. Must be zero or null.
+                      DEPRECATED. For forward compatibility use named arguments and omit this parameter.
+    3. fee_delta      (numeric, required) The fee value (in satoshis) to add (or subtract, if negative).
+                      Note, that this value is not a fee rate. It is a value to modify absolute fee of the TX.
+                      The fee is not actually paid, only the algorithm for selecting transactions into a block
+                      considers the transaction as it would have paid a higher (or lower) fee.
 
 **Result:**
 
@@ -3193,10 +3338,12 @@ Accepts the transaction into mined blocks at a higher (or lower) priority
 
 
 ## pruneblockchain
+
  prune the spend tx to reduce the size of the block
+ 
 **Arguments:**
-    1. "height" (numeric, required) The block height to prune up to. May be set to a discrete height, or a unix timestamp
-    to prune blocks whose block time is at least 2 hours older than the provided timestamp.
+
+    1. "height" (numeric, required) The block height to prune up to. May be set to a discrete height, or a unix timestamp to prune blocks whose block time is at least 2 hours older than the provided timestamp.
 
 **Result:**
 
@@ -3208,7 +3355,7 @@ Accepts the transaction into mined blocks at a higher (or lower) priority
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "pruneblockchain", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## removeprunedfunds "txid"
+## removeprunedfunds
 
 Deletes the specified transaction from the wallet. Meant for use with pruned wallets and as a companion to importprunedfunds. This will affect wallet balances.
 
@@ -3217,7 +3364,6 @@ Deletes the specified transaction from the wallet. Meant for use with pruned wal
     1. "txid" (string, required) The hex-encoded id of the transaction you are deleting
 
 **Examples:**
-
 
     > qtum-cli removeprunedfunds "a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"
 
@@ -3237,8 +3383,8 @@ Rescan the local blockchain for wallet related transactions.
 **Result:**
 
     {
-	    "start_height" (numeric) The block height where the rescan has started. If omitted, rescan started from the genesis block.
-	    "stop_height" (numeric) The height of the last rescanned block. If omitted, rescan stopped at the chain tip.
+      "start_height" (numeric) The block height where the rescan has started. If omitted, rescan started from the genesis block.
+      "stop_height" (numeric) The height of the last rescanned block. If omitted, rescan stopped at the chain tip.
     }
 
 **Examples:**
@@ -3247,11 +3393,11 @@ Rescan the local blockchain for wallet related transactions.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "rescanblockchain", "params": [100000, 120000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-
-
 ## reservebalance 
+
 <reserve> is true or false to turn balance reserve on or off.
 <amount> is a real and rounded to cent.
+
 Set reserve amount not participating in network protection.
 If no parameters provided current setting is printed.
 
@@ -3265,28 +3411,25 @@ See sendrawtransaction call.
 
 **Arguments:**
 
-    1. ["rawtxs"] (array, required) An array of hex strings of raw transactions.
-    Length must be one for now.
+    1. ["rawtxs"] (array, required) An array of hex strings of raw transactions. Length must be one for now.
     2. allowhighfees (boolean, optional, default=false) Allow high fees
 
 **Result:**
 
-	    [ 
-	    (array) The result of the mempool acceptance test for each raw transaction in the input array.
-	    Length is exactly one for now.
-	    {
-		    "txid" (string) The transaction hash in hex
-		    "allowed" (boolean) If the mempool allows this tx to be inserted
-		    "reject-reason" (string) Rejection string (only present when 'allowed' is false)
-	    }
+    [                  (array) The result of the mempool acceptance test for each raw transaction in the input array.
+                                Length is exactly one for now.
+     {
+      "txid"           (string) The transaction hash in hex
+      "allowed"        (boolean) If the mempool allows this tx to be inserted
+      "reject-reason"  (string) Rejection string (only present when 'allowed' is false)
+     }
     ]
 
 **Examples:**
 
 Create a transaction
 
-    > qtum-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
-    Sign the transaction, and get back the hex
+    > qtum-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}" Sign the transaction, and get back the hex
     
     > qtum-cli signrawtransaction "myhex"
 
@@ -3326,13 +3469,10 @@ Returns the total uptime of the server.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "uptime", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-
 ## validateaddress
+
 Return information about the given qtum address.
-DEPRECATION WARNING: Parts of this command have been deprecated and moved to getaddressinfo. Clients must
-transition to using getaddressinfo to access this information before upgrading to v0.18. The following deprecated
-fields have moved to getaddressinfo and will only be shown here with -deprecatedrpc=validateaddress: ismine, iswatchonly,
-script, hex, pubkeys, sigsrequired, pubkey, addresses, embedded, iscompressed, account, timestamp, hdkeypath, kdmasterkeyid.
+DEPRECATION WARNING: Parts of this command have been deprecated and moved to getaddressinfo. Clients must transition to using getaddressinfo to access this information before upgrading to v0.18. The following deprecated fields have moved to getaddressinfo and will only be shown here with -deprecatedrpc=validateaddress: ismine, iswatchonly, script, hex, pubkeys, sigsrequired, pubkey, addresses, embedded, iscompressed, account, timestamp, hdkeypath, kdmasterkeyid.
 
 **Arguments:**
 
@@ -3341,13 +3481,13 @@ script, hex, pubkeys, sigsrequired, pubkey, addresses, embedded, iscompressed, a
 **Result:**
 
     {
-	    "isvalid" : true|false, (boolean) If the address is valid or not. If not, this is the only property returned.
-	    "address" : "address", (string) The qtum address validated
-	    "scriptPubKey" : "hex", (string) The hex encoded scriptPubKey generated by the address
-	    "isscript" : true|false, (boolean) If the key is a script
-	    "iswitness" : true|false, (boolean) If the address is a witness address
-	    "witness_version" : version (numeric, optional) The version number of the witness program
-	    "witness_program" : "hex" (string, optional) The hex value of the witness program
+      "isvalid" : true|false,       (boolean) If the address is valid or not. If not, this is the only property returned.
+      "address" : "address",        (string) The qtum address validated
+      "scriptPubKey" : "hex",       (string) The hex encoded scriptPubKey generated by the address
+      "isscript" : true|false,      (boolean) If the key is a script
+      "iswitness" : true|false,     (boolean) If the address is a witness address
+      "witness_version" : version   (numeric, optional) The version number of the witness program
+      "witness_program" : "hex"     (string, optional) The hex value of the witness program
     }
 
 **Examples:**
@@ -3363,7 +3503,7 @@ Verifies blockchain database.
 **Arguments:**
 
     1. checklevel (numeric, optional, 0-4, default=3) How thorough the block verification is.
-    2. nblocks (numeric, optional, default=6, 0=all) The number of blocks to check.
+    2. nblocks    (numeric, optional, default=6, 0=all) The number of blocks to check.
 
  **Result:**
 
@@ -3417,15 +3557,14 @@ Verifies that a proof points to a transaction in a block, returning the transact
 **Result:**
 
     ["txid"] (array, strings) The txid(s) which the proof commits to, or empty array if the proof can not be validated.
-**test example:**
+**Test example:**
 
     verifytxoutproof "0000002081d3145a457b724b725171603a991b8d8186f0506c65722e436a6a33d039690ed689a1e4bdea746f8a3c47d6856765282fb5f7f20c9c43cc9e0170b6ba1214076010135d8683001b0000000052ef386ec7ae80719e408c3ea4193583bd0665fffd633d5e10b19e26375ac9b6386faa7484bfd98fc4789fd584229d5c20f72f772a8b3024ea94d1563e84e964b7e989413b1f509a5c14f24dadcf6da7e4f9e8559e5f6ff185cbc978fa1693fc0100000046304402205c0fbeff48e49b24848fba7428ea1c821ef4942135d60f51f6a4260e76941ac5022012a051fc518ec6b684a49eaf75631cdfa5574b170ccab6a0612da44585eab5600300000002fc77727661996828f410e89871d981a1c37f951d35d4ed196745d348cc74ca611849670ed23cdc629f56093cb030457bc2accd02f6df375c1a448fc7c824aa5c010d"
 
-
-**test result:**
+**Test result:**
 
     [
-	    "5caa24c8c78f441a5c37dff602cdacc27b4530b03c09569f62dc3cd20e674918"
+      "5caa24c8c78f441a5c37dff602cdacc27b4530b03c09569f62dc3cd20e674918"
     ]
 
 ## savemempool
@@ -3458,36 +3597,56 @@ For more information on output descriptors, see the documentation in the doc/des
 
 **Arguments:**
 
-    1. "action" (string, required) The action to execute
-    "start" for starting a scan
-    "abort" for aborting the current scan (returns true when abort was successful)
-    "status" for progress report (in %) of the current scan
-    2. "scanobjects" (array, required) Array of scan objects
-    [ 
-	    Every scan object is either a string descriptor or an object:
-	    "descriptor", (string, optional) An output descriptor
-	    { 
-		    (object, optional) An object with output descriptor and metadata
-		    "desc": "descriptor", (string, required) An output descriptor
-		    "range": n, (numeric, optional) Up to what child index HD chains should be explored (default: 1000)
-	    },
-	    ...
-    ]
+    1. "action"                       (string, required) The action to execute
+                                          "start" for starting a scan
+                                          "abort" for aborting the current scan (returns true when abort was successful)
+                                          "status" for progress report (in %) of the current scan
+    2. "scanobjects"                  (array, required) Array of scan objects
+        [                             Every scan object is either a string descriptor or an object:
+            "descriptor",             (string, optional) An output descriptor
+            {                         (object, optional) An object with output descriptor and metadata
+              "desc": "descriptor",   (string, required) An output descriptor
+              "range": n,             (numeric, optional) Up to what child index HD chains should be explored (default: 1000)
+            },
+            ...
+        ]
 
 **Result:**
 
-    {
-	    "unspents": [
-	    {
-		    "txid" : "transactionid", (string) The transaction id
-		    "vout": n, (numeric) the vout value
-		    "scriptPubKey" : "script", (string) the script key
-		    "amount" : x.xxx, (numeric) The total amount in QTUM of the unspent output
-		    "height" : n, (numeric) Height of the unspent transaction output
-	    }
-	    ,...],
-	    "total_amount" : x.xxx, (numeric) The total amount of all found unspent outputs in QTUM
-    ]
+  
+
+     {
+      "unspents": [
+        {
+        "txid" : "transactionid",     (string) The transaction id
+        "vout": n,                    (numeric) the vout value
+        "scriptPubKey" : "script",    (string) the script key
+        "amount" : x.xxx,             (numeric) The total amount in QTUM of the unspent output
+        "height" : n,                 (numeric) Height of the unspent transaction output
+       }
+       ,...], 
+     "total_amount" : x.xxx,          (numeric) The total amount of all found unspent outputs in QTUM
+    ] 
+    
+## searchlogs
+
+searchlogs <fromBlock> <toBlock> (address) (topics)
+requires -logevents to be enabled
+
+**Arguments:**
+
+    1. "fromBlock"        (numeric, required) The number of the earliest block (latest may be given to mean the most recent block).
+    2. "toBlock"          (string, required) The number of the latest block (-1 may be given to mean the most recent block).
+    3. "address"          (string, optional) An address or a list of addresses to only get logs from particular account(s).
+    4. "topics"           (string, optional) An array of values from which at least one must appear in the log entries. The order is important, if you want to leave topics out use null, e.g. ["null", "0x00..."]. 
+    5. "minconf"          (uint, optional, default=0) Minimal number of confirmations before a log is returned
+
+**Examples:**
+
+    > qtum-cli searchlogs 0 100 '{"addresses": ["12ae42729af478ca92c8c66773a3e32115717be4"]}' '{"topics": ["null","b436c2bf863ccd7b8f63171201efd4792066b4ce8e543dde9c3e9e9ab98e216c"]}'
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "searchlogs", "params": [0 100 {"addresses": ["12ae42729af478ca92c8c66773a3e32115717be4"]} {"topics": ["null","b436c2bf863ccd7b8f63171201efd4792066b4ce8e543dde9c3e9e9ab98e216c"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
 ## sendmany
 
 Send multiple times. Amounts are double-precision floating point numbers.
@@ -3498,28 +3657,28 @@ Requires wallet passphrase to be set with walletpassphrase call.
 
 **Arguments:**
 
-    1. "dummy" (string, required) Must be set to "" for backwards compatibility.
-    2. "amounts" (string, required) A json object with addresses and amounts
-	    {
-		    "address":amount (numeric or string) The qtum address is the key, the numeric amount (can be string) in QTUM is the value
-		    ,...
-	    }
-    3. minconf (numeric, optional, default=1) Only use the balance confirmed at least this many times.
-    4. "comment" (string, optional) A comment
-    5. subtractfeefrom (array, optional) A json array with addresses.
-    The fee will be equally deducted from the amount of each selected address.
-    Those recipients will receive less qtums than you enter in their corresponding amount field.
-    If no addresses are specified here, the sender pays the fee.
-	    [
-		    "address" (string) Subtract fee from this address
-		    ,...
-	    ]
-    6. replaceable (boolean, optional) Allow this transaction to be replaced by a transaction with higher fees via BIP 125
-    7. conf_target (numeric, optional) Confirmation target (in blocks)
-    8. "estimate_mode" (string, optional, default=UNSET) The fee estimate mode, must be one of:
-	    "UNSET"
-	    "ECONOMICAL"
-	    "CONSERVATIVE"
+    1. "dummy"               (string, required) Must be set to "" for backwards compatibility.
+    2. "amounts"             (string, required) A json object with addresses and amounts
+        {
+          "address":amount   (numeric or string) The qtum address is the key, the numeric amount (can be string) in QTUM is the value
+          ,...
+        }
+    3. minconf               (numeric, optional, default=1) Only use the balance confirmed at least this many times.
+    4. "comment"             (string, optional) A comment
+    5. subtractfeefrom       (array, optional) A json array with addresses.
+                               The fee will be equally deducted from the amount of each selected address.
+                               Those recipients will receive less qtums than you enter in their corresponding amount field.
+                               If no addresses are specified here, the sender pays the fee.
+        [
+          "address"          (string) Subtract fee from this address
+          ,...
+        ]
+    6. replaceable           (boolean, optional) Allow this transaction to be replaced by a transaction with higher fees via BIP 125
+    7. conf_target           (numeric, optional) Confirmation target (in blocks)
+    8. "estimate_mode"       (string, optional, default=UNSET) The fee estimate mode, must be one of:
+           "UNSET"
+           "ECONOMICAL"
+           "CONSERVATIVE"
 
 **Result:**
 
@@ -3543,33 +3702,35 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmany", "params": ["", {"QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX":0.01,"Q353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz":0.02}, 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-
 ## sendmanywithdupes
 
 Send multiple times. Amounts are double-precision floating point numbers. Supports duplicate addresses
 Requires wallet passphrase to be set with walletpassphrase call.
 
-**Arguments:*
-    1. "fromaccount" (string, required) DEPRECATED. The account to send the funds from. Should be "" for the default account
-    2. "amounts" (string, required) A json object with addresses and amounts
-    {
-    "address":amount (numeric or string) The qtum address is the key, the numeric       amount (can be string) in QTUM is the value
-    ,...
-    }
-    3. minconf (numeric, optional, default=1) Only use the balance confirmed at least this many times.
-    4. "comment" (string, optional) A comment
-    5. subtractfeefrom (array, optional) A json array with addresses.
-    The fee will be equally deducted from the amount of each selected address.
-    Those recipients will receive less qtums than you enter in their corresponding amount field.
-    If no addresses are specified here, the sender pays the fee.
-    [
-	    "address" (string) Subtract fee from this address
-	    ,...
-    ]
+**Arguments:**
+
+ 
+
+    1. "fromaccount"         (string, required) DEPRECATED. The account to send the funds from. Should be "" for the default account
+    2. "amounts"             (string, required) A json object with addresses and amounts
+        {
+          "address":amount   (numeric or string) The qtum address is the key, the numeric amount (can be string) in QTUM is the value
+          ,...
+        }
+    3. minconf               (numeric, optional, default=1) Only use the balance confirmed at least this many times.
+    4. "comment"             (string, optional) A comment
+    5. subtractfeefrom         (array, optional) A json array with addresses.
+                               The fee will be equally deducted from the amount of each selected address.
+                               Those recipients will receive less qtums than you enter in their corresponding amount field.
+                               If no addresses are specified here, the sender pays the fee.
+        [
+          "address"          (string) Subtract fee from this address
+          ,...
+        ]
 
 **Result:**
-    "txid" (string) The transaction id for the send. Only 1 transaction is created regardless of
-    the number of addresses.
+
+    "txid" (string) The transaction id for the send. Only 1 transaction is created regardless of the number of addresses.
     
 **Examples:**
 
@@ -3589,33 +3750,31 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmanywithdupes", "params": ["", "{\"QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"Q353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}", 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-
-
-
 ## sendtoaddress
 
 Send an amount to a given address.
 
 Requires wallet passphrase to be set with walletpassphrase call.
+
 **Arguments:**
 
-    1. "address" (string, required) The qtum address to send to.
-    2. "amount" (numeric or string, required) The amount in QTUM to send. eg 0.1
-    3. "comment" (string, optional) A comment used to store what the transaction is for.
-    This is not part of the transaction, just kept in your wallet.
-    4. "comment_to" (string, optional) A comment to store the name of the person or organization
-    to which you're sending the transaction. This is not part of the
-    transaction, just kept in your wallet.
-    5. subtractfeefromamount (boolean, optional, default=false) The fee will be deducted from the amount being sent.
-    The recipient will receive less qtums than you enter in the amount field.
-    6. replaceable (boolean, optional) Allow this transaction to be replaced by a transaction with higher fees via BIP 125
-    7. conf_target (numeric, optional) Confirmation target (in blocks)
-    8. "estimate_mode" (string, optional, default=UNSET) The fee estimate mode, must be one of:
-    "UNSET"
-    "ECONOMICAL"
-    "CONSERVATIVE"
-    9. "senderaddress" (string, optional) The quantum address that will be used to send money from.
-    10."changeToSender" (bool, optional, default=false) Return the change to the sender.
+      1. "address"            (string, required) The qtum address to send to.
+    2. "amount"               (numeric or string, required) The amount in QTUM to send. eg 0.1
+    3. "comment"              (string, optional) A comment used to store what the transaction is for. 
+                                 This is not part of the transaction, just kept in your wallet.
+    4. "comment_to"           (string, optional) A comment to store the name of the person or organization 
+                                 to which you're sending the transaction. This is not part of the 
+                                 transaction, just kept in your wallet.
+    5. subtractfeefromamount  (boolean, optional, default=false) The fee will be deducted from the amount being sent.
+                                 The recipient will receive less qtums than you enter in the amount field.
+    6. replaceable            (boolean, optional) Allow this transaction to be replaced by a transaction with higher fees via BIP 125
+    7. conf_target            (numeric, optional) Confirmation target (in blocks)
+    8. "estimate_mode"        (string, optional, default=UNSET) The fee estimate mode, must be one of:
+           "UNSET"
+           "ECONOMICAL"
+           "CONSERVATIVE"
+    9. "senderaddress"        (string, optional) The quantum address that will be used to send money from.
+    10."changeToSender"       (bool, optional, default=false) Return the change to the sender.
 
 **Result:**
 
@@ -3644,22 +3803,22 @@ Requires wallet passphrase to be set with walletpassphrase call.
 **Arguments:**
 
     1. "contractaddress" (string, required) The contract address that will receive the funds and data.
-    2. "datahex" (string, required) data to send.
-    3. "amount" (numeric or string, optional) The amount in QTUM to send. eg 0.1, default: 0
-    4. gasLimit (numeric or string, optional) gasLimit, default: 250000, max: 40000000
-    5. gasPrice (numeric or string, optional) gasPrice Qtum price per gas unit, default: 0.0000004, min:0.0000004
-    6. "senderaddress" (string, optional) The quantum address that will be used as sender.
-    7. "broadcast" (bool, optional, default=true) Whether to broadcast the transaction or not.
-    8. "changeToSender" (bool, optional, default=true) Return the change to the sender.
+    2. "datahex"         (string, required) data to send.
+    3. "amount"          (numeric or string, optional) The amount in QTUM to send. eg 0.1, default: 0
+    4. gasLimit          (numeric or string, optional) gasLimit, default: 250000, max: 40000000
+    5. gasPrice          (numeric or string, optional) gasPrice Qtum price per gas unit, default: 0.0000004, min:0.0000004
+    6. "senderaddress"   (string, optional) The quantum address that will be used as sender.
+    7. "broadcast"       (bool, optional, default=true) Whether to broadcast the transaction or not.
+    8. "changeToSender"  (bool, optional, default=true) Return the change to the sender.
 
 **Result:**
 
     [
-	    {
-		    "txid" : (string) The transaction id.
-		    "sender" : (string) QTUM address of the sender.
-		    "hash160" : (string) ripemd-160 hash of the sender.
-	    }
+      {
+        "txid" :    (string) The transaction id.
+        "sender" :  (string) QTUM address of the sender.
+        "hash160" : (string) ripemd-160 hash of the sender.
+      }
     ]
 
 **Examples:**
@@ -3667,13 +3826,304 @@ Requires wallet passphrase to be set with walletpassphrase call.
     > qtum-cli sendtocontract "c6ca2697719d00446d4ea51f6fac8fd1e9310214" "54f6127f"
     
     > qtum-cli sendtocontract "c6ca2697719d00446d4ea51f6fac8fd1e9310214" "54f6127f" 12.0015 6000000 0.0000004 "QM72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"
-## setmocktime timestamp
+
+## setban
+
+setban "subnet" "add|remove" (bantime) (absolute)
+
+Attempts to add or remove an IP/Subnet from the banned list.
+
+**Arguments:**
+
+    1. "subnet"       (string, required) The IP/Subnet (see getpeerinfo for nodes IP) with an optional netmask (default is /32 = single IP)
+    2. "command"      (string, required) 'add' to add an IP/Subnet to the list, 'remove' to remove an IP/Subnet from the list
+    3. "bantime"      (numeric, optional) time in seconds how long (or until when if [absolute] is set) the IP is banned (0 or empty means using the default time of 24h which can also be overwritten by the -bantime startup argument)
+    4. "absolute"     (boolean, optional) If set, the bantime must be an absolute timestamp in seconds since epoch (Jan 1 1970 GMT)
+
+**Examples:**
+
+    > qtum-cli setban "192.168.0.6" "add" 86400
+    
+    > qtum-cli setban "192.168.0.0/24" "add"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setban", "params": ["192.168.0.6", "add", 86400] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## setnetworkactive 
+
+setnetworkactive true|false
+
+Disable/enable all p2p network activity.
+
+**Arguments:**
+
+    1. "state" (boolean, required) true to enable networking, false to disable
+
+## settxfee
+
+settxfee amount
+
+Set the transaction fee per kB for this wallet. Overrides the global -paytxfee command line parameter.
+
+**Arguments:**
+
+    1. amount (numeric or string, required) The transaction fee in QTUM/kB
+
+**Results:**
+
+    true|false (boolean) Returns true if successful
+
+**Examples:**
+
+    > qtum-cli settxfee 0.00001
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "settxfee", "params": [0.00001] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## signmessage
+
+signmessage "address" "message"
+
+Sign a message with the private key of an address
+
+**Arguments:**
+
+    1. "address" (string, required) The qtum address to use for the private key.
+    
+    2. "message" (string, required) The message to create a signature of.
+
+**Result:**
+
+    "signature" (string) The signature of the message encoded in base 64
+
+**Examples:**
+
+Unlock the wallet for 30 seconds
+
+    > qtum-cli walletpassphrase "mypassphrase" 30
+
+Create the signature
+
+    > qtum-cli signmessage "QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "my message"
+
+Verify the signature
+
+    > qtum-cli verifymessage "QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+
+As json rpc
+
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessage", "params": ["QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## signmessagewithprivkey
+
+signmessagewithprivkey "privkey" "message"
+
+Sign a message with the private key of an address
+
+**Arguments:**
+
+    1. "privkey"         (string, required) The private key to sign the message with.
+    2. "message"         (string, required) The message to create a signature of.
+
+**Result:**
+
+    "signature"          (string) The signature of the message encoded in base 64
+
+**Examples:**
+
+Create the signature
+
+    > qtum-cli signmessagewithprivkey "privkey" "my message"
+
+Verify the signature
+
+    > qtum-cli verifymessage "QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX" "signature" "my message"
+
+As json rpc
+
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessagewithprivkey", "params": ["privkey", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## setmocktime 
 
 Set the local time to given timestamp (-regtest only)
 
 **Arguments:**
 
     1. timestamp (integer, required) Unix seconds-since-epoch timestamp Pass 0 to go back to using the system time.
+ 
+## signrawtransaction
+
+signrawtransaction "hexstring" ( [{"txid":"id","vout":n,"scriptPubKey":"hex","redeemScript":"hex"},...] ["privatekey1",...] sighashtype )
+
+DEPRECATED. Sign inputs for raw transaction (serialized, hex-encoded).
+The second optional argument (may be null) is an array of previous transaction outputs that this transaction depends on but may not yet be in the block chain.
+The third optional argument (may be null) is an array of base58-encoded private
+keys that, if given, will be the only keys used to sign the transaction.
+
+**Arguments:**
+
+    1. "hexstring"                      (string, required) The transaction hex string
+    2. "prevtxs"       (string, optional) An json array of previous dependent transaction outputs
+         [                              (json array of json objects, or 'null' if none provided)
+           {
+             "txid":"id",               (string, required) The transaction id
+             "vout":n,                  (numeric, required) The output number
+             "scriptPubKey": "hex",     (string, required) script key
+             "redeemScript": "hex",     (string, required for P2SH or P2WSH) redeem script
+             "amount": value            (numeric, required) The amount spent
+           }
+           ,...
+        ]
+    3. "privkeys"                       (string, optional) A json array of base58-encoded private keys for signing
+        [                               (json array of strings, or 'null' if none provided)
+          "privatekey"                  (string) private key in base58-encoding
+          ,...
+        ]
+    4. "sighashtype"                    (string, optional, default=ALL) The signature hash type. Must be one of
+           "ALL"
+           "NONE"
+           "SINGLE"
+           "ALL|ANYONECANPAY"
+           "NONE|ANYONECANPAY"
+           "SINGLE|ANYONECANPAY"
+
+**Result:**
+
+    {
+      "hex" : "value",               (string) The hex-encoded raw transaction with signature(s)
+      "complete" : true|false,       (boolean) If the transaction has a complete set of signatures
+      "errors" : [                   (json array of objects) Script verification errors (if there are any)
+        {
+          "txid" : "hash",           (string) The hash of the referenced, previous transaction
+          "vout" : n,                (numeric) The index of the output to spent and used as input
+          "scriptSig" : "hex",       (string) The hex-encoded signature script
+          "sequence" : n,            (numeric) Script sequence number
+          "error" : "text"           (string) Verification or signing error related to the input
+        }
+        ,...
+      ]
+    }
+
+## signrawtransactionwithkey
+
+signrawtransactionwithkey "hexstring" ["privatekey1",...] ( [{"txid":"id","vout":n,"scriptPubKey":"hex","redeemScript":"hex"},...] sighashtype )
+
+Sign inputs for raw transaction (serialized, hex-encoded).
+The second argument is an array of base58-encoded private
+keys that will be the only keys used to sign the transaction.
+The third optional argument (may be null) is an array of previous transaction outputs that
+this transaction depends on but may not yet be in the block chain.
+
+**Arguments:**
+
+    1. "hexstring"                      (string, required) The transaction hex string
+    2. "privkeys"                       (string, required) A json array of base58-encoded private keys for signing
+        [                               (json array of strings)
+          "privatekey"                  (string) private key in base58-encoding
+          ,...
+        ]
+    3. "prevtxs"                        (string, optional) An json array of previous dependent transaction outputs
+        [                               (json array of json objects, or 'null' if none provided)
+           {
+             "txid":"id",               (string, required) The transaction id
+             "vout":n,                  (numeric, required) The output number
+             "scriptPubKey": "hex",     (string, required) script key
+             "redeemScript": "hex",     (string, required for P2SH or P2WSH) redeem script
+             "amount": value            (numeric, required) The amount spent
+           }
+           ,...
+        ]
+    4. "sighashtype"                    (string, optional, default=ALL) The signature hash type. Must be one of
+           "ALL"
+           "NONE"
+           "SINGLE"
+           "ALL|ANYONECANPAY"
+           "NONE|ANYONECANPAY"
+           "SINGLE|ANYONECANPAY"
+
+**Result:**
+
+    {
+      "hex" : "value",                  (string) The hex-encoded raw transaction with signature(s)
+      "complete" : true|false,          (boolean) If the transaction has a complete set of signatures
+      "errors" : [                      (json array of objects) Script verification errors (if there are any)
+        {
+          "txid" : "hash",              (string) The hash of the referenced, previous transaction
+          "vout" : n,                   (numeric) The index of the output to spent and used as input
+          "scriptSig" : "hex",          (string) The hex-encoded signature script
+          "sequence" : n,               (numeric) Script sequence number
+          "error" : "text"              (string) Verification or signing error related to the input
+        }
+        ,...
+      ]
+    }
+
+**Examples:**
+
+    > qtum-cli signrawtransactionwithkey "myhex"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signrawtransactionwithkey", "params": ["myhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## signrawtransactionwithwallet
+
+signrawtransactionwithwallet "hexstring" ( [{"txid":"id","vout":n,"scriptPubKey":"hex","redeemScript":"hex"},...] sighashtype )
+
+Sign inputs for raw transaction (serialized, hex-encoded).
+The second optional argument (may be null) is an array of previous transaction outputs that
+this transaction depends on but may not yet be in the block chain.
+
+**Arguments:**
+
+    1. "hexstring"                      (string, required) The transaction hex string
+    2. "prevtxs"                        (string, optional) An json array of previous dependent transaction outputs
+         [                              (json array of json objects, or 'null' if none provided)
+           {
+             "txid":"id",               (string, required) The transaction id
+             "vout":n,                  (numeric, required) The output number
+             "scriptPubKey": "hex",     (string, required) script key
+             "redeemScript": "hex",     (string, required for P2SH or P2WSH) redeem script
+             "amount": value            (numeric, required) The amount spent
+           }
+           ,...
+        ]
+    3. "sighashtype"                    (string, optional, default=ALL) The signature hash type. Must be one of
+           "ALL"
+           "NONE"
+           "SINGLE"
+           "ALL|ANYONECANPAY"
+           "NONE|ANYONECANPAY"
+           "SINGLE|ANYONECANPAY"
+
+**Result:**
+
+    {
+      "hex" : "value",                  (string) The hex-encoded raw transaction with signature(s)
+      "complete" : true|false,          (boolean) If the transaction has a complete set of signatures
+      "errors" : [                      (json array of objects) Script verification errors (if there are any)
+        {
+          "txid" : "hash",              (string) The hash of the referenced, previous transaction
+          "vout" : n,                   (numeric) The index of the output to spent and used as input
+          "scriptSig" : "hex",          (string) The hex-encoded signature script
+          "sequence" : n,               (numeric) Script sequence number
+          "error" : "text"              (string) Verification or signing error related to the input
+        }
+        ,...
+      ]
+    }
+
+**Examples:**
+
+    > qtum-cli signrawtransactionwithwallet "myhex"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signrawtransactionwithwallet", "params": ["myhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## setnetworkactive
+
+setnetworkactive true|false
+
+Disable/enable all p2p network activity.
+
+**Arguments:**
+
+    1. "state" (boolean, required) true to enable networking, false to disable
 
 ## sethdseed
 
@@ -3702,6 +4152,10 @@ Requires wallet passphrase to be set with walletpassphrase call.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sethdseed", "params": [true, "wifkey"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
+## stop
+
+Stop Qtum server.
+
 ## submitblock
 
 Attempts to submit new block to network.
@@ -3712,9 +4166,6 @@ See https://en.bitcoin.it/wiki/BIP_0022 for full specification.
     1. "hexdata" (string, required) the hex-encoded block data to submit
     2. "dummy" (optional) dummy value, for compatibility with BIP22. This value is ignored.
     
-**Result:**
-
-
 **Examples:**
 
     > qtum-cli submitblock "mydata"
@@ -3742,7 +4193,6 @@ Create a transaction
 
     > qtum-cli createrawtransaction "[{\"txid\" : \"mytxid\",\"vout\":0}]" "{\"myaddress\":0.01}"
     
-   
  Sign the transaction, and get back the hex
     
     > qtum-cli signrawtransaction "myhex"
@@ -3764,7 +4214,7 @@ Imports funds without rescan. Corresponding address or script must previously be
     1. "rawtransaction" (string, required) A raw transaction in hex funding an already-existing address in wallet
     2. "txoutproof" (string, required) The hex output from gettxoutproof that contains the transaction
 
-## istreceivedbyaddress
+## listreceivedbyaddress
 
 List balances by receiving address.
 
@@ -3776,20 +4226,259 @@ List balances by receiving address.
     4. address_filter (string, optional) If present, only return information on this address.
 
 **Result:**
-   
 
      [
-    	    {
-    		    "involvesWatchonly" : true, (bool) Only returned if imported addresses were involved in transaction
-    		    "address" : "receivingaddress", (string) The receiving address
-    		    "account" : "accountname", (string) DEPRECATED. Backwards compatible alias for label.
-    		    "amount" : x.xxx, (numeric) The total amount in QTUM received by the address
-    		    "confirmations" : n, (numeric) The number of confirmations of the most recent transaction included
-    		    "label" : "label", (string) The label of the receiving address. The default label is "".
-    		    "txids": [
-    		    "txid", (string) The ids of transactions received with the address
-    		    ...
-    		    ]
-    	    }
-    	    ,...
+      {
+        "involvesWatchonly" : true,        (bool) Only returned if imported addresses were involved in transaction
+        "address" : "receivingaddress",    (string) The receiving address
+        "account" : "accountname",         (string) DEPRECATED. Backwards compatible alias for label.
+        "amount" : x.xxx,                  (numeric) The total amount in QTUM received by the address
+        "confirmations" : n,               (numeric) The number of confirmations of the most recent transaction included
+        "label" : "label",                 (string) The label of the receiving address. The default label is "".
+        "txids": [
+           "txid",                         (string) The ids of transactions received with the address 
+           ...
         ]
+      }
+      ,...
+    ]
+
+##  waitforlogs 
+
+waitforlogs (fromBlock) (toBlock) (filter) (minconf)
+requires -logevents to be enabled
+
+Waits for a new logs and return matching log entries. When the call returns, it also specifies the next block number to start waiting for new logs.
+By calling waitforlogs repeatedly using the returned `nextBlock` number, a client can receive a stream of up-to-date log entires.
+
+This call is different from the similarly named `waitforlogs`. This call returns individual matching log entries, `searchlogs` returns a transaction receipt if one of the log entries of that transaction matches the filter conditions.
+
+**Arguments:**
+
+    1. fromBlock (int | "latest", optional, default=null) The block number to start looking for logs. ()
+    2. toBlock   (int | "latest", optional, default=null) The block number to stop looking for logs. If null, will wait indefinitely into the future.
+    3. filter    ({ addresses?: Hex160String[], topics?: Hex256String[] }, optional default={}) Filter conditions for logs. Addresses and topics are specified as array of hexadecimal strings
+    4. minconf   (uint, optional, default=6) Minimal number of confirmations before a log is returned
+
+**Result:**
+
+    An object with the following properties:
+    1. logs (LogEntry[]) Array of matchiing log entries. This may be empty if `filter` removed all entries.2. count (int) How many log entries are returned.3. nextBlock (int) To wait for new log entries haven't seen before, use this number as `fromBlock`
+    Usage:
+    `waitforlogs` waits for new logs, starting from the tip of the chain.
+    `waitforlogs 600` waits for new logs, but starting from block 600. If there are logs available, this call will return immediately.
+    `waitforlogs 600 700` waits for new logs, but only up to 700th block
+    `waitforlogs null null` this is equivalent to `waitforlogs`, using default parameter values
+    `waitforlogs null null` { "addresses": [ "ff0011..." ], "topics": [ "c0fefe"] }` waits for logs in the future matching the specified conditions
+
+**Sample Output:**
+
+    {
+      "entries": [
+        {
+          "blockHash": "56d5f1f5ec239ef9c822d9ed600fe9aa63727071770ac7c0eabfc903bf7316d4",
+          "blockNumber": 3286,
+          "transactionHash": "00aa0f041ce333bc3a855b2cba03c41427cda04f0334d7f6cb0acad62f338ddc",
+          "transactionIndex": 2,
+          "from": "3f6866e2b59121ada1ddfc8edc84a92d9655675f",
+          "to": "8e1ee0b38b719abe8fa984c986eabb5bb5071b6b",
+          "cumulativeGasUsed": 23709,
+          "gasUsed": 23709,
+          "contractAddress": "8e1ee0b38b719abe8fa984c986eabb5bb5071b6b",
+          "topics": [
+            "f0e1159fa6dc12bb31e0098b7a1270c2bd50e760522991c6f0119160028d9916",
+            "0000000000000000000000000000000000000000000000000000000000000002"
+          ],
+          "data": "00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000003"
+        }
+      ],
+    
+      "count": 7,
+      "nextblock": 801
+    }
+
+## walletcreatefundedpsbt
+
+walletcreatefundedpsbt [{"txid":"id","vout":n},...] [{"address":amount},{"data":"hex"},...] ( locktime ) ( replaceable ) ( options bip32derivs )
+
+Creates and funds a transaction in the Partially Signed Transaction format. Inputs will be added if supplied inputs are not enough
+Implements the Creator and Updater roles.
+
+**Arguments:**
+
+    1. "inputs"                (array, required) A json array of json objects
+         [
+           {
+             "txid":"id",      (string, required) The transaction id
+             "vout":n,         (numeric, required) The output number
+             "sequence":n      (numeric, optional) The sequence number
+           } 
+           ,...
+         ]
+    2. "outputs"               (array, required) a json array with outputs (key-value pairs), where none of the keys are duplicated.
+    That is, each address can only appear once and there can only be one 'data' object.
+       [
+        {
+          "address": x.xxx,    (obj, optional) A key-value pair. The key (string) is the qtum address, the value (float or string) is the amount in QTUM
+        },
+        {
+          "data": "hex"        (obj, optional) A key-value pair. The key must be "data", the value is hex encoded data
+        }
+        ,...                     More key-value pairs of the above form. For compatibility reasons, a dictionary, which holds the key-value pairs directly, is also
+                                 accepted as second parameter.
+       ]
+    3. locktime                  (numeric, optional, default=0) Raw locktime. Non-0 value also locktime-activates inputs
+                                 Allows this transaction to be replaced by a transaction with higher fees. If provided, it is an error if explicit sequence numbers are incompatible.
+    4. options                 (object, optional)
+       {
+         "changeAddress"          (string, optional, default pool address) The qtum address to receive the change
+         "changePosition"         (numeric, optional, default random) The index of the change output
+         "change_type"            (string, optional) The output type to use. Only valid if changeAddress is not specified. Options are "legacy", "p2sh-segwit", and "bech32". Default is set by -changetype.
+         "includeWatching"        (boolean, optional, default false) Also select inputs which are watch only
+         "lockUnspents"           (boolean, optional, default false) Lock selected unspent outputs
+         "feeRate"                (numeric, optional, default not set: makes wallet determine the fee) Set a specific fee rate in QTUM/kB
+         "subtractFeeFromOutputs" (array, optional) A json array of integers.
+                                  The fee will be equally deducted from the amount of each specified output.
+                                  The outputs are specified by their zero-based index, before any change output is added.
+                                  Those recipients will receive less qtums than you enter in their corresponding amount field.
+                                  If no outputs are specified here, the sender pays the fee.
+                                      [vout_index,...]
+         "replaceable"            (boolean, optional) Marks this transaction as BIP125 replaceable.
+                                  Allows this transaction to be replaced by a transaction with higher fees
+         "conf_target"            (numeric, optional) Confirmation target (in blocks)
+         "estimate_mode"          (string, optional, default=UNSET) The fee estimate mode, must be one of:
+             "UNSET"
+             "ECONOMICAL"
+             "CONSERVATIVE"
+       }
+    5. bip32derivs                    (boolean, optional, default=false) If true, includes the BIP 32 derivation paths for public keys if we know them
+
+**Result:**
+
+    {
+      "psbt": "value",         (string)  The resulting raw transaction (base64-encoded string)
+      "fee":        n,         (numeric) Fee in QTUM the resulting transaction pays
+      "changepos":  n,         (numeric) The position of the added change output, or -1
+    }
+
+**Examples:**
+
+Create a transaction with no inputs
+
+    > qtum-cli walletcreatefundedpsbt "[{\"txid\":\"myid\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
+
+## walletlock
+
+Removes the wallet encryption key from memory, locking the wallet.
+
+After calling this method, you will need to call walletpassphrase again
+
+before being able to call any methods which require the wallet to be unlocked.
+
+**Examples:**
+
+Set the passphrase for 2 minutes to perform a transaction
+
+    > qtum-cli walletpassphrase "my pass phrase" 120
+
+Perform a send (requires passphrase set)
+
+    > qtum-cli sendtoaddress "QM72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" 1.0
+
+Clear the passphrase since we are done before 2 minutes is up
+
+    > qtum-cli walletlock
+
+As json rpc call
+
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletlock", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## walletpassphrase 
+
+walletpassphrase "passphrase" timeout stakingonly
+
+Stores the wallet decryption key in memory for 'timeout' seconds.
+
+This is needed prior to performing transactions related to private keys such as sending QTUM and staking
+
+**Arguments:**
+
+    1. "passphrase" (string, required) The wallet passphrase
+    
+    2. timeout      (numeric, required) The time to keep the decryption key in seconds; capped at 100000000 (~3 years).
+    
+    3. staking only (bool, optional, omitted=false, enabled=true) Unlock wallet for staking only.
+    
+    Note:
+    
+    Issuing the walletpassphrase command while the wallet is already unlocked will set a new unlock
+    
+    time that overrides the old one.
+
+**Examples:**
+
+Unlock the wallet for 60 seconds
+
+    > qtum-cli walletpassphrase "my pass phrase" 60
+
+Lock the wallet again (before 60 seconds)
+
+    > qtum-cli walletlock
+
+Unlock the wallet for staking only, for a long time
+
+    > qtum-cli walletpassphrase "my pass phrase" 99999999 true
+
+As json rpc call
+
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletpassphrase", "params": ["my pass phrase", 60] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## walletpassphrasechange 
+
+walletpassphrasechange "oldpassphrase" "newpassphrase"
+
+Changes the wallet passphrase from 'oldpassphrase' to 'newpassphrase'.
+
+**Arguments:**
+
+    1. "oldpassphrase"      (string) The current passphrase
+    2. "newpassphrase"      (string) The new passphrase
+
+**Examples:**
+
+    > qtum-cli walletpassphrasechange "old one" "new one"
+    
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletpassphrasechange", "params": ["old one", "new one"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+
+## walletprocesspsbt
+
+walletprocesspsbt "psbt" ( sign "sighashtype" bip32derivs )
+
+Update a PSBT with input information from our wallet and then sign inputs
+
+that we can sign for.
+
+**Arguments:**
+
+    1. "psbt"                      (string, required) The transaction base64 string
+    2. sign                          (boolean, optional, default=true) Also sign the transaction when updating
+    3. "sighashtype"            (string, optional, default=ALL) The signature hash type to sign with if not specified by the PSBT. Must be one of
+           "ALL"
+           "NONE"
+           "SINGLE"
+           "ALL|ANYONECANPAY"
+           "NONE|ANYONECANPAY"
+           "SINGLE|ANYONECANPAY"
+    4. bip32derivs                    (boolean, optional, default=false) If true, includes the BIP 32 derivation paths for public keys if we know them
+
+**Result:**
+
+    {
+      "psbt" : "value",          (string) The base64-encoded partially signed transaction
+      "complete" : true|false,   (boolean) If the transaction has a complete set of signatures
+      ]
+    }
+
+**Examples:**
+
+    > qtum-cli walletprocesspsbt "psbt"
