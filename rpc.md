@@ -1232,8 +1232,7 @@ The command will fail if the wallet or mempool contains a transaction that spend
 By default, the new fee will be calculated automatically using estimatesmartfee.
 The user can specify a confirmation target for estimatesmartfee.
 Alternatively, the user can specify totalFee, or use RPC settxfee to set a higher fee rate.
-At a minimum, the new fee rate must be high enough to pay an additional new relay fee (incrementalfee
-returned by getnetworkinfo) to enter the node's mempool.
+At a minimum, the new fee rate must be high enough to pay an additional new relay fee (incrementalfee returned by getnetworkinfo) to enter the node's mempool.
 
 **Arguments:**
 
@@ -1504,8 +1503,6 @@ Creates and loads a new wallet.
       }
     
 ## createpsbt 
-
-[{"address":amount},{"data":"hex"},...] ( locktime ) ( replaceable )
 
 Creates a transaction in the Partially Signed Transaction format.
 Implements the Creator role.
@@ -1982,6 +1979,8 @@ in BIP 141 (witness data is discounted).
 
 **Arguments:**
 
+   
+
     1. conf_target     (numeric) Confirmation target in blocks (1 - 1008)
     2. "estimate_mode" (string, optional, default=CONSERVATIVE) The fee estimate mode.
                        Whether to return a more conservative estimate which also satisfies
@@ -1989,7 +1988,7 @@ in BIP 141 (witness data is discounted).
                        higher feerate and is more likely to be sufficient for the desired
                        target, but is not as responsive to short term drops in the
                        prevailing fee market.  Must be one of:
-           "UNSET"     (defaults to CONSERVATIVE)
+           "UNSET" (defaults to CONSERVATIVE)
            "ECONOMICAL"
            "CONSERVATIVE"
 
@@ -2421,10 +2420,6 @@ Returns an object containing staking-related information.
 ## getsubsidy 
 
 Returns subsidy value for the specified value of target.
-
-**Test result:**
-
-    2000000000000
 
 ## getwalletinfo
 
@@ -3434,7 +3429,9 @@ Returns the total uptime of the server.
 ## validateaddress
 
 Return information about the given qtum address.
-DEPRECATION WARNING: Parts of this command have been deprecated and moved to getaddressinfo. Clients must transition to using getaddressinfo to access this information before upgrading to v0.18. The following deprecated fields have moved to getaddressinfo and will only be shown here with -deprecatedrpc=validateaddress: ismine, iswatchonly, script, hex, pubkeys, sigsrequired, pubkey, addresses, embedded, iscompressed, account, timestamp, hdkeypath, kdmasterkeyid.
+**DEPRECATION WARNING:** 
+Parts of this command have been deprecated and moved to getaddressinfo. Clients must transition to using getaddressinfo to access this information before upgrading to v0.18. 
+The following deprecated fields have moved to getaddressinfo and will only be shown here with -deprecatedrpc=validateaddress: ismine, iswatchonly, script, hex, pubkeys, sigsrequired, pubkey, addresses, embedded, iscompressed, account, timestamp, hdkeypath, kdmasterkeyid.
 
 **Arguments:**
 
@@ -4015,8 +4012,6 @@ this transaction depends on but may not yet be in the block chain.
 
 ## signrawtransactionwithwallet
 
-signrawtransactionwithwallet "hexstring" ( [{"txid":"id","vout":n,"scriptPubKey":"hex","redeemScript":"hex"},...] sighashtype )
-
 Sign inputs for raw transaction (serialized, hex-encoded).
 The second optional argument (may be null) is an array of previous transaction outputs that
 this transaction depends on but may not yet be in the block chain.
@@ -4250,8 +4245,6 @@ This call is different from the similarly named `waitforlogs`. This call returns
 
 ## walletcreatefundedpsbt
 
-walletcreatefundedpsbt [{"txid":"id","vout":n},...] [{"address":amount},{"data":"hex"},...] ( locktime ) ( replaceable ) ( options bip32derivs )
-
 Creates and funds a transaction in the Partially Signed Transaction format. Inputs will be added if supplied inputs are not enough
 Implements the Creator and Updater roles.
 
@@ -4346,8 +4339,6 @@ As json rpc call
 
 ## walletpassphrase 
 
-walletpassphrase "passphrase" timeout stakingonly
-
 Stores the wallet decryption key in memory for 'timeout' seconds.
 
 This is needed prior to performing transactions related to private keys such as sending QTUM and staking
@@ -4385,8 +4376,6 @@ As json rpc call
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletpassphrase", "params": ["my pass phrase", 60] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## walletpassphrasechange 
-
-walletpassphrasechange "oldpassphrase" "newpassphrase"
 
 Changes the wallet passphrase from 'oldpassphrase' to 'newpassphrase'.
 
