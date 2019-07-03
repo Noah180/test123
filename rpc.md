@@ -9,9 +9,9 @@ Returns the number of blocks in the longest blockchain.
 
 **Examples:**
 
-    >qtum-cli getblockcount 
+    > qtum-cli getblockcount 
     
-    >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 **Test example:** 
 
@@ -143,9 +143,9 @@ Returns hash of block in best-block-chain at height provided.
 
 **Examples:**
 
-    >qtum-cli getblockhash 1000  
+    > qtum-cli getblockhash 1000  
     
-    >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
+    > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockhash", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 **Test example:**
 
@@ -923,8 +923,7 @@ Hint: use getmempoolentry to fetch a specific transaction from the mempool.
     ./qtum-cli getrawmempool
     
 **Test result:**
-  
-
+ 
     [
       "d4e995b2e0b5ef44f90659323e662f408f7938b5b97c345a40192ca6d0b06704",
       "9e41daae52ece96732305cb0873b8528e7011c866eb7c3c9bee2c22c03e5bf65",
@@ -1210,8 +1209,6 @@ Nodes added using addnode (or -connect) are protected from DoS disconnection and
     
 ## backupwallet 
 
-backupwallet "destination"
-
 Safely copies current wallet file to destination, which can be a directory or a path with filename.
 
 **Arguments:**
@@ -1225,8 +1222,6 @@ Safely copies current wallet file to destination, which can be a directory or a 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "backupwallet", "params": ["backup.dat"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## bumpfee
-
-bumpfee "txid" ( options )
 
 Bumps the fee of an opt-in-RBF transaction T, replacing it with a new transaction B.
 An opt-in RBF transaction with the given txid must be in the wallet.
@@ -2482,6 +2477,7 @@ Returns information about the active ZeroMQ notifications.
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getzmqnotifications", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## getunconfirmedbalance
+
 Returns the server's total unconfirmed balance
 
 
@@ -2536,6 +2532,7 @@ specify the block in which the transaction is included manually (by blockhash).
     ./qtum-cli gettxoutproof [\"5caa24c8c78f441a5c37dff602cdacc27b4530b03c09569f62dc3cd20e674918\"]
 
 **Test result:**
+
     0000002081d3145a457b724b725171603a991b8d8186f0506c65722e436a6a33d039690ed689a1e4bdea746f8a3c47d6856765282fb5f7f20c9c43cc9e0170b6ba1214076010135d8683001b0000000052ef386ec7ae80719e408c3ea4193583bd0665fffd633d5e10b19e26375ac9b6386faa7484bfd98fc4789fd584229d5c20f72f772a8b3024ea94d1563e84e964b7e989413b1f509a5c14f24dadcf6da7e4f9e8559e5f6ff185cbc978fa1693fc0100000046304402205c0fbeff48e49b24848fba7428ea1c821ef4942135d60f51f6a4260e76941ac5022012a051fc518ec6b684a49eaf75631cdfa5574b170ccab6a0612da44585eab5600300000002fc77727661996828f410e89871d981a1c37f951d35d4ed196745d348cc74ca611849670ed23cdc629f56093cb030457bc2accd02f6df375c1a448fc7c824aa5c010d
 
 ## gettxout
@@ -2758,6 +2755,7 @@ As a JSON-RPC call
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["mykey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## importpubkey
+
 Adds a public key (in hex) that can be watched as if it were in your wallet but cannot be used to spend. Requires a new wallet backup.
 
 **Arguments:**
@@ -2964,8 +2962,6 @@ Additionally, if include_removed is set, transactions affecting the wallet which
 
 ## listtransactions
 
-listtransactions (label count skip include_watchonly)
-
 If a label name is provided, this will return only incoming transactions paying to addresses with the specified label.
 
 Returns up to 'count' most recent transactions skipping the first 'from' transactions.
@@ -3057,8 +3053,6 @@ List received transactions by label.
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbylabel", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## listunspent 
-
-listunspent ( minconf maxconf  ["addresses",...] [include_unsafe] [query_options])
 
 Returns array of unspent transaction outputs with between minconf and maxconf (inclusive) confirmations.
 
@@ -3161,8 +3155,6 @@ applied to the new wallet (eg -zapwallettxes, upgradewallet, rescan, etc).
 
 ## lockunspent
 
-lockunspent unlock ([{"txid":"txid","vout":n},...])
-
 Updates list of temporarily unspendable outputs.
 
 Temporarily lock (unlock=false) or unlock (unlock=true) specified transaction outputs.
@@ -3212,8 +3204,6 @@ As a json rpc call
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "lockunspent", "params": [false, "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## logging
-
-logging ( <include> <exclude> )
 
 Gets and sets the logging configuration.
 
@@ -3369,9 +3359,6 @@ Rescan the local blockchain for wallet related transactions.
 
 ## reservebalance 
 
-<reserve> is true or false to turn balance reserve on or off.
-<amount> is a real and rounded to cent.
-
 Set reserve amount not participating in network protection.
 If no parameters provided current setting is printed.
 
@@ -3416,6 +3403,7 @@ As a json rpc call
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "testmempoolaccept", "params": [["signedhex"]] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## unloadwallet
+
 Unloads the wallet referenced by the request endpoint otherwise unloads the wallet specified in the argument.
 Specifying the wallet name on a wallet endpoint is invalid.
 
@@ -3587,8 +3575,6 @@ For more information on output descriptors, see the documentation in the doc/des
 
 **Result:**
 
-  
-
      {
       "unspents": [
         {
@@ -3604,7 +3590,6 @@ For more information on output descriptors, see the documentation in the doc/des
     
 ## searchlogs
 
-searchlogs <fromBlock> <toBlock> (address) (topics)
 requires -logevents to be enabled
 
 **Arguments:**
@@ -3682,8 +3667,6 @@ Send multiple times. Amounts are double-precision floating point numbers. Suppor
 Requires wallet passphrase to be set with walletpassphrase call.
 
 **Arguments:**
-
- 
 
     1. "fromaccount"         (string, required) DEPRECATED. The account to send the funds from. Should be "" for the default account
     2. "amounts"             (string, required) A json object with addresses and amounts
@@ -3854,8 +3837,6 @@ Set the transaction fee per kB for this wallet. Overrides the global -paytxfee c
 
 ## signmessage
 
-signmessage "address" "message"
-
 Sign a message with the private key of an address
 
 **Arguments:**
@@ -3887,8 +3868,6 @@ As json rpc
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessage", "params": ["QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## signmessagewithprivkey
-
-signmessagewithprivkey "privkey" "message"
 
 Sign a message with the private key of an address
 
@@ -3925,9 +3904,7 @@ Set the local time to given timestamp (-regtest only)
  
 ## signrawtransaction
 
-signrawtransaction "hexstring" ( [{"txid":"id","vout":n,"scriptPubKey":"hex","redeemScript":"hex"},...] ["privatekey1",...] sighashtype )
-
-DEPRECATED. Sign inputs for raw transaction (serialized, hex-encoded).
+**DEPRECATED**. Sign inputs for raw transaction (serialized, hex-encoded).
 The second optional argument (may be null) is an array of previous transaction outputs that this transaction depends on but may not yet be in the block chain.
 The third optional argument (may be null) is an array of base58-encoded private
 keys that, if given, will be the only keys used to sign the transaction.
@@ -4425,8 +4402,6 @@ Changes the wallet passphrase from 'oldpassphrase' to 'newpassphrase'.
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletpassphrasechange", "params": ["old one", "new one"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 ## walletprocesspsbt
-
-walletprocesspsbt "psbt" ( sign "sighashtype" bip32derivs )
 
 Update a PSBT with input information from our wallet and then sign inputs
 
