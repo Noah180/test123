@@ -379,7 +379,7 @@ If verbose is true, returns an Object with information about blockheader <hash>.
     
 **Result (for verbose = true):**
 
-        {
+    {
       "hash" : "hash",               (string) the block hash (same as provided)
       "confirmations" : n,           (numeric) The number of confirmations, or -1 if the block is not on the main chain
       "height" : n,                  (numeric) The block height or index
