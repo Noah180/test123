@@ -195,7 +195,7 @@ If verbosity is 2, returns an Object with information about block <hash> and inf
 
 **Result (for verbosity = 1):**
     
-        {
+    {
       "hash" : "hash",       (string) the block hash (same as provided)
       "confirmations" : n,   (numeric) The number of confirmations, or -1 if the block is not on the main chain
       "size" : n,            (numeric) The block size
@@ -238,46 +238,39 @@ If verbosity is 2, returns an Object with information about block <hash> and inf
 
 **test examples:**
 
-    ./qtum-cli getblock 
-    “e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03”
+    ./qtum-cli getblock “eeab43864b89c15bd1ffad21eaabc97f4fa4a576a71b46c9d512afc26168569f”
 
 **Test result:**
 
-  
-
     {
-      "hash": "e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03",
+      "hash": "eeab43864b89c15bd1ffad21eaabc97f4fa4a576a71b46c9d512afc26168569f",
       "confirmations": 2,
-      "strippedsize": 2476,
-      "size": 2512,
-      "weight": 9940,
-      "height": 395088,
+      "strippedsize": 846,
+      "size": 882,
+      "weight": 3420,
+      "height": 402359,
       "version": 536870912,
       "versionHex": "20000000",
-      "merkleroot": "5802715bc0fbf2e0c8b57897dce54588e84ad960bbc628fc0f1f32273c38083a",
-      "hashStateRoot": "0005694a50658c62d899a721add29062d967afafd4a00127c1ac686411e21963",
+      "merkleroot": "359698a4d0e24baadfe9892b56bb5a6090830aea9fe1bf221f4766d7d552eeff",
+      "hashStateRoot": "6099ad48961a320b62cc29ba3d89dcbd8bbc0e33069f6c7169ba008039cbc44f",
       "hashUTXORoot": "9e729950c184acd011471252a0c1a4bc279cd4c1e86d543bead4af6df787b2dd",
-      "tx": 
-      [
-       "33431772ee0cd8f25199b72cf7376ccbc0537071404da7063d000445a4526d63",
-    	"8db77cd5cb3ede61d8ec74120849622a4b55ff8f558446847bf3b38231268f72",
-    	"e90bb01ea9394e4ab52d8fc48f372eb84b73103809aec933f177ce82815a74cc",
-    	"d96440303ee90c580cf1c673eb755de8071afac99a1fd2dc482e89dc7d384736",
-    	"c75406bb75843e34ba261895aaf335255087a140ae9034dcef3b7d477f2102fa"
+      "tx": [
+        "9cd9f5e952988cd88c73b7cd172cc17f7ba6ec7c34918b50fbfa3901251cbc2f",
+        "49260697a2d127541cfd5190fc18a5193f118d4b1cc23504a520983ad7f0ee35"
       ],
-      "time": 1561106576,
-      "mediantime": 1561106112,
+      "time": 1562145008,
+      "mediantime": 1562144608,
       "nonce": 0,
-      "bits": "1a0517d8",
-      "difficulty": 3294031.021738609,
-      "chainwork": "0000000000000000000000000000000000000000000001102cf321f6db3a4252",
-      "nTx": 5,
-      "previousblockhash": "a09450133593a207dca70952ce7bd998b630769959677374086cf625736bd54c",
-      "nextblockhash": "0526fc099637edf47f99b03c97e3ee800912bb40c97e37aa67634efe7799e4d9",
+      "bits": "1a037540",
+      "difficulty": 4851625.823213781,
+      "chainwork": "000000000000000000000000000000000000000000000114688c263219ba17a6",
+      "nTx": 2,
+      "previousblockhash": "dd7ccce7a7b419874dac6097c6505c3b00efdce9336aa9ad79363c81d8a05e26",
+      "nextblockhash": "60ef2b919581b7d7f684e6e2de574ee72ac94cb924770988d2686ca4c3b6e24a",
       "flags": "proof-of-stake",
-      "proofhash": "0000517443e18dd77519e269d5ab2827cf136f72af0dc2ed965f49d45d129a59",
-      "modifier": "1737e6f76fbf16f0b93345030a6ad82b9447254fdbf46673beb2c08e58ff2415",
-      "signature": "304402204b22223c5137101e63dae31e2b6de74781f4179a8ebaf4c1284af7f10f9ceded022057e0091402acf50b725b030b22e82ddf84f7c5a78a04f56cd75235c0051f9df7"
+      "proofhash": "000001199a996fef47845c16830c9187ed076dea11d34ba734201a011945c962",
+      "modifier": "148572257a37c882895429d69b15d8a2446be5ad5f0d74237ecf621841164990",
+      "signature": "304402204fe60e75699f3773e3c1d86281f2e7cf17268d23e40628622b3a215fea299e68022041c767b4e2ede77311aeaca2dfafc8f9066f628d2aa3234a57604cebc976c311"
     }
 
 ## getchaintips
@@ -1046,26 +1039,6 @@ Contract details including balance, storage data and code
 
     ./qtum-cli getaccountinfo "fdb9d0873ba524ef3ea67c1719666968e1eeb110"
 
-## getaccount 
-
-Returns the account associated with the given address, (Deprecated, will be removed in V0.18. To use this command, start qtumd with -deprecatedrpc=accounts)
-
-**Test example:** 
-
-    ./qtum-cli getaccount “QQrm6av1tWtTmvkTpft3FygcmLFcrEWGWk”
-
-## getaccountaddress 
-
-returns the current qtum address for receiving payments to this account, (Deprecated, will be removed in V0.18. To use this command, start qtumd with -deprecatedrpc=accounts)
-
-**Example:**
-
-    ./qtum-cli getaccountaddress
-    
-    ./qtum-cli getaccountaddress ""
-    
-    ./qtum-cli getaccountaddress "myaccount"
-
 ## getnewaddress
 
 Returns a new Qtum address for receiving payments.
@@ -1106,8 +1079,9 @@ Returns the list of addresses assigned the specified label.
 **Result:**
 
     { 
-      "address": { 
-      "purpose": "string" (string) Purpose of address ("send" for sending address, "receive" for receiving address)
+      "address": 
+      { 
+        "purpose": "string" (string) Purpose of address ("send" for sending address, "receive" for receiving address)
       },...
     }
 
@@ -4460,9 +4434,9 @@ that we can sign for.
 
 **Arguments:**
 
-    1. "psbt"                      (string, required) The transaction base64 string
-    2. sign                          (boolean, optional, default=true) Also sign the transaction when updating
-    3. "sighashtype"            (string, optional, default=ALL) The signature hash type to sign with if not specified by the PSBT. Must be one of
+    1. "psbt"                         (string, required) The transaction base64 string
+    2. sign                           (boolean, optional, default=true) Also sign the transaction when updating
+    3. "sighashtype"                  (string, optional, default=ALL) The signature hash type to sign with if not specified by the PSBT. Must be one of
            "ALL"
            "NONE"
            "SINGLE"
