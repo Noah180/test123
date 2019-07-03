@@ -191,7 +191,7 @@ If verbosity is 2, returns an Object with information about block <hash> and inf
 
 **Result (for verbosity = 0):**
 
-"data" (string) A string that is serialized, hex-encoded data for block 'hash'.
+    "data" (string) A string that is serialized, hex-encoded data for block 'hash'.
 
 **Result (for verbosity = 1):**
     
