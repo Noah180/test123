@@ -1,6 +1,10 @@
-# Qtum-RPC-API
 
 ## Tables of Contents 
+
+- [Blockchain] (#blockchain)
+	- [Callcontract] (#callcontract)
+	- [Getaccountinfo] (#getaccountinfo)
+
 
 
 ## Blockchain
@@ -44,7 +48,7 @@ callcontract "address" "data" ( address )
       }
     }
     
-### getaccountinfo 
+### getaccountinfo
 
 Contract details including balance, storage data and code
 
