@@ -1,13 +1,7 @@
-# [Qtum-RPC-API]
 
-## Table of Contents
-- [Blockchain] (#Blockchain)
-	- [Callcontract] (##callcontract)
-	- [Getaccountinfo ] (##getaccountinfo )
+# Blockchain
 
-## Blockchain
-
-## callcontract
+### callcontract
 
 callcontract "address" "data" ( address )
 
@@ -38,15 +32,15 @@ callcontract "address" "data" ( address )
       },
       "transactionReceipt": 
       {
-	      "stateRoot": "1253c56cf79597e89ce179f14e6a86a493356dac410c30efc576503687ad2670",
-	      "gasUsed": 39999999,
-	      "bloom": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-	      "log": [
-	    ]
+        "stateRoot": "1253c56cf79597e89ce179f14e6a86a493356dac410c30efc576503687ad2670",
+        "gasUsed": 39999999,
+        "bloom": "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "log": [
+      ]
       }
     }
     
-## getaccountinfo 
+### getaccountinfo 
 
 Contract details including balance, storage data and code
 
@@ -62,7 +56,7 @@ Contract details including balance, storage data and code
 
     ./qtum-cli getaccountinfo "fdb9d0873ba524ef3ea67c1719666968e1eeb110"
 
-## getbestblockhash
+### getbestblockhash
 
 Returns the hash of the best (tip) block in the longest blockchain.
 
@@ -84,7 +78,7 @@ Returns the hash of the best (tip) block in the longest blockchain.
 
     e006ada4d1b7caf1559cc1b5b520ab8c54f51486230f2ea18d2692d3a095ba03
 
-## getblock
+### getblock
 
 According the blockhash returns the info of the corresponding block
 If verbosity is 0, returns a string that is serialized, hex-encoded data for block 'hash'.
@@ -180,7 +174,7 @@ If verbosity is 2, returns an Object with information about block <hash> and inf
       "signature": "304402204fe60e75699f3773e3c1d86281f2e7cf17268d23e40628622b3a215fea299e68022041c767b4e2ede77311aeaca2dfafc8f9066f628d2aa3234a57604cebc976c311"
     }
 
-## getblockchaininfo 
+### getblockchaininfo 
 
 Returns an object containing various state info regarding blockchain processing.
 
@@ -249,46 +243,46 @@ Returns an object containing various state info regarding blockchain processing.
       "size_on_disk": 1939468044,
       "pruned": false,
       "softforks": [
-    	{
-    	  "id": "bip34",
-    	  "version": 2,
-    	  "reject": {
-    		"status": true
-    	  }
-    	},
-    	{
-    	  "id": "bip66",
-    	  "version": 3,
-    	  "reject": {
-    		"status": true
-    	  }
-    	},
-    	{
-    	  "id": "bip65",
-    	  "version": 4,
-    	  "reject": {
-    		"status": true
-    	  }
-    	}
+      {
+        "id": "bip34",
+        "version": 2,
+        "reject": {
+        "status": true
+        }
+      },
+      {
+        "id": "bip66",
+        "version": 3,
+        "reject": {
+        "status": true
+        }
+      },
+      {
+        "id": "bip65",
+        "version": 4,
+        "reject": {
+        "status": true
+        }
+      }
       ],
       "bip9_softforks": {
-    	"csv": {
-    	  "status": "active",
-    	  "startTime": 0,
-    	  "timeout": 999999999999,
-    	  "since": 6048
-    	},
-    	"segwit": {
-    	  "status": "active",
-    	  "startTime": 0,
-    	  "timeout": 999999999999,
-    	  "since": 6048
-    	}
+      "csv": {
+        "status": "active",
+        "startTime": 0,
+        "timeout": 999999999999,
+        "since": 6048
+      },
+      "segwit": {
+        "status": "active",
+        "startTime": 0,
+        "timeout": 999999999999,
+        "since": 6048
+      }
       },
       "warnings": ""
     }
 
-## getblockcount
+### getblockcount
 
 Returns the number of blocks in the longest blockchain.
 
@@ -310,7 +304,7 @@ Returns the number of blocks in the longest blockchain.
 
     395049
 
-## getblockhash    
+### getblockhash    
 
 Returns hash of block in best-block-chain at height provided.
 
@@ -336,7 +330,7 @@ Returns hash of block in best-block-chain at height provided.
 
     0000d5dab5e76310ae640e9bcfa270c2eb23a1e5948bdf01fc7ed1f157110ab7
 
-## getblockheader
+### getblockheader
 
 Returns the corresponding block header information according to the given index
 If verbose is false, returns a string that is serialized, hex-encoded data for blockheader 'hash'.
@@ -406,7 +400,7 @@ If verbose is true, returns an Object with information about blockheader <hash>.
         "modifier": "1551ed22c1a43da60aebcb2d66a1e42d9bf6a007276367a4a189325ea37a1f91"
      }
 
-## getblockstats
+### getblockstats
 
 Compute per block statistics for a given window. All amounts are in satoshis.
 It won't work for some heights with pruning.
@@ -468,7 +462,7 @@ It won't work without -txindex for utxo_size_inc, *fee or *feerate stats.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockstats", "params": [1000 '["minfeerate","avgfeerate"]'] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## getchaintips
+### getchaintips
 
 Return information about all known tips in the block tree, including the main chain as well as orphaned branches.
 
@@ -534,7 +528,7 @@ Return information about all known tips in the block tree, including the main ch
         "status": "valid-fork"
       },...
     ]
-## getchaintxstats
+### getchaintxstats
 
 Compute statistics about the total number and rate of transactions in the chain.
 
@@ -573,7 +567,7 @@ Compute statistics about the total number and rate of transactions in the chain.
       "txrate": 0.01544173017259556
     }
     
-## getdifficulty
+### getdifficulty
 
 Returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 
@@ -599,7 +593,7 @@ Returns the proof-of-stake difficulty as a multiple of the minimum difficulty.
       "proof-of-stake": 7022116.100551808
     }
     
-## getmempoolancestors 
+### getmempoolancestors 
 
 If txid is in the mempool, returns all in-mempool ancestors.
 
@@ -662,7 +656,7 @@ If txid is in the mempool, returns all in-mempool ancestors.
       "c3d044940534fd94fd0c901a895f62505e7beba0dfa44b1563c7aea980279135"     
     ]
 
-## getmempooldescendants
+### getmempooldescendants
 
 If txid is in the mempool, returns all in-mempool descendants.
 
@@ -723,7 +717,7 @@ If txid is in the mempool, returns all in-mempool descendants.
       "0c2d893fdc510a6fddb18fc3d441b02d5b6050b754dc6f5d5ddd251707c3d995"
     ]
 
-## getmempoolentry
+### getmempoolentry
 
 Returns mempool data for given transaction
 
@@ -766,7 +760,7 @@ Returns mempool data for given transaction
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmempoolentry", "params": ["mytxid"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## getmempoolinfo
+### getmempoolinfo
 
 Returns details on the active state of the TX memory pool.
 
@@ -802,7 +796,7 @@ Returns details on the active state of the TX memory pool.
       "minrelaytxfee": 0.00400000
     }
 
-##  getrawmempool
+###  getrawmempool
 
 Returns all transaction ids in memory pool as a json array of string transaction ids.
 
@@ -882,7 +876,7 @@ Hint: use getmempoolentry to fetch a specific transaction from the mempool.
     ]
 
 
-## getstorage
+### getstorage
 
 Get data stored by smart contracts
 
@@ -911,7 +905,7 @@ Get data stored by smart contracts
       },
     }
 
-## gettransactionreceipt
+### gettransactionreceipt
 
 requires -logevents to be enabled
 
@@ -954,7 +948,7 @@ requires -logevents to be enabled
       }
     ]
 
-## gettxout
+### gettxout
 
 Returns details about an unspent transaction output.
 
@@ -998,7 +992,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxout", "params": ["txid", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## gettxoutproof
+### gettxoutproof
 
 Returns a hex-encoded proof that "txid" was included in a block.
 
@@ -1028,7 +1022,7 @@ specify the block in which the transaction is included manually (by blockhash).
 
     0000002081d3145a457b724b725171603a991b8d8186f0506c65722e436a6a33d039690ed689a1e4bdea746f8a3c47d6856765282fb5f7f20c9c43cc9e0170b6ba1214076010135d8683001b0000000052ef386ec7ae80719e408c3ea4193583bd0665fffd633d5e10b19e26375ac9b6386faa7484bfd98fc4789fd584229d5c20f72f772a8b3024ea94d1563e84e964b7e989413b1f509a5c14f24dadcf6da7e4f9e8559e5f6ff185cbc978fa1693fc0100000046304402205c0fbeff48e49b24848fba7428ea1c821ef4942135d60f51f6a4260e76941ac5022012a051fc518ec6b684a49eaf75631cdfa5574b170ccab6a0612da44585eab5600300000002fc77727661996828f410e89871d981a1c37f951d35d4ed196745d348cc74ca611849670ed23cdc629f56093cb030457bc2accd02f6df375c1a448fc7c824aa5c010d
 
-## gettxoutsetinfo
+### gettxoutsetinfo
 
 Returns statistics about the unspent transaction output set.
 Note this call may take some time.
@@ -1052,7 +1046,7 @@ Note this call may take some time.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettxoutsetinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listcontracts 
+### listcontracts 
 
 list all the contracts and default accounts is 20
 
@@ -1075,7 +1069,7 @@ list all the contracts and default accounts is 20
       "954999d28fd46c6de806f9587a82321437771ab2": 0.00000000
     }
 
-## preciousblock
+### preciousblock
 
 Treats a block as if it were received before others with the same work.
 
@@ -1093,7 +1087,7 @@ The effects of preciousblock are not retained across restarts.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "preciousblock", "params": ["blockhash"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## pruneblockchain
+### pruneblockchain
 
  prune the spend tx to reduce the size of the block
  
@@ -1111,7 +1105,7 @@ The effects of preciousblock are not retained across restarts.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "pruneblockchain", "params": [1000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## savemempool
+### savemempool
 
 Dumps the mempool to disk. It will fail until the previous dump is fully loaded.
 
@@ -1121,7 +1115,7 @@ Dumps the mempool to disk. It will fail until the previous dump is fully loaded.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "savemempool", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-## scantxoutset
+### scantxoutset
 
 EXPERIMENTAL warning: this call may be removed or changed in future releases.
 
@@ -1169,7 +1163,7 @@ For more information on output descriptors, see the documentation in the doc/des
      "total_amount" : x.xxx,          (numeric) The total amount of all found unspent outputs in QTUM
     ] 
 
-## searchlogs
+### searchlogs
 
 requires -logevents to be enabled
 
@@ -1187,7 +1181,7 @@ requires -logevents to be enabled
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "searchlogs", "params": [0 100 {"addresses": ["12ae42729af478ca92c8c66773a3e32115717be4"]} {"topics": ["null","b436c2bf863ccd7b8f63171201efd4792066b4ce8e543dde9c3e9e9ab98e216c"]}] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## verifychain
+### verifychain
 
 Verifies blockchain database.
 
@@ -1206,7 +1200,7 @@ Verifies blockchain database.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifychain", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## verifytxoutproof 
+### verifytxoutproof 
 
 Verifies that a proof points to a transaction in a block, returning the transaction it commits to and throwing an RPC error if the block is not in our best chain
 
@@ -1228,7 +1222,7 @@ Verifies that a proof points to a transaction in a block, returning the transact
       "5caa24c8c78f441a5c37dff602cdacc27b4530b03c09569f62dc3cd20e674918"
     ]
 
-##  waitforlogs 
+###  waitforlogs 
 
 waitforlogs (fromBlock) (toBlock) (filter) (minconf)
 requires -logevents to be enabled
@@ -1282,9 +1276,9 @@ This call is different from the similarly named `waitforlogs`. This call returns
       "nextblock": 801
     }
 
-# Control 
+## Control 
 
-##  echo
+###  echo
 
 echo|echojson "message" ...
 
@@ -1292,7 +1286,7 @@ Simply echo back the input arguments. This command is for testing.
 
 The difference between echo and echojson is that echojson has argument conversion enabled in the client-side table inqtum-cli and the GUI. There is no server-side difference.
 
-## getmemoryinfo
+### getmemoryinfo
 
 Returns an object containing information about memory usage.
 
@@ -1325,7 +1319,7 @@ Returns an object containing information about memory usage.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getmemoryinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## help
+### help
 
 List all commands, or get help for a specified command.
 
@@ -1337,7 +1331,7 @@ List all commands, or get help for a specified command.
 
     "text"     (string) The help text
 
-## logging
+### logging
 
 Gets and sets the logging configuration.
 
@@ -1380,11 +1374,11 @@ In addition, the following are available as category names with special meanings
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "logging", "params": [["all"], "[libevent]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## stop
+### stop
 
 Stop Qtum server.
 
-## uptime
+### uptime
 
 Returns the total uptime of the server.
 
@@ -1398,9 +1392,9 @@ Returns the total uptime of the server.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "uptime", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-# Generating
+## Generating
 
-## generate 
+### generate 
 
 Mine up to nblocks blocks immediately (before the RPC call returns) to an address in the wallet.
 
@@ -1419,7 +1413,7 @@ Mine up to nblocks blocks immediately (before the RPC call returns) to an addres
   
      > qtum-cli generate 11
 
-## generatetoaddress
+### generatetoaddress
 
 Mine blocks immediately to a specified address (before the RPC call returns)
 
@@ -1439,9 +1433,9 @@ Mine blocks immediately to a specified address (before the RPC call returns)
 
     > qtum-cli generatetoaddress 11 "myaddress"
 
-# Mining
+## Mining
 
-## getblocktemplate 
+### getblocktemplate 
 
 If the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.
 It returns data needed to construct a block to work on.
@@ -1514,7 +1508,7 @@ https://github.com/bitcoin/bips/blob/master/bip-0145.mediawiki
       "height" : n                      (numeric) The height of the next block
     }    
 
-## getmininginfo
+### getmininginfo
 
 Returns a json object containing mining-related information.
 
@@ -1567,7 +1561,7 @@ Returns a json object containing mining-related information.
       "warnings": ""
     }
 
-## getnetworkhashps
+### getnetworkhashps
 
 Returns the estimated network hashes per second based on the last n blocks (for PoW only).
 Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.
@@ -1592,7 +1586,7 @@ Pass in [height] to estimate the network speed at the time when a certain block 
 
     3.514351301619956e-008
 
-## getstakinginfo
+### getstakinginfo
 
 Returns an object containing staking-related information.
 
@@ -1634,11 +1628,11 @@ Returns an object containing staking-related information.
       "expectedtime": 0
     }
 
-## getsubsidy 
+### getsubsidy 
 
 Returns subsidy value for the specified value of target.
 
-## prioritisetransaction
+### prioritisetransaction
 
 Accepts the transaction into mined blocks at a higher (or lower) priority
 
@@ -1662,7 +1656,7 @@ Accepts the transaction into mined blocks at a higher (or lower) priority
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "prioritisetransaction", "params": ["txid", 0.0, 10000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889
 
-## submitblock
+### submitblock
 
 Attempts to submit new block to network.
 See https://en.bitcoin.it/wiki/BIP_0022 for full specification.
@@ -1678,9 +1672,9 @@ See https://en.bitcoin.it/wiki/BIP_0022 for full specification.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "submitblock", "params": ["mydata"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
    
-# Network
+## Network
 
-## addnode
+### addnode
 
 Attempts to add or remove a node from the addnode list.
 Or try a connection to a node once.
@@ -1700,7 +1694,7 @@ Nodes added using addnode (or -connect) are protected from DoS disconnection and
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addnode", "params": ["192.168.0.6:3888", "onetry"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-## clearbanned
+### clearbanned
 
 Clear all banned IPs.
 
@@ -1710,7 +1704,7 @@ Clear all banned IPs.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "clearbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## disconnectnode 
+### disconnectnode 
 
 Immediately disconnects from the specified peer node.
 
@@ -1735,7 +1729,7 @@ To disconnect by nodeid, either set 'address' to the empty string, or call using
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "disconnectnode", "params": ["", 1] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## estimaterawfee
+### estimaterawfee
 
 WARNING: This interface is unstable and may disappear or change!
 
@@ -1782,7 +1776,7 @@ defined in BIP 141 (witness data is discounted).
 
     > qtum-cli estimaterawfee 6 0.9
 
-## getaddednodeinfo
+### getaddednodeinfo
 
 Returns information about the given added node, or all added nodes
 (note that onetry addnodes are not listed here)
@@ -1813,7 +1807,7 @@ Returns information about the given added node, or all added nodes
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getaddednodeinfo", "params": ["192.168.0.201"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## getconnectioncount
+### getconnectioncount
 
 Returns the number of connections to other nodes.
 
@@ -1835,7 +1829,7 @@ Returns the number of connections to other nodes.
 
     7
 
-## getnettotals
+### getnettotals
 
 Returns information about network traffic, including bytes in, bytes out,
 and current time.
@@ -1863,7 +1857,7 @@ and current time.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnettotals", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## getnetworkinfo
+### getnetworkinfo
 
 Returns an object containing various state info regarding P2P networking.
 
@@ -1907,7 +1901,7 @@ Returns an object containing various state info regarding P2P networking.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getnetworkinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## getpeerinfo
+### getpeerinfo
 
 Returns data about each connected network node as a json array of objects.
 
@@ -2035,7 +2029,7 @@ Returns data about each connected network node as a json array of objects.
         },...
       }
 
-## listbanned
+### listbanned
 
 List all banned IPs/Subnets.
 
@@ -2045,7 +2039,7 @@ List all banned IPs/Subnets.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listbanned", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## ping
+### ping
 
 Requests that a ping be sent to all other nodes, to measure ping time.
 Results provided in getpeerinfo, pingtime and pingwait fields are decimal seconds.
@@ -2057,7 +2051,7 @@ Ping command is handled in queue with all other commands, so it measures process
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "ping", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## setban
+### setban
 
 setban "subnet" "add|remove" (bantime) (absolute)
 
@@ -2078,7 +2072,7 @@ Attempts to add or remove an IP/Subnet from the banned list.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "setban", "params": ["192.168.0.6", "add", 86400] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## setnetworkactive 
+### setnetworkactive 
 
 Disable/enable all p2p network activity.
 
@@ -2086,9 +2080,9 @@ Disable/enable all p2p network activity.
 
     1. "state" (boolean, required) true to enable networking, false to disable
 
-# Rawtransactions
+## Rawtransactions
 
-## combinepsbt 
+### combinepsbt 
 
 Combine multiple partially signed Qtum transactions into one transaction.
 Implements the Combiner role.
@@ -2109,7 +2103,7 @@ Implements the Combiner role.
 
     > qtum-cli combinepsbt ["mybase64_1", "mybase64_2", "mybase64_3"]
 
-## combinerawtransaction 
+### combinerawtransaction 
 
 Combine multiple partially signed transactions into one transaction.
 The combined transaction may be another partially signed transaction or a
@@ -2131,7 +2125,7 @@ fully signed transaction.
 
     > qtum-cli combinerawtransaction ["myhex1", "myhex2", "myhex3"]
 
-## converttopsbt 
+### converttopsbt 
 
 Converts a network serialized transaction to a PSBT. This should be used only with createrawtransaction and fundrawtransaction
 createpsbt and walletcreatefundedpsbt should be used for new applications.
@@ -2160,7 +2154,7 @@ Convert the transaction to a PSBT
 
     > qtum-cli converttopsbt "rawtransaction"
 
-## createpsbt 
+### createpsbt 
 
 Creates a transaction in the Partially Signed Transaction format.
 Implements the Creator role.
@@ -2200,7 +2194,7 @@ Implements the Creator role.
 
     > qtum-cli createpsbt "[{\"txid\":\"myid\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
 
-## createrawtransaction
+### createrawtransaction
 
 createrawtransaction [{"txid":"id","vout":n},...] [{"address":amount},{"data":"hex"},...] ( locktime ) ( replaceable )
 
@@ -2264,7 +2258,7 @@ it is not stored in the wallet or transmitted to the network.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createrawtransaction", "params": ["[{\"txid\":\"myid\",\"vout\":0}]", "[{\"contract\":{\"contractAddress\":\"mycontract\",\"data\":\"00\", \"gasLimit\":250000, \"gasPrice\":0.00000040, \"amount\":0}}]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## decodepsbt
+### decodepsbt
 
 Return a JSON object representing the serialized, base64-encoded partially signed Qtum transaction.
 
@@ -2365,7 +2359,7 @@ Return a JSON object representing the serialized, base64-encoded partially signe
 
     > qtum-cli decodepsbt "psbt"
 
-## decoderawtransaction 
+### decoderawtransaction 
 
 Return a JSON object representing the serialized, hex-encoded transaction.
 
@@ -2478,7 +2472,7 @@ Return a JSON object representing the serialized, hex-encoded transaction.
       ]
     }
 
-## decodescript 
+### decodescript 
 
 Decode a hex-encoded script.
 
@@ -2506,7 +2500,7 @@ Decode a hex-encoded script.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "decodescript", "params": ["hexstring"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-    ## finalizepsbt
+    ### finalizepsbt
 
 Finalize the inputs of a PSBT. If the transaction is fully signed, it will produce a network serialized transaction which can be broadcast with sendrawtransaction. Otherwise a PSBT will be created which has the final_scriptSig and final_scriptWitness fields filled for inputs that are complete. Implements the Finalizer and Extractor roles.
 
@@ -2527,7 +2521,7 @@ Finalize the inputs of a PSBT. If the transaction is fully signed, it will produ
 
     > qtum-cli finalizepsbt "psbt"
 
-## fromhexaddress
+### fromhexaddress
 
 Converts a raw hex address to a base58 pubkeyhash address
 
@@ -2553,7 +2547,7 @@ Converts a raw hex address to a base58 pubkeyhash address
 
     qTTH1Yr2eKCuDLqfxUyBLCAjmomQ8pyrBt
 
-## fundrawtransaction
+### fundrawtransaction
 
 Add inputs to a transaction until it has enough in value to meet its out value.
 This will not modify existing inputs, and will add at most one change output to the outputs.
@@ -2622,7 +2616,7 @@ Send the transaction
 
     > qtum-cli sendrawtransaction "signedtransactionhex"
 
-## gethexaddress
+### gethexaddress
 
 Converts a base58 pubkeyhash address to a hex address for use in smart contracts.
 
@@ -2648,7 +2642,7 @@ Converts a base58 pubkeyhash address to a hex address for use in smart contracts
 
     6c89a1a6ca2ae7c00b248bb2832d6f480f27da68
 
-## getrawtransaction 
+### getrawtransaction 
 
 NOTE: By default this function only works for mempool transactions. If the -txindex option is
 enabled, it also works for blockchain transactions. If the block which contains the transaction
@@ -2730,7 +2724,7 @@ If verbose is 'false' or omitted, returns a string that is serialized, hex-encod
     
     > qtum-cli getrawtransaction "mytxid" true "myblockhash"
 
-## sendrawtransaction
+### sendrawtransaction
 
 Submits raw transaction (serialized, hex-encoded) to local node and network.
 
@@ -2763,7 +2757,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendrawtransaction", "params": ["signedhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## signrawtransaction
+### signrawtransaction
 
 **DEPRECATED**. Sign inputs for raw transaction (serialized, hex-encoded).
 The second optional argument (may be null) is an array of previous transaction outputs that this transaction depends on but may not yet be in the block chain.
@@ -2814,7 +2808,7 @@ keys that, if given, will be the only keys used to sign the transaction.
       ]
     }
 
-## signrawtransactionwithkey
+### signrawtransactionwithkey
 
 Sign inputs for raw transaction (serialized, hex-encoded).
 The second argument is an array of base58-encoded private
@@ -2872,7 +2866,7 @@ this transaction depends on but may not yet be in the block chain.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signrawtransactionwithkey", "params": ["myhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## testmempoolaccept 
+### testmempoolaccept 
 
 Returns if raw transaction (serialized, hex-encoded) would be accepted by mempool.
 
@@ -2912,9 +2906,9 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "testmempoolaccept", "params": [["signedhex"]] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-# Util
+## Util
 
-## createmultisig 
+### createmultisig 
 
 Creates a multi-signature address with n signature of m keys required.
 It returns a json object with the address and redeemScript.
@@ -2946,7 +2940,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "createmultisig", "params": [2, "[\"QjWnDZxwLhrJDcp4Hisse8RfBo2jRDZY5Z\",\"Q6sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## estimatesmartfee
+### estimatesmartfee
 
 Estimates the approximate fee per kilobyte needed for a transaction to begin
 confirmation within conf_target blocks if possible and return the number of blocks
@@ -2985,7 +2979,7 @@ have been observed to make an estimate for any number of blocks.
 
     > qtum-cli estimatesmartfee 6
 
-## signmessagewithprivkey
+### signmessagewithprivkey
 
 Sign a message with the private key of an address
 
@@ -3012,7 +3006,7 @@ As json rpc
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessagewithprivkey", "params": ["privkey", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## validateaddress
+### validateaddress
 
 Return information about the given qtum address.
 
@@ -3042,7 +3036,7 @@ The following deprecated fields have moved to getaddressinfo and will only be sh
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "validateaddress", "params": ["QPSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## verifymessage
+### verifymessage
 
 Verify a signed message
 
@@ -3074,9 +3068,9 @@ As json rpc
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "verifymessage", "params": ["QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "signature", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-# Wallet
+## Wallet
 
-## abandontransaction
+### abandontransaction
 
 Mark in-wallet transaction <txid> as abandoned
 This will mark this transaction and all its in-wallet descendants as abandoned which will allow
@@ -3094,7 +3088,7 @@ It has no effect on transactions which are already abandoned.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "abandontransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## abortrescan
+### abortrescan
 
 Stops current wallet rescan triggered by an RPC call, e.g. by an importprivkey call.
 
@@ -3120,7 +3114,7 @@ As a JSON-RPC call
 
     false
 
-## addmultisigaddress
+### addmultisigaddress
 
 Add a nrequired-to-sign multisignature address to the wallet. Requires a new wallet backup.
 Each key is a Qtum address or hex-encoded public key.
@@ -3156,7 +3150,7 @@ As json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "addmultisigaddress", "params": [2, "[\"QjWnDZxwLhrJDcp4Hisse8RfBo2jRDZY5Z\",\"Q6sSauSf5pF2UkUwvKGq4qjNRzBZYqgEL5\"]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-## backupwallet 
+### backupwallet 
 
 Safely copies current wallet file to destination, which can be a directory or a path with filename.
 
@@ -3170,7 +3164,7 @@ Safely copies current wallet file to destination, which can be a directory or a 
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "backupwallet", "params": ["backup.dat"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## bumpfee
+### bumpfee
 
 Bumps the fee of an opt-in-RBF transaction T, replacing it with a new transaction B.
 An opt-in RBF transaction with the given txid must be in the wallet.
@@ -3221,7 +3215,7 @@ At a minimum, the new fee rate must be high enough to pay an additional new rela
 
     > qtum-cli bumpfee <txid>
 
-## createcontract
+### createcontract
 
 Create a contract with bytcode.
 
@@ -3251,7 +3245,7 @@ Create a contract with bytcode.
     
     > qtum-cli createcontract "60606040525b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff02191690836c010000000000000000000000009081020402179055506103786001600050819055505b600c80605b6000396000f360606040526008565b600256" 6000000 0.0000004 "QM72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd" true
     
-## createwallet
+### createwallet
 
 Creates and loads a new wallet.
 
@@ -3284,7 +3278,7 @@ Creates and loads a new wallet.
         "warning": ""
       }
 
-## dumpprivkey 
+### dumpprivkey 
 
 Reveals the private key corresponding to 'address'.
 Then the importprivkey can be used with this output
@@ -3305,7 +3299,7 @@ Then the importprivkey can be used with this output
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "dumpprivkey", "params": ["myaddress"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## dumpwallet 
+### dumpwallet 
 
 Dumps all wallet keys in a human-readable format to a server-side file. This does not allow overwriting existing files.
 
@@ -3327,7 +3321,7 @@ Dumps all wallet keys in a human-readable format to a server-side file. This doe
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "dumpwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## encryptwallet 
+### encryptwallet 
 
 Encrypts the wallet with 'passphrase'. This is for first time encryption.
 After this, any calls that interact with private keys such as sending or signing
@@ -3362,7 +3356,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "encryptwallet", "params": ["my pass phrase"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-## getaddressesbylabel
+### getaddressesbylabel
 
 Returns the list of addresses assigned the specified label.
 
@@ -3402,7 +3396,7 @@ Returns the list of addresses assigned the specified label.
         }
     }
 
-## getaddressinfo 
+### getaddressinfo 
 
 Return information about the given qtum address. Some information requires the address to be in the wallet.
 
@@ -3481,7 +3475,7 @@ Return information about the given qtum address. Some information requires the a
       ]
     }
 
-## getbalance 
+### getbalance 
 
 Returns the total available balance.
 The available balance is what the wallet considers currently spendable, and is
@@ -3519,7 +3513,7 @@ As a json rpc call
 
     5.683000
 
-## getnewaddress
+### getnewaddress
 
 Returns a new Qtum address for receiving payments.
 If 'label' is specified, it is added to the address book
@@ -3548,7 +3542,7 @@ so payments received with the address will be associated with 'label'.
 
     QcMKCuHMFwwGNBdYYes8vKN1Qm1MJkwsQf
 
-## getrawchangeaddress 
+### getrawchangeaddress 
 
 Returns a new Qtum address, for receiving change.
 This is for use with raw transactions, NOT normal use.
@@ -3575,7 +3569,7 @@ This is for use with raw transactions, NOT normal use.
 
     QhPwqZNWgcgJRZpRH21hs3b2g8PooeaoPt
     
-## getreceivedbyaddress
+### getreceivedbyaddress
 
 Returns the total amount received by the given address in transactions with at least minconf confirmations.
 
@@ -3606,7 +3600,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getreceivedbyaddress", "params": ["QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## gettransaction 
+### gettransaction 
 
 Get detailed information about in-wallet transaction <txid>
 
@@ -3657,11 +3651,11 @@ Get detailed information about in-wallet transaction <txid>
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "gettransaction", "params": ["1075db55d416d3ca199f55b6084e2115b9345e16c5cf302fc80e9d5fbf5d48d"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## getunconfirmedbalance
+### getunconfirmedbalance
 
 Returns the server's total unconfirmed balance
 
-## getwalletinfo
+### getwalletinfo
 
 Returns an object containing various wallet state info.
 
@@ -3691,7 +3685,7 @@ Returns an object containing various wallet state info.
       
       > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getwalletinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## importaddress 
+### importaddress 
 
 Adds an address or script (in hex) that can be watched as if it were in your wallet but cannot be used to spend. Requires a new wallet backup.
 
@@ -3723,7 +3717,7 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importaddress", "params": ["myaddress", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## importmulti
+### importmulti
 
 Import addresses/scripts (with private or public keys, redeem script (P2SH)), rescanning all addresses in one-shot-only (rescan can be disabled via options). Requires a new wallet backup.
 
@@ -3765,7 +3759,7 @@ Import addresses/scripts (with private or public keys, redeem script (P2SH)), re
     Response is an array with the same size as the input that has the execution result :
     [{ "success": true } , { "success": false, "error": { "code": -1, "message": "Internal Server Error"} }, ... ]
 
-## importprivkey
+### importprivkey
 
 Adds a private key (as returned by dumpprivkey) to your wallet. Requires a new wallet backup.
 Hint: use importmulti to import more than one private key.
@@ -3801,7 +3795,7 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importprivkey", "params": ["mykey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## importprunedfunds
+### importprunedfunds
 
 Imports funds without rescan. Corresponding address or script must previously be included in wallet. Aimed towards pruned wallets. The end-user is responsible to import additional transactions that subsequently spend the imported outputs or rescan after the point in the blockchain the transaction is included.
 
@@ -3810,7 +3804,7 @@ Imports funds without rescan. Corresponding address or script must previously be
     1. "rawtransaction" (string, required) A raw transaction in hex funding an already-existing address in wallet
     2. "txoutproof" (string, required) The hex output from gettxoutproof that contains the transaction
 
-## listreceivedbyaddress
+### listreceivedbyaddress
 
 List balances by receiving address.
 
@@ -3839,7 +3833,7 @@ List balances by receiving address.
       ,...
     ]
 
-## importpubkey
+### importpubkey
 
 Adds a public key (in hex) that can be watched as if it were in your wallet but cannot be used to spend. Requires a new wallet backup.
 
@@ -3866,7 +3860,7 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importpubkey", "params": ["mypubkey", "testing", false] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## importwallet
+### importwallet
 
 Imports keys from a wallet dump file (see dumpwallet). Requires a new wallet backup to include imported keys.
 
@@ -3889,7 +3883,7 @@ Import using the json rpc call
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "importwallet", "params": ["test"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
 
-## keypoolrefill
+### keypoolrefill
 
 Fills the keypool.
 
@@ -3903,7 +3897,7 @@ Fills the keypool.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "keypoolrefill", "params": [] }' -H 'con
 
-## listaddressgroupings
+### listaddressgroupings
 
 Lists groups of addresses which have had their common ownership
 made public by common use as inputs or as the resulting change
@@ -3930,7 +3924,7 @@ in past transactions
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listaddressgroupings", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
        
 
-## listlabels
+### listlabels
 
 Returns the list of all labels, or labels that are assigned to addresses with a specific purpose.
 
@@ -3963,7 +3957,7 @@ As json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listlabels", "params": [receive] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listlockunspent
+### listlockunspent
 
 Returns list of temporarily unspendable outputs.
 See the lockunspent call to lock and unlock transactions for spending.
@@ -4010,7 +4004,7 @@ As a json rpc call
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbyaddress", "params": [6, true, true, "1M72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listsinceblock
+### listsinceblock
 
 Get all transactions in blocks since block [blockhash], or all transactions if omitted.
 If "blockhash" is no longer a part of the main chain, transactions from the fork point onward are included.
@@ -4067,7 +4061,7 @@ Additionally, if include_removed is set, transactions affecting the wallet which
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listsinceblock", "params": ["000000000000000bacf66f7497b7dc45ef753ee9a7d38571037cdb1a57f663ad", 6] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listtransactions
+### listtransactions
 
 If a label name is provided, this will return only incoming transactions paying to addresses with the specified label.
 
@@ -4127,7 +4121,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listtransactions", "params": ["*", 20, 100] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listreceivedbylabel
+### listreceivedbylabel
 
 List received transactions by label.
 
@@ -4158,7 +4152,7 @@ List received transactions by label.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listreceivedbylabel", "params": [6, true, true] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listunspent 
+### listunspent 
 
 Returns array of unspent transaction outputs with between minconf and maxconf (inclusive) confirmations.
 
@@ -4216,7 +4210,7 @@ Optionally filter to only include txouts paid to specified addresses.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listunspent", "params": [6, 9999999, [] , true, { "minimumAmount": 0.005 } ] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## listwallets
+### listwallets
 
 Returns a list of currently loaded wallets.
 For full information on the wallet, use "getwalletinfo"
@@ -4234,7 +4228,7 @@ For full information on the wallet, use "getwalletinfo"
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "listwallets", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## loadwallet
+### loadwallet
 
 loadwallet "filename"
 
@@ -4259,7 +4253,7 @@ applied to the new wallet (eg -zapwallettxes, upgradewallet, rescan, etc).
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "loadwallet", "params": ["test.dat"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## lockunspent
+### lockunspent
 
 Updates list of temporarily unspendable outputs.
 
@@ -4309,7 +4303,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "lockunspent", "params": [false, "[{\"txid\":\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\",\"vout\":1}]"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## removeprunedfunds
+### removeprunedfunds
 
 Deletes the specified transaction from the wallet. Meant for use with pruned wallets and as a companion to importprunedfunds. This will affect wallet balances.
 
@@ -4325,7 +4319,7 @@ As a JSON-RPC call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "removeprunedfunds", "params": ["a8d0c0184dde994a09ec054286f1ce581bebf46446a512166eae7628734ea0a5"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## rescanblockchain
+### rescanblockchain
 
 Rescan the local blockchain for wallet related transactions.
 
@@ -4347,12 +4341,12 @@ Rescan the local blockchain for wallet related transactions.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "rescanblockchain", "params": [100000, 120000] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## reservebalance 
+### reservebalance 
 
 Set reserve amount not participating in network protection.
 If no parameters provided current setting is printed.
 
-## sendmany
+### sendmany
 
 Send multiple times. Amounts are double-precision floating point numbers.
 Note that the "fromaccount" argument has been removed in V0.17. To use this RPC with a "fromaccount" argument, restart
@@ -4407,7 +4401,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmany", "params": ["", {"QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX":0.01,"Q353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz":0.02}, 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## sendmanywithdupes
+### sendmanywithdupes
 
 Send multiple times. Amounts are double-precision floating point numbers. Supports duplicate addresses
 Requires wallet passphrase to be set with walletpassphrase call.
@@ -4453,7 +4447,7 @@ As a json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendmanywithdupes", "params": ["", "{\"QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX\":0.01,\"Q353tsE8YMTA4EuV7dgUXGjNFf9KpVvKHz\":0.02}", 6, "testing"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## sendtoaddress
+### sendtoaddress
 
 Send an amount to a given address.
 
@@ -4497,7 +4491,7 @@ Requires wallet passphrase to be set with walletpassphrase call.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sendtoaddress", "params": ["QM72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd", 0.1, "donation", "seans outpost", false, null, null, "", "QX1GkJdye9WoUnrE2v6ZQhQ72EUVDtGXQX", true] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## sendtocontract
+### sendtocontract
 
 Send funds and data to a contract.
 
@@ -4530,7 +4524,7 @@ Requires wallet passphrase to be set with walletpassphrase call.
     
     > qtum-cli sendtocontract "c6ca2697719d00446d4ea51f6fac8fd1e9310214" "54f6127f" 12.0015 6000000 0.0000004 "QM72Sfpbz1BPpXFHz9m3CdqATR44Jvaydd"
 
-## sethdseed
+### sethdseed
 
 Set or generate a new HD wallet seed. Non-HD wallets will not be upgraded to being a HD wallet. Wallets that are already HD will have a new HD seed set so that new keys added to the keypool will be derived from this new seed.
 
@@ -4557,7 +4551,7 @@ Requires wallet passphrase to be set with walletpassphrase call.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "sethdseed", "params": [true, "wifkey"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## settxfee
+### settxfee
 
 settxfee amount
 
@@ -4577,7 +4571,7 @@ Set the transaction fee per kB for this wallet. Overrides the global -paytxfee c
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "settxfee", "params": [0.00001] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## signmessage
+### signmessage
 
 Sign a message with the private key of an address
 
@@ -4609,7 +4603,7 @@ As json rpc
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signmessage", "params": ["QD1ZrZNe3JUo7ZycKEYQQiQAWd9y54F4XX", "my message"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## signrawtransactionwithwallet
+### signrawtransactionwithwallet
 
 Sign inputs for raw transaction (serialized, hex-encoded).
 The second optional argument (may be null) is an array of previous transaction outputs that
@@ -4660,7 +4654,7 @@ this transaction depends on but may not yet be in the block chain.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "signrawtransactionwithwallet", "params": ["myhex"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## unloadwallet
+### unloadwallet
 
 Unloads the wallet referenced by the request endpoint otherwise unloads the wallet specified in the argument.
 Specifying the wallet name on a wallet endpoint is invalid.
@@ -4675,7 +4669,7 @@ Specifying the wallet name on a wallet endpoint is invalid.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "unloadwallet", "params": [wallet_name] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
     
-## walletcreatefundedpsbt
+### walletcreatefundedpsbt
 
 Creates and funds a transaction in the Partially Signed Transaction format. Inputs will be added if supplied inputs are not enough
 Implements the Creator and Updater roles.
@@ -4743,7 +4737,7 @@ Create a transaction with no inputs
 
     > qtum-cli walletcreatefundedpsbt "[{\"txid\":\"myid\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
 
-## walletlock
+### walletlock
 
 Removes the wallet encryption key from memory, locking the wallet.
 
@@ -4769,7 +4763,7 @@ As json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletlock", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## walletpassphrase 
+### walletpassphrase 
 
 Stores the wallet decryption key in memory for 'timeout' seconds.
 
@@ -4807,7 +4801,7 @@ As json rpc call
 
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletpassphrase", "params": ["my pass phrase", 60] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## walletpassphrasechange 
+### walletpassphrasechange 
 
 Changes the wallet passphrase from 'oldpassphrase' to 'newpassphrase'.
 
@@ -4822,7 +4816,7 @@ Changes the wallet passphrase from 'oldpassphrase' to 'newpassphrase'.
     
     > curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "walletpassphrasechange", "params": ["old one", "new one"] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-## walletprocesspsbt
+### walletprocesspsbt
 
 Update a PSBT with input information from our wallet and then sign inputs
 
@@ -4853,9 +4847,9 @@ that we can sign for.
 
     > qtum-cli walletprocesspsbt "psbt"
 
-# zmq
+## zmq
 
-## getzmqnotifications
+### getzmqnotifications
 
 Returns information about the active ZeroMQ notifications.
 
