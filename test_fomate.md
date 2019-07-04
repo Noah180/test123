@@ -3,7 +3,7 @@
 
 - [Blockchain] (#blockchain)
 	- [Callcontract] (#callcontract)
-	- [Getaccountinfo] (#getaccountinfo)
+	
 
 
 
