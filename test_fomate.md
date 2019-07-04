@@ -1,4 +1,4 @@
-# Blockchain
+## Blockchain
 
 ## callcontract
 
@@ -978,7 +978,6 @@ Returns details about an unspent transaction output.
     }
 
 **Examples:**
-
 
 Get unspent transactions
 
