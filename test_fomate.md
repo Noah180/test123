@@ -13,9 +13,7 @@ Returns the number of blocks in the longest blockchain.
     
     >curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockcount", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:3889/
 
-#### test: 
 
-    ./qtum-cli getblockcount
 #### test result: 
 
     395049
