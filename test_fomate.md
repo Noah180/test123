@@ -1,9 +1,6 @@
 # Qtum-RPC-API
 
 ## Tables of Contents 
-- Blockchain
-	- callcontract
-	- getaccountinfo
 
 
 ## Blockchain
