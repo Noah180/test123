@@ -13,6 +13,7 @@ connect，我自己用puutty.
 新建一个配置文件，比如名叫ss-configure.json.
 vim ss-configure.json
 在里面填上
+```
 {
   "server": "0.0.0.0",
   
@@ -32,14 +33,18 @@ vim ss-configure.json
     
     "method": "ase-256-cfb"
 }
-
+```
 ## 填写完之后保存推出,然后启动.
+```
 
 ssserver -c location of this json file -d start.
+```
 
 结束进程
 
+```
 ssserver -c /etc/shadowsocks.json -d stop
+```
 
 ## 客户端在github上有仓库：
 
