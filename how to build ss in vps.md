@@ -1,11 +1,14 @@
 # 如何在vps上搭建ss
 
 ## 前期准备：
+
 在搬瓦工或者是vultr上租一个服务器，具体配置根据自己的需求来.
+
 买完之后服务商会给你提供IP地址和端口号，用户名和密码, 此时你可以用远程连接工具去
+
 connect，我自己用puutty.
 
-##配置ss
+## 配置ss
 
 新建一个配置文件，比如名叫ss-configure.json.
 vim ss-configure.json
@@ -30,16 +33,22 @@ vim ss-configure.json
     "method": "ase-256-cfb"
 }
 
-填写完之后保存推出,然后启动.
+## 填写完之后保存推出,然后启动.
+
 ssserver -c location of this json file -d start.
 
 结束进程
+
 ssserver -c /etc/shadowsocks.json -d stop
 
-客户端在github上有仓库：
+## 客户端在github上有仓库：
+
 https://github.com/shadowsocks/shadowsocks
+
 根据自己的系统的去下载.
+
 苹果手机可以下载wingy.
+
 win7 SP1如果想使用4.0以上的版本需要升级.NET。
 
 win8 和 win10 使用4.0以及以上版本无障碍.
